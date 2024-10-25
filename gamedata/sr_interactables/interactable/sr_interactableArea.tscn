@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwis7ntmg4vsw"]
+
+[ext_resource type="Script" path="res://gamedata/sr_interactables/interactable/sr_interactableArea.gd" id="1_f38j1"]
+
+[node name="sr_interactableArea" type="Area3D"]
+collision_layer = 8
+collision_mask = 8
+monitoring = false
+script = ExtResource("1_f38j1")
+hint = "use"
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]
+[connection signal="selected" from="." to="." method="_on_selected"]

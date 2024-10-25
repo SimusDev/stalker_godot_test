@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SR_ResourceNpcStalker" load_steps=3 format=3 uid="uid://mqsvt7aceva6"]
+
+[ext_resource type="Script" path="res://sr_engine/components/entities/SR_ResourceNpcStalker.gd" id="1_pg1it"]
+[ext_resource type="Resource" uid="uid://qa4v0280wplj" path="res://gamedata/sr_skins/switer/skin_switer.tres" id="2_i16pt"]
+
+[resource]
+script = ExtResource("1_pg1it")
+skin = ExtResource("2_i16pt")

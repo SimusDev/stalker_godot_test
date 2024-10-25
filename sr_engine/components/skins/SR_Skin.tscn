@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://7vuc7ehxgaec"]
+
+[ext_resource type="Script" path="res://sr_engine/components/skins/SR_Skin.gd" id="1_4rgte"]
+
+[node name="SR_Skin" type="Sprite3D" node_paths=PackedStringArray("_player")]
+pixel_size = 0.005
+billboard = 2
+script = ExtResource("1_4rgte")
+_player = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

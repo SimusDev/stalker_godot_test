@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SR_ResourceFaction" load_steps=2 format=3 uid="uid://bqfghj0q6ija5"]
+
+[ext_resource type="Script" path="res://sr_engine/components/faction/SR_ResourceFaction.gd" id="1_yxppm"]
+
+[resource]
+script = ExtResource("1_yxppm")
+enemies = Array[String](["faction_stalker", "faction_killer"])

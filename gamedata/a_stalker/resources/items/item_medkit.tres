@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SR_ResourceWorldItem" load_steps=6 format=3 uid="uid://0kbcxmm3fwd2"]
+
+[ext_resource type="Script" path="res://sr_engine/components/attribute/SR_Attribute.gd" id="1_cnkao"]
+[ext_resource type="Texture2D" uid="uid://dbwnhd2vhq23k" path="res://gamedata/a_stalker/textures/items/medkit/medkit.png" id="1_e0o6v"]
+[ext_resource type="Script" path="res://sr_engine/components/world/SR_ResourceWorldItem.gd" id="2_roijh"]
+[ext_resource type="Script" path="res://gamedata/sr_attributes/sr_attribute_usable.gd" id="2_tnm3u"]
+
+[sub_resource type="Resource" id="Resource_58k7h"]
+script = ExtResource("2_tnm3u")
+action = "use"
+hint = "use"
+
+[resource]
+script = ExtResource("2_roijh")
+texture_on_floor = ExtResource("1_e0o6v")
+texture_pixel_size = 0.01
+attributes = Array[ExtResource("1_cnkao")]([SubResource("Resource_58k7h")])
+storage = {}
+icon = ExtResource("1_e0o6v")
+icon_box_unit_size = 32
+icon_box_x = 1
+icon_box_y = 1
+_section = ""

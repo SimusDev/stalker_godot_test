@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://uv35bwej7jrp"]
+
+[ext_resource type="Script" path="res://sr_engine/components/entities/corpse/SR_Corpse.gd" id="1_58qe5"]
+[ext_resource type="Texture2D" uid="uid://cevcu4ln6yyce" path="res://gamedata/a_stalker/textures/npcs/stalker/switer/corpse.png" id="2_joqkr"]
+[ext_resource type="Script" path="res://addons/simusdev/components/saveable/W_SaveableNode.gd" id="2_ohlje"]
+[ext_resource type="Script" path="res://addons/simusdev/components/characterbody/W_ComponentCharacterBody3D.gd" id="3_0whsh"]
+[ext_resource type="Script" path="res://sr_engine/components/alife/SR_ComponentAlife.gd" id="5_i7ov7"]
+[ext_resource type="Script" path="res://sr_engine/components/inventory/SR_ComponentInventory.gd" id="6_8bheo"]
+[ext_resource type="PackedScene" uid="uid://bcisbpogax8ia" path="res://gamedata/sr_interactables/container/sr_interactableContainer.tscn" id="7_shp2c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tdpc3"]
+size = Vector3(1, 0.139526, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1rfe6"]
+size = Vector3(1, 0.312126, 1)
+
+[node name="SR_Corpse" type="CharacterBody3D" node_paths=PackedStringArray("inventory", "_sprite")]
+collision_layer = 0
+script = ExtResource("1_58qe5")
+inventory = NodePath("SR_ComponentInventory")
+_sprite = NodePath("Sprite3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0162964, 0)
+shape = SubResource("BoxShape3D_tdpc3")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+pixel_size = 0.005
+axis = 1
+texture = ExtResource("2_joqkr")
+
+[node name="sr_interactableContainer" parent="." node_paths=PackedStringArray("inventory") instance=ExtResource("7_shp2c")]
+inventory = NodePath("../SR_ComponentInventory")
+hint = "loot"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sr_interactableContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.150951, 0)
+shape = SubResource("BoxShape3D_1rfe6")
+
+[node name="W_ComponentCharacterBody3D" type="Node" parent="." node_paths=PackedStringArray("body")]
+script = ExtResource("3_0whsh")
+body = NodePath("..")
+
+[node name="W_SaveableNode" type="Node" parent="." node_paths=PackedStringArray("node")]
+script = ExtResource("2_ohlje")
+node = NodePath("..")
+spawn_ability = true
+save_properties = Array[String](["_skin", "transform"])
+
+[node name="SR_ComponentAlife" type="Node" parent="." node_paths=PackedStringArray("node")]
+script = ExtResource("5_i7ov7")
+node = NodePath("..")
+switch_distance = 150.0
+
+[node name="SR_ComponentInventory" type="Node" parent="." node_paths=PackedStringArray("node", "saveable")]
+script = ExtResource("6_8bheo")
+node = NodePath("..")
+saveable = NodePath("../W_SaveableNode")

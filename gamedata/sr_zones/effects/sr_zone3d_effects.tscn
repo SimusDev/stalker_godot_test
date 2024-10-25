@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlkesdosphbbg"]
+
+[ext_resource type="PackedScene" uid="uid://ctpbmy6hpu150" path="res://gamedata/sr_zones/sr_zone3d.tscn" id="1_ejjnc"]
+[ext_resource type="Script" path="res://gamedata/sr_zones/effects/sr_zone3d_effects.gd" id="2_6bwep"]
+
+[node name="sr_zone3d_effects" instance=ExtResource("1_ejjnc")]
+script = ExtResource("2_6bwep")
+effect_section = ""
+effect_time = 1.0
+effect_strength = 1.0
+
+[connection signal="on_node_tick" from="." to="." method="_on_on_node_tick"]

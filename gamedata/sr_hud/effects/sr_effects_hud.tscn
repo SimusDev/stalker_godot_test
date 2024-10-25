@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd7ua0cex8uwd"]
+
+[ext_resource type="Script" path="res://gamedata/sr_hud/effects/sr_effects_hud.gd" id="1_kbbum"]
+[ext_resource type="PackedScene" uid="uid://d31nlisqti7j0" path="res://gamedata/sr_hud/effects/sr_effect_icon.tscn" id="2_o47af"]
+
+[node name="sr_effects_hud" type="CanvasLayer" node_paths=PackedStringArray("container")]
+layer = 0
+script = ExtResource("1_kbbum")
+sr_effect_prefab = ExtResource("2_o47af")
+container = NodePath("container")
+
+[node name="container" type="VBoxContainer" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_right = 72.0
+grow_vertical = 2
+alignment = 1

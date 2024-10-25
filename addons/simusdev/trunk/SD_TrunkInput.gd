@@ -1,0 +1,2 @@
+extends SD_Input
+class_name SD_TrunkInput

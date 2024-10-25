@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcisbpogax8ia"]
+
+[ext_resource type="PackedScene" uid="uid://bwis7ntmg4vsw" path="res://gamedata/sr_interactables/interactable/sr_interactableArea.tscn" id="1_2n6f5"]
+[ext_resource type="Script" path="res://gamedata/sr_interactables/container/sr_interactableContainer.gd" id="2_yajbf"]
+
+[node name="sr_interactableContainer" instance=ExtResource("1_2n6f5")]
+script = ExtResource("2_yajbf")
+hint = "open"

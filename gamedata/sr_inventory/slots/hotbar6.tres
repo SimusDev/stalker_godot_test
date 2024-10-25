@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SR_InventorySlotData" load_steps=2 format=3 uid="uid://c7ehqaf3o6sv6"]
+
+[ext_resource type="Script" path="res://sr_engine/components/inventory/SR_InventorySlotData.gd" id="1_cjbl2"]
+
+[resource]
+script = ExtResource("1_cjbl2")
+id = "hotbar6"
+hint = "slot_hotbar"
+hotbar = true

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ct56clunft86l"]
+
+[ext_resource type="Script" path="res://sr_engine/components/hud/SR_HUD.gd" id="1_k432b"]
+
+[node name="SR_HUD" type="Control" groups=["sr_hud"]]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_k432b")

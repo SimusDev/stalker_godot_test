@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddc26ns8qu4t0"]
+
+[ext_resource type="Script" path="res://gamedata/sr_camera_view/sr_cameraView.gd" id="1_2i8ou"]
+[ext_resource type="PackedScene" uid="uid://muqvcnte2u4i" path="res://gamedata/sr_camera_view/weapon_interface/sr_weaponInterface.tscn" id="2_5yhd7"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_sh6ff"]
+viewport_path = NodePath("SubViewport")
+
+[node name="sr_cameraView" type="Node"]
+script = ExtResource("1_2i8ou")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+gui_disable_input = true
+size = Vector2i(1280, 720)
+
+[node name="sr_weaponInterface" parent="SubViewport" instance=ExtResource("2_5yhd7")]
+position = Vector2(640, 360)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_sh6ff")

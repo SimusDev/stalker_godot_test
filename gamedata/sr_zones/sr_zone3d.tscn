@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctpbmy6hpu150"]
+
+[ext_resource type="Script" path="res://gamedata/sr_zones/sr_zone3d.gd" id="1_ekvod"]
+
+[node name="sr_zone3d" type="Area3D" node_paths=PackedStringArray("timer")]
+collision_layer = 30
+collision_mask = 30
+script = ExtResource("1_ekvod")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

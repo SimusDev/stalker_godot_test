@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0gl10o56gxhr"]
+
+[ext_resource type="Script" path="res://sr_engine/components/world/SR_GameWorld.gd" id="1_6jdup"]
+
+[node name="GameWorld" type="Node"]
+script = ExtResource("1_6jdup")

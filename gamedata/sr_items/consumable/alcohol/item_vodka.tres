@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SR_ResourceWorldItem" load_steps=6 format=3 uid="uid://ca004vj5542wv"]
+
+[ext_resource type="Script" path="res://sr_engine/components/attribute/SR_Attribute.gd" id="1_j7f06"]
+[ext_resource type="Script" path="res://sr_engine/components/world/SR_ResourceWorldItem.gd" id="2_ft63w"]
+[ext_resource type="Script" path="res://gamedata/sr_attributes/sr_attribute_consumable.gd" id="2_v881m"]
+[ext_resource type="Texture2D" uid="uid://dlff77s860k5b" path="res://gamedata/sr_items/consumable/alcohol/vodka.png" id="3_uo3qj"]
+
+[sub_resource type="Resource" id="Resource_gh678"]
+script = ExtResource("2_v881m")
+action = "use"
+hint = "use"
+
+[resource]
+script = ExtResource("2_ft63w")
+texture_on_floor = ExtResource("3_uo3qj")
+texture_pixel_size = 0.006
+attributes = Array[ExtResource("1_j7f06")]([SubResource("Resource_gh678")])
+storage = {}
+icon = ExtResource("3_uo3qj")
+icon_box_x = 1
+icon_box_y = 2
+_section = ""

@@ -1,0 +1,123 @@
+[gd_scene load_steps=32 format=3 uid="uid://ivov82laoeiw"]
+
+[ext_resource type="Script" path="res://sr_engine/components/entities/npc/SR_Npc.gd" id="1_pdegv"]
+[ext_resource type="Script" path="res://addons/simusdev/components/saveable/W_SaveableNode.gd" id="2_4jfms"]
+[ext_resource type="Script" path="res://sr_engine/components/section/SR_ComponentNodeSection.gd" id="2_027u5"]
+[ext_resource type="Texture2D" uid="uid://b0tnpgqyyjfaf" path="res://addons/kenney_prototype_textures/dark/texture_08.png" id="2_p0cnj"]
+[ext_resource type="Script" path="res://sr_engine/components/alife/SR_ComponentAlife.gd" id="2_sojrm"]
+[ext_resource type="Script" path="res://sr_engine/components/health/SR_ComponentHealth.gd" id="4_psgrg"]
+[ext_resource type="Script" path="res://sr_engine/components/inventory/SR_InventorySlot.gd" id="6_3mqiv"]
+[ext_resource type="Script" path="res://addons/simusdev/components/characterbody/W_ComponentCharacterBody3D.gd" id="6_aoq2k"]
+[ext_resource type="PackedScene" uid="uid://cwqn6dgkutb72" path="res://sr_engine/components/hitbox/SR_Hitbox.tscn" id="6_pkl6h"]
+[ext_resource type="Resource" uid="uid://nxout43w6spc" path="res://gamedata/sr_inventory/slots/body.tres" id="7_2q2m4"]
+[ext_resource type="Resource" uid="uid://dr14ynbftnecb" path="res://gamedata/sr_inventory/slots/head.tres" id="8_g6wmn"]
+[ext_resource type="Script" path="res://sr_engine/components/character/SR_CharacterEffectsComponent.gd" id="8_qt4jh"]
+[ext_resource type="Script" path="res://sr_engine/components/inventory/SR_ComponentInventory.gd" id="8_w01sq"]
+[ext_resource type="PackedScene" uid="uid://7vuc7ehxgaec" path="res://sr_engine/components/skins/SR_Skin.tscn" id="8_x45u0"]
+[ext_resource type="Resource" uid="uid://bt0f66cspcttu" path="res://gamedata/sr_inventory/slots/hotbar1.tres" id="9_ywhpt"]
+[ext_resource type="Resource" uid="uid://df13jna0nxv65" path="res://gamedata/sr_inventory/slots/hotbar2.tres" id="10_5mc5r"]
+[ext_resource type="Resource" uid="uid://70ajki1uunyw" path="res://gamedata/sr_inventory/slots/hotbar3.tres" id="11_v6cp5"]
+[ext_resource type="Resource" uid="uid://80kcenqd82la" path="res://gamedata/sr_inventory/slots/hotbar4.tres" id="12_wc6n0"]
+[ext_resource type="Resource" uid="uid://cwkfawuve3tfe" path="res://gamedata/sr_inventory/slots/hotbar5.tres" id="13_bwgii"]
+[ext_resource type="Resource" uid="uid://c7ehqaf3o6sv6" path="res://gamedata/sr_inventory/slots/hotbar6.tres" id="14_gy64p"]
+[ext_resource type="Script" path="res://sr_engine/components/character/SR_CharacterStatsComponent.gd" id="18_4k1lm"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7iusj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tfnex"]
+albedo_texture = ExtResource("2_p0cnj")
+
+[sub_resource type="Resource" id="Resource_nwf5q"]
+script = ExtResource("6_3mqiv")
+data = ExtResource("7_2q2m4")
+
+[sub_resource type="Resource" id="Resource_cpg8b"]
+script = ExtResource("6_3mqiv")
+data = ExtResource("8_g6wmn")
+
+[sub_resource type="Resource" id="Resource_7bufv"]
+script = ExtResource("6_3mqiv")
+data = ExtResource("9_ywhpt")
+
+[sub_resource type="Resource" id="Resource_u4bf5"]
+script = ExtResource("6_3mqiv")
+data = ExtResource("10_5mc5r")
+
+[sub_resource type="Resource" id="Resource_kq3o7"]
+script = ExtResource("6_3mqiv")
+data = ExtResource("11_v6cp5")
+
+[sub_resource type="Resource" id="Resource_peh7s"]
+script = ExtResource("6_3mqiv")
+data = ExtResource("12_wc6n0")
+
+[sub_resource type="Resource" id="Resource_6kseo"]
+script = ExtResource("6_3mqiv")
+data = ExtResource("13_bwgii")
+
+[sub_resource type="Resource" id="Resource_ocubg"]
+script = ExtResource("6_3mqiv")
+data = ExtResource("14_gy64p")
+
+[node name="SR_Npc" type="CharacterBody3D" node_paths=PackedStringArray("section", "character", "health", "skin", "saveable", "hitbox", "inventory", "effects")]
+collision_layer = 4
+script = ExtResource("1_pdegv")
+section = NodePath("section")
+character = NodePath("W_ComponentCharacterBody3D")
+health = NodePath("SR_ComponentHealth")
+skin = NodePath("SR_Skin")
+saveable = NodePath("saveable")
+hitbox = NodePath("SR_Hitbox")
+inventory = NodePath("SR_ComponentInventory")
+effects = NodePath("SR_CharacterEffectsComponent")
+
+[node name="SR_ComponentAlife" type="Node" parent="." node_paths=PackedStringArray("node")]
+script = ExtResource("2_sojrm")
+node = NodePath("..")
+
+[node name="section" type="Node" parent="." node_paths=PackedStringArray("saveable")]
+script = ExtResource("2_027u5")
+saveable = NodePath("../saveable")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("CapsuleMesh_7iusj")
+surface_material_override/0 = SubResource("StandardMaterial3D_tfnex")
+
+[node name="SR_ComponentInventory" type="Node" parent="." node_paths=PackedStringArray("node", "saveable")]
+script = ExtResource("8_w01sq")
+node = NodePath("..")
+saveable = NodePath("../saveable")
+_slots = Array[ExtResource("6_3mqiv")]([SubResource("Resource_nwf5q"), SubResource("Resource_cpg8b"), SubResource("Resource_7bufv"), SubResource("Resource_u4bf5"), SubResource("Resource_kq3o7"), SubResource("Resource_peh7s"), SubResource("Resource_6kseo"), SubResource("Resource_ocubg")])
+
+[node name="SR_ComponentHealth" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("4_psgrg")
+target = NodePath("..")
+
+[node name="W_ComponentCharacterBody3D" type="Node" parent="." node_paths=PackedStringArray("body")]
+script = ExtResource("6_aoq2k")
+body = NodePath("..")
+
+[node name="SR_CharacterEffectsComponent" type="Node" parent="." node_paths=PackedStringArray("node", "saveable")]
+script = ExtResource("8_qt4jh")
+node = NodePath("..")
+saveable = NodePath("../saveable")
+
+[node name="SR_CharacterStatsComponent" type="Node" parent="." node_paths=PackedStringArray("saveable")]
+script = ExtResource("18_4k1lm")
+saveable = NodePath("../saveable")
+
+[node name="saveable" type="Node" parent="." node_paths=PackedStringArray("node")]
+script = ExtResource("2_4jfms")
+node = NodePath("..")
+spawn_ability = true
+
+[node name="SR_Skin" parent="." instance=ExtResource("8_x45u0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+
+[node name="SR_Hitbox" parent="." node_paths=PackedStringArray("node", "health") instance=ExtResource("6_pkl6h")]
+node = NodePath("..")
+health = NodePath("../SR_ComponentHealth")
+
+[connection signal="died" from="SR_ComponentHealth" to="." method="_on_sr_component_health_died"]
+[connection signal="health_changed" from="SR_ComponentHealth" to="." method="_on_sr_component_health_health_changed"]

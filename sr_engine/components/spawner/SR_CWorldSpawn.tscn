@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bruvr87ug30ow"]
+
+[ext_resource type="Script" path="res://sr_engine/components/spawner/SR_CWorldSpawn.gd" id="1_3aj3d"]
+[ext_resource type="Script" path="res://addons/simusdev/components/saveable/W_SaveableNode.gd" id="2_m24xc"]
+
+[node name="SR_CWorldSpawn" type="Node3D" node_paths=PackedStringArray("saveable")]
+script = ExtResource("1_3aj3d")
+saveable = NodePath("W_SaveableNode")
+
+[node name="W_SaveableNode" type="Node" parent="." node_paths=PackedStringArray("node")]
+script = ExtResource("2_m24xc")
+node = NodePath("..")
+save_properties = Array[String](["spawned"])

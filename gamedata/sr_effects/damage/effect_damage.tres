@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c3mwiau6n2oot"]
+
+[ext_resource type="Script" path="res://gamedata/sr_effects/damage/effect_damage.gd" id="1_62kyu"]
+[ext_resource type="Texture2D" uid="uid://dbwnhd2vhq23k" path="res://gamedata/a_stalker/textures/items/medkit/medkit.png" id="1_ukiam"]
+
+[resource]
+script = ExtResource("1_62kyu")
+points = 10.0
+time_left = 0.0
+strength = 1.0
+hud = true
+icon = ExtResource("1_ukiam")

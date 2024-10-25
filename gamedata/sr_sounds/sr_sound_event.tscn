@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvgbi5nugmxkq"]
+
+[ext_resource type="Script" path="res://gamedata/sr_sounds/sr_sound_event.gd" id="1_armnr"]
+[ext_resource type="Script" path="res://sr_engine/components/audio/SR_AudioStreamPlayer3D.gd" id="2_bacvc"]
+
+[node name="sr_sound_event" type="Node3D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_armnr")
+player = NodePath("SR_AudioStreamPlayer3D")
+
+[node name="SR_AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+script = ExtResource("2_bacvc")
+
+[connection signal="finished" from="SR_AudioStreamPlayer3D" to="." method="_on_sr_audio_stream_player_3d_finished"]

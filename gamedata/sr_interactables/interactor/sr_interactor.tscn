@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkb2p8iu6717w"]
+
+[ext_resource type="Script" path="res://gamedata/sr_interactables/interactor/sr_interactor.gd" id="1_h4lvp"]
+
+[node name="sr_interactor" type="RayCast3D"]
+target_position = Vector3(0, 0, -2)
+collision_mask = 8
+collide_with_areas = true
+script = ExtResource("1_h4lvp")
+
+[connection signal="interactable_selected" from="." to="." method="_on_interactable_selected"]

@@ -1,0 +1,52 @@
+[gd_scene load_steps=11 format=3 uid="uid://ro5wonjnqxuo"]
+
+[ext_resource type="Script" path="res://addons/simusdev/cursor/SD_NodeCursor.gd" id="1_lqjon"]
+[ext_resource type="Texture2D" uid="uid://5yu4edmy8m4k" path="res://gamedata/sr_cursor/textures/cursor1.png" id="2_pn41d"]
+[ext_resource type="Texture2D" uid="uid://dhwdbpyoewtdo" path="res://gamedata/sr_cursor/textures/cursor2.png" id="3_mfd5j"]
+[ext_resource type="Texture2D" uid="uid://b4rehxdy8yr8t" path="res://gamedata/sr_cursor/textures/cursor3.png" id="4_xfprm"]
+[ext_resource type="Texture2D" uid="uid://btsdjyixa4heo" path="res://gamedata/sr_cursor/textures/cursor4.png" id="5_digt3"]
+[ext_resource type="Texture2D" uid="uid://cafivticfg3eg" path="res://gamedata/sr_cursor/textures/cursor5.png" id="6_ggxak"]
+[ext_resource type="Texture2D" uid="uid://whmnwqtg2ntf" path="res://gamedata/sr_cursor/textures/cursor6.png" id="6_smeih"]
+[ext_resource type="Texture2D" uid="uid://crs0xsvmr1wx4" path="res://gamedata/sr_cursor/textures/cursor7.png" id="7_xdif3"]
+[ext_resource type="Texture2D" uid="uid://6hk4trocouhq" path="res://gamedata/sr_cursor/textures/cursor8.png" id="8_8cyls"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ofjv2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pn41d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mfd5j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xfprm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_digt3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ggxak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_smeih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xdif3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8cyls")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="sr_cursor" type="Node2D"]
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_lqjon")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(15, 15)
+sprite_frames = SubResource("SpriteFrames_ofjv2")
+autoplay = "default"

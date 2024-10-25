@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm7x5ei6h65xj"]
+
+[ext_resource type="Script" path="res://sr_engine/scenes/loading_scene.gd" id="1_u7ivh"]
+
+[node name="LoadingScene" type="CanvasLayer"]
+script = ExtResource("1_u7ivh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

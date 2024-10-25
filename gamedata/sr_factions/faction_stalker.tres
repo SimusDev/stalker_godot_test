@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SR_ResourceFaction" load_steps=2 format=3 uid="uid://3455egm12skr"]
+
+[ext_resource type="Script" path="res://sr_engine/components/faction/SR_ResourceFaction.gd" id="1_qa7hj"]
+
+[resource]
+script = ExtResource("1_qa7hj")
+enemies = Array[String](["faction_mutant", "faction_killer"])

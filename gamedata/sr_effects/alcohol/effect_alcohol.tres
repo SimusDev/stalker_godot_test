@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SR_ResourceEffect" load_steps=2 format=3 uid="uid://b3h5uiefyij6d"]
+
+[ext_resource type="Script" path="res://sr_engine/components/effect/SR_ResourceEffect.gd" id="1_fqf3i"]
+
+[resource]
+script = ExtResource("1_fqf3i")
+time_left = 0.0
+strength = 1.0
+hud = true

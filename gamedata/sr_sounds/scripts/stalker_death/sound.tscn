@@ -1,0 +1,11 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8bfiivxk3xwo"]
+
+[ext_resource type="PackedScene" uid="uid://dvgbi5nugmxkq" path="res://gamedata/sr_sounds/sr_sound_event.tscn" id="1_h6bna"]
+[ext_resource type="AudioStream" uid="uid://dn0oybwcuyjgd" path="res://gamedata/sr_sounds/scripts/stalker_death/die0.ogg" id="2_kydil"]
+[ext_resource type="AudioStream" uid="uid://cjlyviywm4hjo" path="res://gamedata/sr_sounds/scripts/stalker_death/die1.ogg" id="3_kx3of"]
+[ext_resource type="AudioStream" uid="uid://mt8lsfbodgse" path="res://gamedata/sr_sounds/scripts/stalker_death/die2.ogg" id="4_4q8wy"]
+[ext_resource type="AudioStream" uid="uid://jnwuqd76xm5i" path="res://gamedata/sr_sounds/scripts/stalker_death/die3.ogg" id="5_trl1y"]
+[ext_resource type="AudioStream" uid="uid://c4pj4fjchyb0a" path="res://gamedata/sr_sounds/scripts/stalker_death/die4.ogg" id="6_vwq2u"]
+
+[node name="sr_sound_event" instance=ExtResource("1_h6bna")]
+sounds = Array[AudioStream]([ExtResource("2_kydil"), ExtResource("3_kx3of"), ExtResource("4_4q8wy"), ExtResource("5_trl1y"), ExtResource("6_vwq2u")])

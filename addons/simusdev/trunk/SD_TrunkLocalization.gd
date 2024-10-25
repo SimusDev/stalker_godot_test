@@ -1,0 +1,3 @@
+@tool
+extends SD_Localization
+class_name SD_TrunkLocalization

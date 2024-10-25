@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwqn6dgkutb72"]
+
+[ext_resource type="Script" path="res://sr_engine/components/hitbox/SR_Hitbox.gd" id="1_a7eav"]
+
+[node name="SR_Hitbox" type="Area3D"]
+collision_layer = 16
+collision_mask = 16
+monitoring = false
+script = ExtResource("1_a7eav")

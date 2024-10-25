@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SR_ResourcePlayer" load_steps=3 format=3 uid="uid://b7nhox0rpfplj"]
+
+[ext_resource type="Script" path="res://sr_engine/components/entities/SR_ResourcePlayer.gd" id="1_2nl1w"]
+[ext_resource type="Resource" uid="uid://qa4v0280wplj" path="res://gamedata/sr_skins/switer/skin_switer.tres" id="2_k7kf0"]
+
+[resource]
+script = ExtResource("1_2nl1w")
+skin = ExtResource("2_k7kf0")

@@ -1,0 +1,95 @@
+[gd_scene load_steps=12 format=3 uid="uid://cj4mdknldddkv"]
+
+[ext_resource type="Script" path="res://sr_engine/components/item/SR_WorldItem.gd" id="1_40d2n"]
+[ext_resource type="Script" path="res://sr_engine/components/section/SR_ComponentNodeSection.gd" id="2_wljmi"]
+[ext_resource type="Script" path="res://addons/simusdev/components/saveable/W_SaveableNode.gd" id="3_sb033"]
+[ext_resource type="Script" path="res://addons/simusdev/components/characterbody/W_ComponentCharacterBody3D.gd" id="4_2o5md"]
+[ext_resource type="Texture2D" uid="uid://dlff77s860k5b" path="res://gamedata/sr_items/consumable/alcohol/vodka.png" id="5_88g5c"]
+[ext_resource type="PackedScene" uid="uid://bwis7ntmg4vsw" path="res://gamedata/sr_interactables/interactable/sr_interactableArea.tscn" id="5_x5hau"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q1d2a"]
+size = Vector3(1, 0.158691, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vqfuq"]
+size = Vector3(1, 0.598206, 1)
+
+[sub_resource type="Animation" id="Animation_ywips"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mfooe"]
+resource_name = "item_idle"
+length = 3.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(2, -2),
+"update": 0,
+"values": [Vector3(0, 0.5, 0), Vector3(0, 0.7, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_72el6"]
+_data = {
+"RESET": SubResource("Animation_ywips"),
+"item_idle": SubResource("Animation_mfooe")
+}
+
+[node name="SR_WorldItem" type="CharacterBody3D" node_paths=PackedStringArray("section", "sprite")]
+collision_layer = 0
+script = ExtResource("1_40d2n")
+section = NodePath("section")
+sprite = NodePath("sprite")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0722501, 0)
+shape = SubResource("BoxShape3D_q1d2a")
+
+[node name="section" type="Node" parent="." node_paths=PackedStringArray("saveable")]
+script = ExtResource("2_wljmi")
+saveable = NodePath("../saveable")
+
+[node name="saveable" type="Node" parent="." node_paths=PackedStringArray("node")]
+script = ExtResource("3_sb033")
+node = NodePath("..")
+spawn_ability = true
+
+[node name="W_ComponentCharacterBody3D" type="Node" parent="." node_paths=PackedStringArray("body")]
+script = ExtResource("4_2o5md")
+body = NodePath("..")
+
+[node name="sprite" type="Sprite3D" parent="."]
+billboard = 1
+texture = ExtResource("5_88g5c")
+
+[node name="sr_interactableArea" parent="." instance=ExtResource("5_x5hau")]
+hint = "pick up"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sr_interactableArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0359802, 0)
+shape = SubResource("BoxShape3D_vqfuq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_72el6")
+}
+autoplay = "item_idle"
+
+[connection signal="area_interacted" from="sr_interactableArea" to="." method="_on_sr_interactable_area_area_interacted"]

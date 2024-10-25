@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://22v1xgi13wa3"]
+
+[ext_resource type="Script" path="res://gamedata/sr_hud/item/sr_itemIconInterface.gd" id="2_t68nb"]
+
+[node name="sr_itemIconInterface" type="TextureRect"]
+custom_minimum_size = Vector2(48, 48)
+offset_right = 48.0
+offset_bottom = 48.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_t68nb")

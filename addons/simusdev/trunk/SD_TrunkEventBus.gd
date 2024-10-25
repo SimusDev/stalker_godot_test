@@ -1,0 +1,2 @@
+extends SD_EventBus
+class_name SD_TrunkEventBus

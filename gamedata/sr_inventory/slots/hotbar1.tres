@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SR_InventorySlotData" load_steps=2 format=3 uid="uid://bt0f66cspcttu"]
+
+[ext_resource type="Script" path="res://sr_engine/components/inventory/SR_InventorySlotData.gd" id="1_y8u8t"]
+
+[resource]
+script = ExtResource("1_y8u8t")
+id = ""
+hint = ""

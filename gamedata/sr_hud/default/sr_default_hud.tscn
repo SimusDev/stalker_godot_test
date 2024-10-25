@@ -1,0 +1,18 @@
+[gd_scene load_steps=10 format=3 uid="uid://doybvobthy6he"]
+
+[ext_resource type="Script" path="res://gamedata/sr_hud/default/sr_default_hud.gd" id="1_i63m4"]
+[ext_resource type="PackedScene" uid="uid://fbl3m2qttwj6" path="res://gamedata/sr_hud/hotbar/sr_hotbar.tscn" id="2_swkle"]
+[ext_resource type="Script" path="res://sr_engine/components/inventory/SR_InventorySlotData.gd" id="3_q3772"]
+[ext_resource type="Resource" uid="uid://bt0f66cspcttu" path="res://gamedata/sr_inventory/slots/hotbar1.tres" id="4_rdm7r"]
+[ext_resource type="Resource" uid="uid://df13jna0nxv65" path="res://gamedata/sr_inventory/slots/hotbar2.tres" id="5_f14xj"]
+[ext_resource type="Resource" uid="uid://70ajki1uunyw" path="res://gamedata/sr_inventory/slots/hotbar3.tres" id="6_g75un"]
+[ext_resource type="Resource" uid="uid://80kcenqd82la" path="res://gamedata/sr_inventory/slots/hotbar4.tres" id="7_vyrqs"]
+[ext_resource type="Resource" uid="uid://cwkfawuve3tfe" path="res://gamedata/sr_inventory/slots/hotbar5.tres" id="8_rxi1g"]
+[ext_resource type="Resource" uid="uid://c7ehqaf3o6sv6" path="res://gamedata/sr_inventory/slots/hotbar6.tres" id="9_25o7l"]
+
+[node name="sr_default_hud" type="CanvasLayer"]
+layer = 0
+script = ExtResource("1_i63m4")
+
+[node name="sr_hotbar" parent="." instance=ExtResource("2_swkle")]
+hotbar_slotdatas = Array[ExtResource("3_q3772")]([ExtResource("4_rdm7r"), ExtResource("5_f14xj"), ExtResource("6_g75un"), ExtResource("7_vyrqs"), ExtResource("8_rxi1g"), ExtResource("9_25o7l")])

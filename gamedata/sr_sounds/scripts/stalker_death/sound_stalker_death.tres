@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SR_WorldObject" load_steps=3 format=3 uid="uid://qmfx4rcsogvs"]
+
+[ext_resource type="Script" path="res://sr_engine/components/world/SR_ResourceWorldObject.gd" id="1_2ty02"]
+[ext_resource type="PackedScene" uid="uid://c8bfiivxk3xwo" path="res://gamedata/sr_sounds/scripts/stalker_death/sound.tscn" id="1_51jmp"]
+
+[resource]
+script = ExtResource("1_2ty02")
+_prefab = ExtResource("1_51jmp")

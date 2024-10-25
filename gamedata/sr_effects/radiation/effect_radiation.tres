@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cwik3lilpr4d2"]
+
+[ext_resource type="Texture2D" uid="uid://8dm4k7c5tstr" path="res://gamedata/sr_effects/radiation/icon.png" id="1_2qfyc"]
+[ext_resource type="Script" path="res://gamedata/sr_effects/damage/effect_damage.gd" id="2_7qhfy"]
+
+[resource]
+script = ExtResource("2_7qhfy")
+points = 1.0
+time_left = 0.0
+strength = 1.0
+hud = true
+icon = ExtResource("1_2qfyc")
+_section = ""

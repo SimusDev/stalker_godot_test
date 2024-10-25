@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SR_ResourceAmmo" load_steps=2 format=3 uid="uid://v8yfifppog4l"]
+
+[ext_resource type="Script" path="res://sr_engine/components/ammo/SR_ResourceAmmo.gd" id="1_vh5gt"]
+
+[resource]
+script = ExtResource("1_vh5gt")
+default_prefab = true
