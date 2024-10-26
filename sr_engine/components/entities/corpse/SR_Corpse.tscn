@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cevcu4ln6yyce" path="res://gamedata/a_stalker/textures/npcs/stalker/switer/corpse.png" id="2_joqkr"]
 [ext_resource type="Script" path="res://addons/simusdev/components/saveable/W_SaveableNode.gd" id="2_ohlje"]
 [ext_resource type="Script" path="res://addons/simusdev/components/characterbody/W_ComponentCharacterBody3D.gd" id="3_0whsh"]
-[ext_resource type="Script" path="res://sr_engine/components/alife/SR_ComponentAlife.gd" id="5_i7ov7"]
 [ext_resource type="Script" path="res://sr_engine/components/inventory/SR_ComponentInventory.gd" id="6_8bheo"]
+[ext_resource type="Script" path="res://sr_engine/components/alife/SR_ComponentAlifeNodeSwitcher.gd" id="7_da5r7"]
 [ext_resource type="PackedScene" uid="uid://bcisbpogax8ia" path="res://gamedata/sr_interactables/container/sr_interactableContainer.tscn" id="7_shp2c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tdpc3"]
@@ -47,12 +47,12 @@ node = NodePath("..")
 spawn_ability = true
 save_properties = Array[String](["_skin", "transform"])
 
-[node name="SR_ComponentAlife" type="Node" parent="." node_paths=PackedStringArray("node")]
-script = ExtResource("5_i7ov7")
-node = NodePath("..")
-switch_distance = 150.0
-
 [node name="SR_ComponentInventory" type="Node" parent="." node_paths=PackedStringArray("node", "saveable")]
 script = ExtResource("6_8bheo")
 node = NodePath("..")
 saveable = NodePath("../W_SaveableNode")
+
+[node name="SR_ComponentAlifeNodeSwitcher" type="Node" parent="." node_paths=PackedStringArray("node")]
+process_mode = 4
+script = ExtResource("7_da5r7")
+node = NodePath("..")

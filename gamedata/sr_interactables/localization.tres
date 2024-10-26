@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SD_LocalizationResource" load_steps=2 format=3 uid="uid://bb00we3n83gob"]
+
+[ext_resource type="Script" path="res://addons/simusdev/localization/SD_LocalizationResource.gd" id="1_pm3p3"]
+
+[resource]
+script = ExtResource("1_pm3p3")
+DATA = "[ru]
+open = \"Открыть\"
+use = \"Использовать\"
+loot = \"Обыскать\"
+pickup = \"Подобрать\""

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SR_ResourceFaction" load_steps=3 format=3 uid="uid://baxsdmuqbr0ik"]
+
+[ext_resource type="Texture2D" uid="uid://bf7b4ef5ygv6i" path="res://gamedata/sr_factions/icons/freedom.jpg" id="1_4lcqh"]
+[ext_resource type="Script" path="res://sr_engine/components/faction/SR_ResourceFaction.gd" id="1_sag3j"]
+
+[resource]
+script = ExtResource("1_sag3j")
+hint = "faction_freedom"
+icon = ExtResource("1_4lcqh")
+enemies = Array[String](["faction_mutant"])
+_section = ""

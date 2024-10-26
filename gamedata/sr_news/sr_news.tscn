@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://ichel4hm8b7q"]
+
+[ext_resource type="Script" path="res://gamedata/sr_news/sr_news.gd" id="1_mvami"]
+[ext_resource type="PackedScene" uid="uid://c61pjfwhtags2" path="res://gamedata/sr_news/sr_news_message.tscn" id="2_bu3g7"]
+
+[node name="sr_news" type="Control" node_paths=PackedStringArray("_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_mvami")
+_container = NodePath("HBoxContainer")
+prefab = ExtResource("2_bu3g7")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.013
+anchor_right = 0.656
+anchor_bottom = 0.815
+offset_left = 0.360001
+offset_right = 0.319946
+offset_bottom = 0.199951
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+alignment = 2

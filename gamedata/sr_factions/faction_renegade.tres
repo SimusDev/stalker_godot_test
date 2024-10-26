@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SR_ResourceFaction" load_steps=3 format=3 uid="uid://byecrud4ieat2"]
+
+[ext_resource type="Script" path="res://sr_engine/components/faction/SR_ResourceFaction.gd" id="1_atbt1"]
+[ext_resource type="Texture2D" uid="uid://bvslkdhkrb8tq" path="res://gamedata/sr_factions/icons/renegade.jpg" id="1_i7lta"]
+
+[resource]
+script = ExtResource("1_atbt1")
+hint = "faction_renegade"
+icon = ExtResource("1_i7lta")
+enemies = Array[String](["faction_mutant"])
+_section = ""

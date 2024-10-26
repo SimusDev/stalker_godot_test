@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SD_LocalizationResource" load_steps=2 format=3 uid="uid://cpxlk128b4jiy"]
+
+[ext_resource type="Script" path="res://addons/simusdev/localization/SD_LocalizationResource.gd" id="1_odbmb"]
+
+[resource]
+script = ExtResource("1_odbmb")
+DATA = "[ru]
+message = \"Сообщение\""

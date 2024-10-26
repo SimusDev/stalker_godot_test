@@ -16,16 +16,14 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	super()
-	Stalker.callbacks.callback.connect(_on_player_stalker_callback)
+	Stalker.callbacks.SR_HUD_update.connect(_on_hud_update)
 	
-	Stalker.callbacks.post("player_ready", self)
+	Stalker.callbacks.SR_Player_ready.emit(self)
+	
 	
 
-func _on_player_stalker_callback(cb: Variant, value: Variant) -> void:
-	if cb is String:
-		match cb:
-			"hud_updated":
-				_on_player_hud_updated(value as SR_HUD)
+func _on_hud_update(hud: SR_HUD) -> void:
+	_on_player_hud_updated(hud)
 
 func _on_player_hud_updated(hud: SR_HUD) -> void:
 	var visible_nodes_size: int = hud.get_visible_nodes().size()

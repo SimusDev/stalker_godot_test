@@ -1,7 +1,11 @@
-[gd_resource type="Resource" script_class="SR_ResourceFaction" load_steps=2 format=3 uid="uid://3455egm12skr"]
+[gd_resource type="Resource" script_class="SR_ResourceFaction" load_steps=3 format=3 uid="uid://m3jdlb46uao0"]
 
 [ext_resource type="Script" path="res://sr_engine/components/faction/SR_ResourceFaction.gd" id="1_qa7hj"]
+[ext_resource type="Texture2D" uid="uid://cd2ordrajinhv" path="res://gamedata/sr_factions/icons/stalker.jpg" id="1_qfcm2"]
 
 [resource]
 script = ExtResource("1_qa7hj")
-enemies = Array[String](["faction_mutant", "faction_killer"])
+hint = "faction_stalker"
+icon = ExtResource("1_qfcm2")
+enemies = Array[String](["faction_mutant"])
+_section = ""

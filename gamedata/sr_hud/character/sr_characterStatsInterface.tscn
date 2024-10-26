@@ -1,15 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://ci6k75ra2liou"]
+[gd_scene load_steps=4 format=3 uid="uid://ci6k75ra2liou"]
 
 [ext_resource type="Script" path="res://gamedata/sr_hud/character/sr_characterStatsInterface.gd" id="1_g0eta"]
+[ext_resource type="Texture2D" uid="uid://bod0q274jy3xq" path="res://gamedata/sr_characters/icons/strelok.jpg" id="2_qdjlf"]
 
-[node name="sr_characterStatsInterface" type="Control" node_paths=PackedStringArray("icon")]
+[sub_resource type="LabelSettings" id="LabelSettings_wa4sf"]
+
+[node name="sr_characterStatsInterface" type="Control" node_paths=PackedStringArray("label", "icon", "icon_faction")]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 265.0
-offset_bottom = 120.0
+offset_right = 300.0
+offset_bottom = 100.0
 mouse_filter = 2
 script = ExtResource("1_g0eta")
+label = NodePath("Label")
 icon = NodePath("icon")
+icon_faction = NodePath("icon_faction")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -18,8 +23,55 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="icon" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_qdjlf")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Panel" type="Panel" parent="icon"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="icon_faction" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.917
+anchor_top = 0.75
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.100006
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.063
+anchor_right = 0.6
+anchor_bottom = 1.0
+offset_left = 0.1
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ранг:
+Группировка:"
+label_settings = SubResource("LabelSettings_wa4sf")
+vertical_alignment = 1

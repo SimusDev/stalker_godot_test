@@ -14,16 +14,11 @@ func _player_input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	instance = self
-	Stalker.callbacks.callback.connect(_on_stalker_callback)
 	
 	_player = SR_Player.instance()
 	
 	_player.active_input.connect(_player_input)
 	
-
-
-func _on_stalker_callback(cb, value) -> void:
-	pass
 
 func _on_visibility_changed() -> void:
 	if visible:

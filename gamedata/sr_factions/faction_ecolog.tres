@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SR_ResourceFaction" load_steps=3 format=3 uid="uid://b48nwumt54o43"]
+
+[ext_resource type="Texture2D" uid="uid://bqq4d2e4677fn" path="res://gamedata/sr_factions/icons/ecolog.jpg" id="1_7b4of"]
+[ext_resource type="Script" path="res://sr_engine/components/faction/SR_ResourceFaction.gd" id="1_bjhu3"]
+
+[resource]
+script = ExtResource("1_bjhu3")
+hint = "faction_ecolog"
+icon = ExtResource("1_7b4of")
+enemies = Array[String](["faction_mutant"])
+_section = ""

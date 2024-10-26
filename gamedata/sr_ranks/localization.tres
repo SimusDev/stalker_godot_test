@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SD_LocalizationResource" load_steps=2 format=3 uid="uid://klry6scna2ib"]
+
+[ext_resource type="Script" path="res://addons/simusdev/localization/SD_LocalizationResource.gd" id="1_ak6oj"]
+
+[resource]
+script = ExtResource("1_ak6oj")
+DATA = "[ru]
+no_rank = \"no rank\"
+rank = \"Ранг\"
+rank_novice = \"Новичок\"
+rank_stalker = \"Опытный\"
+rank_veteran = \"Ветеран\"
+rank_master = \"Мастер\""

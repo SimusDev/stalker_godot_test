@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SD_LocalizationResource" load_steps=2 format=3 uid="uid://dd21vcll6drea"]
+
+[ext_resource type="Script" path="res://addons/simusdev/localization/SD_LocalizationResource.gd" id="1_64gtl"]
+
+[resource]
+script = ExtResource("1_64gtl")
+DATA = "[ru]
+no_faction = \"no faction\"
+faction = \"Группировка\"
+faction_bandit = \"Бандиты\"
+faction_csky = \"Чистое небо\"
+faction_dolg = \"Долг\"
+faction_ecolog = \"Экологи\"
+faction_freedom = \"Свобода\"
+faction_killer = \"Наемники\"
+faction_military = \"Военные\"
+faction_renegade = \"Ренегаты\"
+faction_stalker = \"Одиночки\""

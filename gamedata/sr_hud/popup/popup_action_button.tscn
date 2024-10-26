@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://lvc5gnawmset"]
+[gd_scene load_steps=2 format=3 uid="uid://lvc5gnawmset"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixh78"]
+bg_color = Color(0.0846899, 0.0846899, 0.0846899, 1)
 
 [node name="popup_action_button" type="Button"]
 custom_minimum_size = Vector2(0, 32)
@@ -8,4 +11,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_ixh78")
 text = "popup_action_button"

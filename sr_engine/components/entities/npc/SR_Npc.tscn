@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://addons/simusdev/components/saveable/W_SaveableNode.gd" id="2_4jfms"]
 [ext_resource type="Script" path="res://sr_engine/components/section/SR_ComponentNodeSection.gd" id="2_027u5"]
 [ext_resource type="Texture2D" uid="uid://b0tnpgqyyjfaf" path="res://addons/kenney_prototype_textures/dark/texture_08.png" id="2_p0cnj"]
-[ext_resource type="Script" path="res://sr_engine/components/alife/SR_ComponentAlife.gd" id="2_sojrm"]
+[ext_resource type="Script" path="res://sr_engine/components/alife/SR_ComponentAlifeNodeSwitcher.gd" id="2_wmdal"]
 [ext_resource type="Script" path="res://sr_engine/components/health/SR_ComponentHealth.gd" id="4_psgrg"]
 [ext_resource type="Script" path="res://sr_engine/components/inventory/SR_InventorySlot.gd" id="6_3mqiv"]
 [ext_resource type="Script" path="res://addons/simusdev/components/characterbody/W_ComponentCharacterBody3D.gd" id="6_aoq2k"]
@@ -59,7 +59,7 @@ data = ExtResource("13_bwgii")
 script = ExtResource("6_3mqiv")
 data = ExtResource("14_gy64p")
 
-[node name="SR_Npc" type="CharacterBody3D" node_paths=PackedStringArray("section", "character", "health", "skin", "saveable", "hitbox", "inventory", "effects")]
+[node name="SR_Npc" type="CharacterBody3D" node_paths=PackedStringArray("section", "character", "health", "skin", "saveable", "hitbox", "inventory", "effects", "stats")]
 collision_layer = 4
 script = ExtResource("1_pdegv")
 section = NodePath("section")
@@ -70,9 +70,11 @@ saveable = NodePath("saveable")
 hitbox = NodePath("SR_Hitbox")
 inventory = NodePath("SR_ComponentInventory")
 effects = NodePath("SR_CharacterEffectsComponent")
+stats = NodePath("SR_CharacterStatsComponent")
 
-[node name="SR_ComponentAlife" type="Node" parent="." node_paths=PackedStringArray("node")]
-script = ExtResource("2_sojrm")
+[node name="SR_ComponentAlifeNodeSwitcher" type="Node" parent="." node_paths=PackedStringArray("node")]
+process_mode = 4
+script = ExtResource("2_wmdal")
 node = NodePath("..")
 
 [node name="section" type="Node" parent="." node_paths=PackedStringArray("saveable")]
@@ -97,6 +99,7 @@ target = NodePath("..")
 [node name="W_ComponentCharacterBody3D" type="Node" parent="." node_paths=PackedStringArray("body")]
 script = ExtResource("6_aoq2k")
 body = NodePath("..")
+enabled = false
 
 [node name="SR_CharacterEffectsComponent" type="Node" parent="." node_paths=PackedStringArray("node", "saveable")]
 script = ExtResource("8_qt4jh")

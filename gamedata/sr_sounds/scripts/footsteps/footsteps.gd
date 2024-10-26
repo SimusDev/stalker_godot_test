@@ -20,13 +20,7 @@ func _on_callback(cb: Variant, value: Variant) -> void:
 					npc.db.footstep_delta = 0.0
 
 func play_step_sound(object: Node3D) -> void:
-	var alife_component: SR_ComponentAlife = SR_ComponentAlife.find(object)
-	if alife_component:
-		if alife_component.is_offline():
-			return
-		
-	
 	if object is SR_Npc:
-		post_callback("npc_footstep", object)
+		pass
 	spawner().spawn("sound_footsteps_default", object)
 	

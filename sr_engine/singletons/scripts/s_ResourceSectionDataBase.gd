@@ -20,6 +20,11 @@ func load_resource(file: String) -> Resource:
 	
 	resource = SD_ResourceLoader.load(file)
 	
+	if resource is SD_LocalizationResource:
+		SimusDev.localization.import_from_resource(resource)
+		Stalker.printc("localization loaded: %s" % [file])
+		return resource
+	
 	if resource is SR_Resource:
 		_resources[section] = resource
 		resource._section = section

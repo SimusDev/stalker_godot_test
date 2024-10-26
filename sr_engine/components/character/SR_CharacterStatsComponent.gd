@@ -49,7 +49,7 @@ func _on_data_saved_pre(data: SD_SavedNodeData) -> void:
 	data.save_variable("sr_stats_icon", icon)
 
 
-func get_the_name() -> String:
+func get_the_localized_name() -> String:
 	if not nick_name_key.is_empty():
 		return localization().get_text_from_key(nick_name_key)
 	return "%s %s" % [localization().get_text_from_key(first_name_key), localization().get_text_from_key(last_name_key)]

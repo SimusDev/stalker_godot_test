@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://cj4mdknldddkv"]
+[gd_scene load_steps=13 format=3 uid="uid://cj4mdknldddkv"]
 
 [ext_resource type="Script" path="res://sr_engine/components/item/SR_WorldItem.gd" id="1_40d2n"]
+[ext_resource type="PackedScene" uid="uid://c8s2fclpdttge" path="res://gamedata/sr_items/props/backpack/backpack_prop.tscn" id="2_mxrjq"]
 [ext_resource type="Script" path="res://sr_engine/components/section/SR_ComponentNodeSection.gd" id="2_wljmi"]
 [ext_resource type="Script" path="res://addons/simusdev/components/saveable/W_SaveableNode.gd" id="3_sb033"]
 [ext_resource type="Script" path="res://addons/simusdev/components/characterbody/W_ComponentCharacterBody3D.gd" id="4_2o5md"]
@@ -57,6 +58,7 @@ collision_layer = 0
 script = ExtResource("1_40d2n")
 section = NodePath("section")
 sprite = NodePath("sprite")
+backpack_prefab = ExtResource("2_mxrjq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0722501, 0)
@@ -70,6 +72,7 @@ saveable = NodePath("../saveable")
 script = ExtResource("3_sb033")
 node = NodePath("..")
 spawn_ability = true
+save_properties = Array[String](["transform", "stackable", "quantity"])
 
 [node name="W_ComponentCharacterBody3D" type="Node" parent="." node_paths=PackedStringArray("body")]
 script = ExtResource("4_2o5md")
@@ -80,7 +83,7 @@ billboard = 1
 texture = ExtResource("5_88g5c")
 
 [node name="sr_interactableArea" parent="." instance=ExtResource("5_x5hau")]
-hint = "pick up"
+hint = "pickup"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sr_interactableArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0359802, 0)

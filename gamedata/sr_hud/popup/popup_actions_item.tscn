@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4355pqowac7k"]
+
+[ext_resource type="PackedScene" uid="uid://b3syxf02a8d3y" path="res://gamedata/sr_hud/popup/popup_actions.tscn" id="1_3cwjw"]
+[ext_resource type="Script" path="res://gamedata/sr_hud/popup/popup_actions_item.gd" id="2_34jx3"]
+
+[node name="popup_actions_item" instance=ExtResource("1_3cwjw")]
+script = ExtResource("2_34jx3")

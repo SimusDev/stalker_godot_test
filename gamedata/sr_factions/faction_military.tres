@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SR_ResourceFaction" load_steps=3 format=3 uid="uid://bnp8dtx8tv3u3"]
+
+[ext_resource type="Script" path="res://sr_engine/components/faction/SR_ResourceFaction.gd" id="1_7r3y2"]
+[ext_resource type="Texture2D" uid="uid://cqgugk6bplp0u" path="res://gamedata/sr_factions/icons/dolg.jpg" id="1_b0ynl"]
+
+[resource]
+script = ExtResource("1_7r3y2")
+hint = "faction_military"
+icon = ExtResource("1_b0ynl")
+enemies = Array[String](["faction_mutant"])
+_section = ""

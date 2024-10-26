@@ -14,7 +14,7 @@ static func instance() -> SR_HUD:
 	return Stalker.get_tree().get_first_node_in_group("sr_hud") as SR_HUD
 
 func _ready() -> void:
-	Stalker.callbacks.post("hud_ready", self)
+	Stalker.callbacks.SR_HUD_ready.emit(self)
 	
 
 func add_node(node: Node) -> void:
@@ -30,8 +30,6 @@ func add_node(node: Node) -> void:
 	
 	printc("node added: %s" % [str(node)])
 	
-	Stalker.callbacks.post("hud_node_added", [self, node])
-	
 	update_hud()
 
 func remove_node(node: Node) -> void:
@@ -41,17 +39,14 @@ func remove_node(node: Node) -> void:
 	
 	node.queue_free()
 	
-	Stalker.callbacks.post("hud_node_removed", [self, node])
-	
 	update_hud()
 
 func set_node_static_status(node: Node) -> void:
 	SD_Array.append_to_array_no_repeat(_static_nodes, node)
 
 func update_hud() -> void:
-	
 	updated.emit()
-	Stalker.callbacks.post("hud_updated", self)
+	Stalker.callbacks.SR_HUD_update.emit(self)
 
 func get_nodes() -> Array[Node]:
 	return get_children()
@@ -73,6 +68,9 @@ func printc(msg) -> void:
 	Stalker.printc("HUD: %s" % [str(msg)])
 
 func create_sound(stream: AudioStream) -> AudioStreamPlayer:
+	if not stream:
+		return null
+	
 	var player := AudioStreamPlayer.new()
 	player.stream = stream
 	player.finished.connect(_on_sound_finished.bind(player))

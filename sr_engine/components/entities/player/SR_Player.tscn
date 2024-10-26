@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://gh55nbno166y"]
+[gd_scene load_steps=20 format=3 uid="uid://gh55nbno166y"]
 
 [ext_resource type="PackedScene" uid="uid://vwa8qnjir30c" path="res://sr_engine/components/entities/stalker/SR_NpcStalker.tscn" id="1_e1fm6"]
 [ext_resource type="Script" path="res://sr_engine/components/entities/player/SR_Player.gd" id="2_ebi2m"]
@@ -7,46 +7,68 @@
 [ext_resource type="Resource" uid="uid://ca004vj5542wv" path="res://gamedata/sr_items/consumable/alcohol/item_vodka.tres" id="4_ldact"]
 [ext_resource type="PackedScene" uid="uid://564ydj7cfsmk" path="res://addons/simusdev/components/fp_controller/W_FPControllerMovement.tscn" id="4_qavqr"]
 [ext_resource type="PackedScene" uid="uid://bkb2p8iu6717w" path="res://gamedata/sr_interactables/interactor/sr_interactor.tscn" id="6_k58ew"]
+[ext_resource type="Resource" uid="uid://m3jdlb46uao0" path="res://gamedata/sr_factions/faction_stalker.tres" id="8_nywho"]
+[ext_resource type="Texture2D" uid="uid://bod0q274jy3xq" path="res://gamedata/sr_characters/icons/strelok.jpg" id="9_bxhiv"]
 
 [sub_resource type="Resource" id="Resource_n43oo"]
 script = ExtResource("3_4gqmc")
 resource = ExtResource("4_ldact")
+stackable = true
+quantity = 1
 
 [sub_resource type="Resource" id="Resource_i2iha"]
 script = ExtResource("3_4gqmc")
 resource = ExtResource("4_ldact")
+stackable = true
+quantity = 1
 
 [sub_resource type="Resource" id="Resource_ppqgq"]
 script = ExtResource("3_4gqmc")
 resource = ExtResource("4_ldact")
+stackable = true
+quantity = 1
 
 [sub_resource type="Resource" id="Resource_6uu16"]
 script = ExtResource("3_4gqmc")
 resource = ExtResource("4_ldact")
+stackable = true
+quantity = 1
 
 [sub_resource type="Resource" id="Resource_6cuf7"]
 script = ExtResource("3_4gqmc")
 resource = ExtResource("4_ldact")
+stackable = true
+quantity = 1
 
 [sub_resource type="Resource" id="Resource_r3i3d"]
 script = ExtResource("3_4gqmc")
 resource = ExtResource("4_ldact")
+stackable = true
+quantity = 1
 
 [sub_resource type="Resource" id="Resource_ch2re"]
 script = ExtResource("3_4gqmc")
 resource = ExtResource("4_ldact")
+stackable = true
+quantity = 1
 
 [sub_resource type="Resource" id="Resource_qhqow"]
 script = ExtResource("3_4gqmc")
 resource = ExtResource("4_ldact")
+stackable = true
+quantity = 1
 
 [sub_resource type="Resource" id="Resource_vpw1w"]
 script = ExtResource("3_4gqmc")
 resource = ExtResource("4_ldact")
+stackable = true
+quantity = 1
 
 [sub_resource type="Resource" id="Resource_ybxfo"]
 script = ExtResource("3_4gqmc")
 resource = ExtResource("4_ldact")
+stackable = true
+quantity = 1
 
 [node name="SR_Player" node_paths=PackedStringArray("camera", "interactor") groups=["player"] instance=ExtResource("1_e1fm6")]
 collision_layer = 0
@@ -64,9 +86,9 @@ visible = true
 [node name="SR_ComponentInventory" parent="." index="4"]
 _items = Array[ExtResource("3_4gqmc")]([SubResource("Resource_n43oo"), SubResource("Resource_i2iha"), SubResource("Resource_ppqgq"), SubResource("Resource_6uu16"), SubResource("Resource_6cuf7"), SubResource("Resource_r3i3d"), SubResource("Resource_ch2re"), SubResource("Resource_qhqow"), SubResource("Resource_vpw1w"), SubResource("Resource_ybxfo")])
 
-[node name="controller" type="Node3D" parent="." index="6"]
+[node name="controller" type="Node3D" parent="." index="5"]
 
-[node name="W_FPControllerCamera" parent="." index="7" node_paths=PackedStringArray("character_component") instance=ExtResource("3_yqvsp")]
+[node name="W_FPControllerCamera" parent="." index="6" node_paths=PackedStringArray("character_component") instance=ExtResource("3_yqvsp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15194, 0)
 custom_cursor = true
 character_component = NodePath("../W_ComponentCharacterBody3D")
@@ -74,7 +96,7 @@ character_component = NodePath("../W_ComponentCharacterBody3D")
 [node name="sr_interactor" parent="W_FPControllerCamera" index="1" node_paths=PackedStringArray("interactor") instance=ExtResource("6_k58ew")]
 interactor = NodePath("../..")
 
-[node name="W_FPControllerMovement" parent="." index="8" node_paths=PackedStringArray("character_component") instance=ExtResource("4_qavqr")]
+[node name="W_FPControllerMovement" parent="." index="7" node_paths=PackedStringArray("character_component") instance=ExtResource("4_qavqr")]
 key_forward = "keybind_forward"
 key_backward = "keybind_backward"
 key_left = "keybind_left"
@@ -82,8 +104,13 @@ key_right = "keybind_right"
 key_jump = "keybind_jump"
 character_component = NodePath("../W_ComponentCharacterBody3D")
 
+[node name="W_ComponentCharacterBody3D" parent="." index="9"]
+enabled = true
+
 [node name="SR_CharacterStatsComponent" parent="." index="11"]
+faction = ExtResource("8_nywho")
 nick_name_key = "player_nickname"
+icon = ExtResource("9_bxhiv")
 
 [node name="SR_Skin" parent="." index="13"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)

@@ -14,6 +14,9 @@ class_name SD_SavedNodeData
 var _gamedata: SD_SavedGameData
 
 func initialize(saveable: W_SaveableNode, gamedata: SD_SavedGameData) -> void:
+	if not saveable.is_inside_tree():
+		return
+	
 	_gamedata = gamedata
 	spawn_ability = saveable.spawn_ability
 	node_path = saveable.node.get_path()

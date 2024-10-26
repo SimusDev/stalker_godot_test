@@ -8,12 +8,34 @@ class_name SR_WorldItem
 
 @export var resource: SR_ResourceWorldItem
 
+@export var stackable: bool = true
+@export var quantity: int = 1
+
+@export var backpack_prefab: PackedScene
+
 func _ready() -> void:
 	var section_resource: SR_ResourceWorldItem = section.get_resource()
 	if section_resource:
 		resource = section_resource
 		sprite.texture = resource.texture_on_floor
 		sprite.pixel_size = resource.texture_pixel_size
+	
+
+func try_pack_into_backpack() -> Node3D:
+	if quantity < 10:
+		return null
+	
+	return pack_into_backpack()
+
+func pack_into_backpack() -> Node3D:
+	var backpack: Node3D = backpack_prefab.instantiate()
+	get_parent().add_child(backpack)
+	
+	var inv_item := SR_InventoryItem.create_from_world_item(self)
+	var inv: SR_ComponentInventory = backpack.inventory
+	inv.add_item(inv_item)
+	
+	return backpack
 
 func get_resource() -> SR_ResourceWorldItem:
 	if section:
@@ -22,6 +44,9 @@ func get_resource() -> SR_ResourceWorldItem:
 
 static func create_from_inventory_item(item: SR_InventoryItem) -> SR_WorldItem:
 	var world_item: SR_WorldItem = SR_GameWorld.instance().spawner.spawn(item.resource.get_section())
+	world_item.resource = item.resource
+	world_item.quantity = item.quantity
+	world_item.stackable = item.stackable
 	return world_item
 
 func pickup_by(node: Node) -> SR_InventoryItem:

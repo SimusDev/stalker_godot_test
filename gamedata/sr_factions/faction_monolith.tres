@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SR_ResourceFaction" load_steps=3 format=3 uid="uid://bqfd7gjap4v17"]
+
+[ext_resource type="Texture2D" uid="uid://crup5mo5kosre" path="res://gamedata/sr_factions/icons/monolith.jpg" id="1_306ax"]
+[ext_resource type="Script" path="res://sr_engine/components/faction/SR_ResourceFaction.gd" id="1_763op"]
+
+[resource]
+script = ExtResource("1_763op")
+hint = "faction_monolith"
+icon = ExtResource("1_306ax")
+enemies = Array[String](["faction_mutant"])
+_section = ""

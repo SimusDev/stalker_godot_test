@@ -16,7 +16,7 @@ func _ready() -> void:
 	Stalker.load_game()
 	
 	
-	Stalker.callbacks.post("world_ready", self)
+	Stalker.callbacks.SR_GameWorld_ready.emit(self)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("save_game"):

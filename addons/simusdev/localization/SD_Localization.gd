@@ -5,7 +5,7 @@ signal updated()
 
 var _data := ConfigFile.new()
 
-var _current_language: String = "en"
+var _current_language: String = "ru"
 
 func update_localization() -> void:
 	updated.emit()

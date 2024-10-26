@@ -13,8 +13,10 @@ class_name W_ComponentCharacterBody3D
 var _move_direction: Vector3 = Vector3.ZERO
 
 func _physics_process(delta: float) -> void: 
-	if enabled:
-		_body_physics_process(delta)
+	if !enabled:
+		return
+	
+	_body_physics_process(delta)
 
 func _body_physics_process(delta: float) -> void:
 	body.velocity.y -= gravity * delta

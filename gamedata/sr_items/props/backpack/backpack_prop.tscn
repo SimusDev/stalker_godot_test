@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8s2fclpdttge"]
+
+[ext_resource type="Script" path="res://gamedata/sr_items/props/backpack/backpack_prop.gd" id="1_lq71i"]
+[ext_resource type="Script" path="res://sr_engine/components/inventory/SR_ComponentInventory.gd" id="2_tnvaf"]
+[ext_resource type="Script" path="res://addons/simusdev/components/saveable/W_SaveableNode.gd" id="3_gekh0"]
+[ext_resource type="Texture2D" uid="uid://261ag6digrhn" path="res://gamedata/sr_items/props/backpack/backpack.png" id="4_dwcll"]
+[ext_resource type="PackedScene" uid="uid://bcisbpogax8ia" path="res://gamedata/sr_interactables/container/sr_interactableContainer.tscn" id="5_jnmt2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ns5k2"]
+size = Vector3(1, 0.103149, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yqi71"]
+size = Vector3(1, 0.51123, 1.21228)
+
+[node name="backpack_prop" type="RigidBody3D" node_paths=PackedStringArray("inventory")]
+collision_layer = 0
+script = ExtResource("1_lq71i")
+inventory = NodePath("SR_ComponentInventory")
+
+[node name="SR_ComponentInventory" type="Node" parent="." node_paths=PackedStringArray("node", "saveable")]
+script = ExtResource("2_tnvaf")
+node = NodePath("..")
+saveable = NodePath("../W_SaveableNode")
+
+[node name="W_SaveableNode" type="Node" parent="." node_paths=PackedStringArray("node")]
+script = ExtResource("3_gekh0")
+node = NodePath("..")
+spawn_ability = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0425415, 0)
+shape = SubResource("BoxShape3D_ns5k2")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0372688, 0)
+pixel_size = 0.006
+axis = 1
+texture = ExtResource("4_dwcll")
+
+[node name="sr_interactableContainer" parent="." node_paths=PackedStringArray("inventory") instance=ExtResource("5_jnmt2")]
+inventory = NodePath("../SR_ComponentInventory")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sr_interactableContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.244385, 0.0275269)
+shape = SubResource("BoxShape3D_yqi71")

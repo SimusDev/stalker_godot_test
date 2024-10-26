@@ -77,11 +77,9 @@ mesh = SubResource("BoxMesh_prbw8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.57534, 0)
 spawn_section = "player"
 
-[node name="spawn_point1" parent="." instance=ExtResource("3_d071i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.867, 2.01915, 0.788795)
+[node name="spawn_stalker" parent="." instance=ExtResource("3_d071i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.8963, 2.01915, -2.8917)
 spawn_section = "stalker"
-autospawn = false
-spawn_once = false
 
 [node name="container_base" parent="." instance=ExtResource("4_wm1na")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.70995, 0.737619, 1.69564)
@@ -96,4 +94,5 @@ shape = SubResource("BoxShape3D_gcqmn")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="sr_zone3d_effects"]
 mesh = SubResource("BoxMesh_nilnb")
 
-[connection signal="on_spawn" from="spawn_point1" to="." method="_on_spawn_point_1_on_spawn"]
+[connection signal="on_spawn" from="spawn_stalker" to="." method="_on_spawn_point_1_on_spawn"]
+[connection signal="npc_entered" from="sr_zone3d_effects" to="." method="_on_sr_zone_3d_effects_npc_entered"]

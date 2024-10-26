@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SR_ResourceFaction" load_steps=3 format=3 uid="uid://cv6l3y0ltjlm4"]
+
+[ext_resource type="Texture2D" uid="uid://dk5birydkwsd3" path="res://gamedata/sr_factions/icons/csky.jpg" id="1_7bk80"]
+[ext_resource type="Script" path="res://sr_engine/components/faction/SR_ResourceFaction.gd" id="1_cbw5e"]
+
+[resource]
+script = ExtResource("1_cbw5e")
+hint = "faction_csky"
+icon = ExtResource("1_7bk80")
+enemies = Array[String](["faction_mutant"])
+_section = ""

@@ -69,6 +69,7 @@ func _ready() -> void:
 	if get_selected_slot() == null:
 		select_first_slot()
 	
+	#sort()
 
 
 func _on_data_loaded(data: SD_SavedNodeData) -> void:
@@ -89,6 +90,13 @@ func get_items() -> Array[SR_InventoryItem]:
 
 func get_slots() -> Array[SR_InventorySlot]:
 	return _slots
+
+func get_items_by_resource(resource: SR_ResourceWorldItem) -> Array[SR_InventoryItem]:
+	var result: Array[SR_InventoryItem] = []
+	for item in get_items():
+		if item.resource == resource:
+			result.append(item)
+	return result
 
 func remove_item_from_slot(item: SR_InventoryItem, slot: SR_InventorySlot) -> void:
 	if has_item(item) and has_slot(slot):
@@ -119,13 +127,19 @@ func spawn(section: String, at_node: Node = null) -> SR_InventoryItem:
 func pickup(item: SR_WorldItem) -> SR_InventoryItem:
 	var inv_item: SR_InventoryItem = SR_InventoryItem.create_from_world_item(item)
 	inv_item._inventory = self
-	_items.append(inv_item)
+	add_item(inv_item)
 	picked_up.emit(inv_item)
 	update_inventory()
 	return inv_item
 
 func add_item(item: SR_InventoryItem) -> void:
 	if _items.has(item):
+		return
+	
+	var items_by_resource: Array[SR_InventoryItem] = get_items_by_resource(item.resource)
+	if not items_by_resource.is_empty():
+		stack_items(item, items_by_resource[0])
+		update_inventory()
 		return
 	
 	_items.append(item)
@@ -149,6 +163,7 @@ func drop(item: SR_InventoryItem, at_node: Node = node) -> SR_WorldItem:
 
 func despawn(item: SR_InventoryItem) -> SR_InventoryItem:
 	if _items.has(item):
+		item._slot = null
 		_items.erase(item)
 		update_inventory()
 		return item
@@ -158,11 +173,33 @@ func use(item: SR_InventoryItem) -> SR_InventoryItem:
 	if has_item(item):
 		update_inventory()
 		used.emit(item)
-		Stalker.callbacks.post("SR_InventoryItem.used", item)
 	return item
 
 func clear() -> void:
 	_items.clear()
+
+func stack_items(stackable: SR_InventoryItem, item: SR_InventoryItem) -> SR_InventoryItem:
+	if not stackable.stackable:
+		return null
+	
+	if stackable.resource == item.resource:
+		item.quantity += stackable.quantity
+		return despawn(stackable)
+	return null
+
+func sort_stackable_items(item: SR_InventoryItem) -> void:
+	var items: Array[SR_InventoryItem] = get_items_by_resource(item.resource)
+	while items.size() > 1:
+		var first: SR_InventoryItem = items[0]
+		var second: SR_InventoryItem = items[1]
+		items.erase(first)
+		stack_items(first, second)
+	
+
+func sort() -> void:
+	for item in get_items():
+		sort_stackable_items(item)
+		
 
 func transfer_item(item: SR_InventoryItem, inventory: SR_ComponentInventory) -> void:
 	if not _items.has(item):

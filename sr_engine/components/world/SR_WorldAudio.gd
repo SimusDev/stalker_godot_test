@@ -12,11 +12,6 @@ static func create(node: Node3D = null, at_node_position: bool = true, position:
 		audio.global_position = position
 		return audio
 	
-	var alife_component: SR_ComponentAlife = SR_ComponentAlife.find(node)
-	if alife_component:
-		if alife_component.is_offline():
-			return audio
-	
 	audio = SR_AudioStreamPlayer3D.new()
 	if at_node_position:
 		audio.global_position = position

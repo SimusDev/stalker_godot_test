@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://gamedata/sr_hud/popup/popup_actions.gd" id="1_0gut6"]
 [ext_resource type="PackedScene" uid="uid://lvc5gnawmset" path="res://gamedata/sr_hud/popup/popup_action_button.tscn" id="2_0bry2"]
 
-[node name="popup_actions" type="Control" node_paths=PackedStringArray("container", "sound")]
+[node name="popup_actions" type="Control" node_paths=PackedStringArray("container")]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 3
 anchors_preset = 0
@@ -13,9 +13,6 @@ mouse_filter = 2
 script = ExtResource("1_0gut6")
 button_scene = ExtResource("2_0bry2")
 container = NodePath("VBoxContainer")
-sound = NodePath("sound")
-
-[node name="sound" type="AudioStreamPlayer" parent="."]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

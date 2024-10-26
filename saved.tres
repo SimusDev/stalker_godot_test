@@ -1,130 +1,121 @@
-[gd_resource type="Resource" script_class="SD_SavedGameData" load_steps=37 format=3]
+[gd_resource type="Resource" script_class="SD_SavedGameData" load_steps=31 format=3]
 
-[ext_resource type="Script" path="res://addons/simusdev/gamesaver/SD_SavedNodeData.gd" id="1_5vk7x"]
-[ext_resource type="Script" path="res://sr_engine/components/inventory/SR_InventoryItem.gd" id="2_wciu1"]
-[ext_resource type="Script" path="res://sr_engine/components/inventory/SR_InventorySlot.gd" id="3_xehr8"]
-[ext_resource type="Script" path="res://addons/simusdev/gamesaver/SD_SavedGameData.gd" id="4_ita7k"]
-[ext_resource type="Resource" path="res://gamedata/sr_items/consumable/alcohol/item_vodka.tres" id="4_y0glw"]
-[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/body.tres" id="5_8luxd"]
-[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/head.tres" id="6_6setb"]
-[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar1.tres" id="7_hr1wl"]
-[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar2.tres" id="8_fluo2"]
-[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar3.tres" id="9_6ortg"]
-[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar4.tres" id="10_4bg1v"]
-[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar5.tres" id="11_fa6nl"]
-[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar6.tres" id="12_x37pc"]
-[ext_resource type="Script" path="res://sr_engine/components/effect/SR_ResourceEffect.gd" id="13_6fjsk"]
-
-[sub_resource type="Resource" id="Resource_n43oo"]
-script = ExtResource("2_wciu1")
-resource = ExtResource("4_y0glw")
-
-[sub_resource type="Resource" id="Resource_i2iha"]
-script = ExtResource("2_wciu1")
-resource = ExtResource("4_y0glw")
-
-[sub_resource type="Resource" id="Resource_ppqgq"]
-script = ExtResource("2_wciu1")
-resource = ExtResource("4_y0glw")
-
-[sub_resource type="Resource" id="Resource_6uu16"]
-script = ExtResource("2_wciu1")
-resource = ExtResource("4_y0glw")
-
-[sub_resource type="Resource" id="Resource_6cuf7"]
-script = ExtResource("2_wciu1")
-resource = ExtResource("4_y0glw")
-
-[sub_resource type="Resource" id="Resource_r3i3d"]
-script = ExtResource("2_wciu1")
-resource = ExtResource("4_y0glw")
-
-[sub_resource type="Resource" id="Resource_ch2re"]
-script = ExtResource("2_wciu1")
-resource = ExtResource("4_y0glw")
-
-[sub_resource type="Resource" id="Resource_qhqow"]
-script = ExtResource("2_wciu1")
-resource = ExtResource("4_y0glw")
-
-[sub_resource type="Resource" id="Resource_vpw1w"]
-script = ExtResource("2_wciu1")
-resource = ExtResource("4_y0glw")
-
-[sub_resource type="Resource" id="Resource_ybxfo"]
-script = ExtResource("2_wciu1")
-resource = ExtResource("4_y0glw")
+[ext_resource type="Script" path="res://addons/simusdev/gamesaver/SD_SavedNodeData.gd" id="1_hu5o2"]
+[ext_resource type="Script" path="res://sr_engine/components/inventory/SR_InventoryItem.gd" id="2_pc2mp"]
+[ext_resource type="Script" path="res://sr_engine/components/inventory/SR_InventorySlot.gd" id="3_0na2y"]
+[ext_resource type="Resource" path="res://gamedata/sr_items/consumable/alcohol/item_vodka.tres" id="4_5kepm"]
+[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/body.tres" id="5_03imn"]
+[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/head.tres" id="6_f44b3"]
+[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar1.tres" id="7_54s7r"]
+[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar2.tres" id="8_kpn8l"]
+[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar3.tres" id="9_v01b6"]
+[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar4.tres" id="10_cmnmr"]
+[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar5.tres" id="11_h6xwk"]
+[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar6.tres" id="12_1xro1"]
+[ext_resource type="Script" path="res://sr_engine/components/effect/SR_ResourceEffect.gd" id="13_nxjrl"]
+[ext_resource type="Resource" path="res://gamedata/sr_factions/faction_stalker.tres" id="14_lr132"]
+[ext_resource type="Texture2D" path="res://gamedata/sr_characters/icons/strelok.jpg" id="15_ify4c"]
+[ext_resource type="Script" path="res://addons/simusdev/gamesaver/SD_SavedGameData.gd" id="16_d5xtx"]
 
 [sub_resource type="Resource" id="Resource_nwf5q"]
-script = ExtResource("3_xehr8")
-data = ExtResource("5_8luxd")
+script = ExtResource("3_0na2y")
+data = ExtResource("5_03imn")
 
 [sub_resource type="Resource" id="Resource_cpg8b"]
-script = ExtResource("3_xehr8")
-data = ExtResource("6_6setb")
+script = ExtResource("3_0na2y")
+data = ExtResource("6_f44b3")
 
 [sub_resource type="Resource" id="Resource_7bufv"]
-script = ExtResource("3_xehr8")
-data = ExtResource("7_hr1wl")
+script = ExtResource("3_0na2y")
+data = ExtResource("7_54s7r")
 
 [sub_resource type="Resource" id="Resource_u4bf5"]
-script = ExtResource("3_xehr8")
-data = ExtResource("8_fluo2")
+script = ExtResource("3_0na2y")
+data = ExtResource("8_kpn8l")
 
 [sub_resource type="Resource" id="Resource_kq3o7"]
-script = ExtResource("3_xehr8")
-data = ExtResource("9_6ortg")
+script = ExtResource("3_0na2y")
+data = ExtResource("9_v01b6")
 
 [sub_resource type="Resource" id="Resource_peh7s"]
-script = ExtResource("3_xehr8")
-data = ExtResource("10_4bg1v")
+script = ExtResource("3_0na2y")
+data = ExtResource("10_cmnmr")
 
 [sub_resource type="Resource" id="Resource_6kseo"]
-script = ExtResource("3_xehr8")
-data = ExtResource("11_fa6nl")
+script = ExtResource("3_0na2y")
+data = ExtResource("11_h6xwk")
 
 [sub_resource type="Resource" id="Resource_ocubg"]
-script = ExtResource("3_xehr8")
-data = ExtResource("12_x37pc")
+script = ExtResource("3_0na2y")
+data = ExtResource("12_1xro1")
 
-[sub_resource type="Resource" id="Resource_tdlad"]
-script = ExtResource("1_5vk7x")
+[sub_resource type="Resource" id="Resource_dgg18"]
+script = ExtResource("1_hu5o2")
+spawn_ability = true
+node_path = "/root/gameScene/openworld/SR_NpcStalker"
+node_parent_path = "/root/gameScene/openworld"
+saveable_path = "/root/gameScene/openworld/SR_NpcStalker/saveable"
+scene_file_path = "res://sr_engine/components/entities/stalker/SR_NpcStalker.tscn"
+data = {
+"sr_effects": Array[ExtResource("13_nxjrl")]([]),
+"sr_inventory_items": Array[ExtResource("2_pc2mp")]([]),
+"sr_inventory_selected_slot": SubResource("Resource_7bufv"),
+"sr_inventory_slots": Array[ExtResource("3_0na2y")]([SubResource("Resource_nwf5q"), SubResource("Resource_cpg8b"), SubResource("Resource_7bufv"), SubResource("Resource_u4bf5"), SubResource("Resource_kq3o7"), SubResource("Resource_peh7s"), SubResource("Resource_6kseo"), SubResource("Resource_ocubg")]),
+"sr_section": &"stalker",
+"sr_stats_faction": null,
+"sr_stats_first_name": "",
+"sr_stats_icon": null,
+"sr_stats_last_name": "",
+"sr_stats_nickname": "",
+"sr_stats_rank_points": 0,
+"sr_stats_relation_points": 0,
+"transform": Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.8963, 2.01915, -2.8917)
+}
+
+[sub_resource type="Resource" id="Resource_t14yi"]
+script = ExtResource("2_pc2mp")
+resource = ExtResource("4_5kepm")
+stackable = true
+quantity = 10
+
+[sub_resource type="Resource" id="Resource_qlwo7"]
+script = ExtResource("1_hu5o2")
 spawn_ability = true
 node_path = "/root/gameScene/openworld/SR_Player"
 node_parent_path = "/root/gameScene/openworld"
 saveable_path = "/root/gameScene/openworld/SR_Player/saveable"
 scene_file_path = "res://sr_engine/components/entities/player/SR_PLayer.tscn"
 data = {
-"sr_effects": Array[ExtResource("13_6fjsk")]([]),
-"sr_inventory_items": Array[ExtResource("2_wciu1")]([SubResource("Resource_n43oo"), SubResource("Resource_i2iha"), SubResource("Resource_ppqgq"), SubResource("Resource_6uu16"), SubResource("Resource_6cuf7"), SubResource("Resource_r3i3d"), SubResource("Resource_ch2re"), SubResource("Resource_qhqow"), SubResource("Resource_vpw1w"), SubResource("Resource_ybxfo")]),
-"sr_inventory_selected_slot": SubResource("Resource_7bufv"),
-"sr_inventory_slots": Array[ExtResource("3_xehr8")]([SubResource("Resource_nwf5q"), SubResource("Resource_cpg8b"), SubResource("Resource_7bufv"), SubResource("Resource_u4bf5"), SubResource("Resource_kq3o7"), SubResource("Resource_peh7s"), SubResource("Resource_6kseo"), SubResource("Resource_ocubg")]),
+"sr_effects": Array[ExtResource("13_nxjrl")]([]),
+"sr_inventory_items": Array[ExtResource("2_pc2mp")]([SubResource("Resource_t14yi")]),
+"sr_inventory_selected_slot": SubResource("Resource_u4bf5"),
+"sr_inventory_slots": Array[ExtResource("3_0na2y")]([SubResource("Resource_nwf5q"), SubResource("Resource_cpg8b"), SubResource("Resource_7bufv"), SubResource("Resource_u4bf5"), SubResource("Resource_kq3o7"), SubResource("Resource_peh7s"), SubResource("Resource_6kseo"), SubResource("Resource_ocubg")]),
 "sr_section": &"player",
-"sr_stats_faction": null,
+"sr_stats_faction": ExtResource("14_lr132"),
 "sr_stats_first_name": "",
-"sr_stats_icon": null,
+"sr_stats_icon": ExtResource("15_ify4c"),
 "sr_stats_last_name": "",
 "sr_stats_nickname": "player_nickname",
 "sr_stats_rank_points": 0,
 "sr_stats_relation_points": 0,
-"transform": Transform3D(0.00261682, 0, -0.999991, 0, 1, 0, 0.999991, 0, 0.00261682, 13.9435, 0.906774, 0.0387399)
+"transform": Transform3D(-0.0540768, 0, 0.998516, 0, 1, 0, -0.998516, 0, -0.0540768, 8.99782, 0.906165, -1.44883)
 }
 
-[sub_resource type="Resource" id="Resource_61lf4"]
-script = ExtResource("1_5vk7x")
+[sub_resource type="Resource" id="Resource_nsved"]
+script = ExtResource("1_hu5o2")
 spawn_ability = false
 node_path = "/root/gameScene/openworld/container_base"
 node_parent_path = "/root/gameScene/openworld"
 saveable_path = "/root/gameScene/openworld/container_base/W_SaveableNode"
 scene_file_path = "res://gamedata/a_stalker/world/props/containers/base.tscn"
 data = {
-"sr_inventory_items": Array[ExtResource("2_wciu1")]([]),
+"sr_inventory_items": Array[ExtResource("2_pc2mp")]([]),
 "sr_inventory_selected_slot": null,
-"sr_inventory_slots": Array[ExtResource("3_xehr8")]([])
+"sr_inventory_slots": Array[ExtResource("3_0na2y")]([])
 }
 
-[sub_resource type="Resource" id="Resource_2a1tx"]
-script = ExtResource("1_5vk7x")
+[sub_resource type="Resource" id="Resource_sd26f"]
+script = ExtResource("1_hu5o2")
 spawn_ability = false
 node_path = "/root/gameScene/openworld/spawn_player"
 node_parent_path = "/root/gameScene/openworld"
@@ -134,23 +125,24 @@ data = {
 "spawned": true
 }
 
-[sub_resource type="Resource" id="Resource_bm457"]
-script = ExtResource("1_5vk7x")
+[sub_resource type="Resource" id="Resource_md1rg"]
+script = ExtResource("1_hu5o2")
 spawn_ability = false
-node_path = "/root/gameScene/openworld/spawn_point1"
+node_path = "/root/gameScene/openworld/spawn_stalker"
 node_parent_path = "/root/gameScene/openworld"
-saveable_path = "/root/gameScene/openworld/spawn_point1/W_SaveableNode"
+saveable_path = "/root/gameScene/openworld/spawn_stalker/W_SaveableNode"
 scene_file_path = "res://sr_engine/components/spawner/SR_CWorldSpawn.tscn"
 data = {
-"spawned": false
+"spawned": true
 }
 
 [resource]
-script = ExtResource("4_ita7k")
+script = ExtResource("16_d5xtx")
 _saveables = {
-"/root/gameScene/openworld/SR_Player/saveable": SubResource("Resource_tdlad"),
-"/root/gameScene/openworld/container_base/W_SaveableNode": SubResource("Resource_61lf4"),
-"/root/gameScene/openworld/spawn_player/W_SaveableNode": SubResource("Resource_2a1tx"),
-"/root/gameScene/openworld/spawn_point1/W_SaveableNode": SubResource("Resource_bm457")
+"/root/gameScene/openworld/SR_NpcStalker/saveable": SubResource("Resource_dgg18"),
+"/root/gameScene/openworld/SR_Player/saveable": SubResource("Resource_qlwo7"),
+"/root/gameScene/openworld/container_base/W_SaveableNode": SubResource("Resource_nsved"),
+"/root/gameScene/openworld/spawn_player/W_SaveableNode": SubResource("Resource_sd26f"),
+"/root/gameScene/openworld/spawn_stalker/W_SaveableNode": SubResource("Resource_md1rg")
 }
 _storage = {}
