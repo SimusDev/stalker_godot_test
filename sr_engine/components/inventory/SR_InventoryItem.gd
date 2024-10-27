@@ -23,7 +23,7 @@ static func create_from_world_item(item: SR_WorldItem) -> SR_InventoryItem:
 	inv_item.stackable = item.stackable
 	inv_item.quantity = item.quantity
 	
-	SR_GameWorld.instance().spawner.despawn(item)
+	SR_Level.find_level(item).despawn(item)
 	
 	return inv_item
 

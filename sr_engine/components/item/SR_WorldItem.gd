@@ -43,7 +43,7 @@ func get_resource() -> SR_ResourceWorldItem:
 	return resource
 
 static func create_from_inventory_item(item: SR_InventoryItem) -> SR_WorldItem:
-	var world_item: SR_WorldItem = SR_GameWorld.instance().spawner.spawn(item.resource.get_section())
+	var world_item: SR_WorldItem = SR_Level.find_level(item.get_inventory()).spawn_by_resource(item.resource)
 	world_item.resource = item.resource
 	world_item.quantity = item.quantity
 	world_item.stackable = item.stackable

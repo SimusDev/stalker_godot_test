@@ -23,4 +23,4 @@ func set_item(item: SR_InventoryItem) -> void:
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		_item.get_inventory().drop(_item)
+			_item.get_inventory().drop(_item)

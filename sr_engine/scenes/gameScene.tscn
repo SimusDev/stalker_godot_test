@@ -1,31 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddjetip7vx646"]
+[gd_scene load_steps=4 format=3 uid="uid://ddjetip7vx646"]
 
-[ext_resource type="Script" path="res://sr_engine/components/spawner/SR_ComponentSpawner.gd" id="1_nd2xy"]
-[ext_resource type="PackedScene" uid="uid://cuqkhhgmqotcp" path="res://gamedata/a_stalker/world/locations/openworld.tscn" id="1_w4bbk"]
 [ext_resource type="PackedScene" uid="uid://d0gl10o56gxhr" path="res://sr_engine/scenes/gameWorld/gameWorld.tscn" id="2_oe53q"]
-[ext_resource type="Script" path="res://addons/simusdev/components/saveable/W_SaveableNodesSpawner.gd" id="2_p0yv1"]
 [ext_resource type="Script" path="res://sr_engine/components/audio/SR_ComponentAudioPlayer.gd" id="3_wpvxy"]
 [ext_resource type="PackedScene" uid="uid://ct56clunft86l" path="res://sr_engine/components/hud/SR_HUD.tscn" id="6_w346a"]
 
 [node name="gameScene" type="Node"]
 
-[node name="world_saveables_spawner" type="Node" parent="." node_paths=PackedStringArray("node")]
-script = ExtResource("2_p0yv1")
-node = NodePath("../openworld")
-
-[node name="world_spawner" type="Node" parent="." node_paths=PackedStringArray("node")]
-script = ExtResource("1_nd2xy")
-node = NodePath("../openworld")
-
-[node name="world_audio_player" type="Node" parent="." node_paths=PackedStringArray("node")]
+[node name="world_audio_player" type="Node" parent="."]
 script = ExtResource("3_wpvxy")
-node = NodePath("../openworld")
 
-[node name="GameWorld" parent="." node_paths=PackedStringArray("spawner", "audio_player") instance=ExtResource("2_oe53q")]
-spawner = NodePath("../world_spawner")
+[node name="GameWorld" parent="." node_paths=PackedStringArray("audio_player") instance=ExtResource("2_oe53q")]
 audio_player = NodePath("../world_audio_player")
-
-[node name="openworld" parent="." instance=ExtResource("1_w4bbk")]
 
 [node name="hud" type="CanvasLayer" parent="."]
 

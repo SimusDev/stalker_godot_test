@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmti047te1tfk"]
+
+[ext_resource type="PackedScene" uid="uid://bruvr87ug30ow" path="res://sr_engine/components/spawner/SR_CWorldSpawn.tscn" id="1_7h3ux"]
+[ext_resource type="Resource" uid="uid://b7nhox0rpfplj" path="res://gamedata/sr_npcs/stalkers/player.tres" id="2_126hj"]
+
+[node name="PlayerSpawn" type="Node3D"]
+
+[node name="sr_player_spawn" parent="." instance=ExtResource("1_7h3ux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+resource = ExtResource("2_126hj")

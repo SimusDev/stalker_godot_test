@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SR_ResourceLevel" load_steps=4 format=3 uid="uid://cbsmq30rxpimg"]
+
+[ext_resource type="PackedScene" uid="uid://dmti047te1tfk" path="res://gamedata/sr_levels/player_spawn.tscn" id="1_nfsah"]
+[ext_resource type="PackedScene" uid="uid://7ith0kkaoxve" path="res://gamedata/sr_levels/cordon/cordon.tscn" id="2_67wvu"]
+[ext_resource type="Script" path="res://sr_engine/components/level/SR_ResourceLevel.gd" id="3_da511"]
+
+[resource]
+script = ExtResource("3_da511")
+base_prefab = ExtResource("1_nfsah")
+online_prefab = ExtResource("2_67wvu")
+_section = ""

@@ -22,5 +22,4 @@ func _on_callback(cb: Variant, value: Variant) -> void:
 func play_step_sound(object: Node3D) -> void:
 	if object is SR_Npc:
 		pass
-	spawner().spawn("sound_footsteps_default", object)
 	

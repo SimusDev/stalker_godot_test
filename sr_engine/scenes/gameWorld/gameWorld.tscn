@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0gl10o56gxhr"]
+[gd_scene load_steps=4 format=3 uid="uid://d0gl10o56gxhr"]
 
 [ext_resource type="Script" path="res://sr_engine/components/world/SR_GameWorld.gd" id="1_6jdup"]
+[ext_resource type="PackedScene" uid="uid://b7l6c2mscm4fj" path="res://sr_engine/components/world_environment/SR_WorldEnvironment.tscn" id="2_3j253"]
+[ext_resource type="PackedScene" uid="uid://c7ob6eed8cpjt" path="res://gamedata/sr_levels/levels_holder.tscn" id="2_bks74"]
 
-[node name="GameWorld" type="Node"]
+[node name="GameWorld" type="Node" node_paths=PackedStringArray("environment")]
 script = ExtResource("1_6jdup")
+environment = NodePath("SR_WorldEnvironment")
+
+[node name="SR_WorldEnvironment" parent="." instance=ExtResource("2_3j253")]
+
+[node name="levels_holder" parent="." instance=ExtResource("2_bks74")]

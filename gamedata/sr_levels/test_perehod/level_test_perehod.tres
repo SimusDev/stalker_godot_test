@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SR_ResourceLevel" load_steps=3 format=3 uid="uid://dxvetusqib5u6"]
+
+[ext_resource type="Script" path="res://sr_engine/components/level/SR_ResourceLevel.gd" id="1_8bqjt"]
+[ext_resource type="PackedScene" uid="uid://b3c3ncvxv6ebr" path="res://gamedata/sr_levels/test_perehod/test_perehod.tscn" id="1_i76th"]
+
+[resource]
+script = ExtResource("1_8bqjt")
+online_prefab = ExtResource("1_i76th")
+_section = ""

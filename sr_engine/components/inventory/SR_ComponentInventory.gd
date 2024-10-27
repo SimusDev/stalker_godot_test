@@ -52,9 +52,6 @@ func get_slot_from_data(data: SR_InventorySlotData) -> SR_InventorySlot:
 			return slot
 	return null
 
-static func get_spawner() -> SR_ComponentSpawner:
-	return SR_GameWorld.instance().spawner
-
 func _ready() -> void:
 	saveable.data_loaded.connect(_on_data_loaded)
 	saveable.data_saved_pre.connect(_on_data_saved_pre)
@@ -62,14 +59,13 @@ func _ready() -> void:
 	
 	saveable.load_last_node_data()
 	
-	for item in get_items():
-		if item:
-			item._inventory = self
 	
 	if get_selected_slot() == null:
 		select_first_slot()
 	
-	#sort()
+	for item in get_items():
+		item._inventory = self
+	
 
 
 func _on_data_loaded(data: SD_SavedNodeData) -> void:
@@ -78,6 +74,8 @@ func _on_data_loaded(data: SD_SavedNodeData) -> void:
 		_slots = data.data.sr_inventory_slots.duplicate()
 		
 		_selected_slot = data.data.sr_inventory_selected_slot
+	
+
 
 func _on_data_saved_pre(data: SD_SavedNodeData) -> void:
 	data.data.sr_inventory_items = _items
@@ -118,12 +116,6 @@ func move_item_to_slot(item: SR_InventoryItem, slot: SR_InventorySlot) -> void:
 func update_inventory() -> void:
 	updated.emit()
 
-func spawn(section: String, at_node: Node = null) -> SR_InventoryItem:
-	var object: Node = get_spawner().spawn(section, at_node)
-	if object is SR_WorldItem:
-		return pickup(object)
-	return null
-
 func pickup(item: SR_WorldItem) -> SR_InventoryItem:
 	var inv_item: SR_InventoryItem = SR_InventoryItem.create_from_world_item(item)
 	inv_item._inventory = self
@@ -154,7 +146,7 @@ func has_slot(slot: SR_InventorySlot) -> bool:
 func drop(item: SR_InventoryItem, at_node: Node = node) -> SR_WorldItem:
 	if _items.has(item):
 		var world_item: SR_WorldItem = SR_WorldItem.create_from_inventory_item(item)
-		SR_ComponentSpawner.teleport_node(world_item, at_node)
+		SR_GameWorld.teleport_node(world_item, at_node)
 		dropped.emit(item)
 		update_inventory()
 		despawn(item)

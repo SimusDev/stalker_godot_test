@@ -37,7 +37,11 @@ func load_resource(file: String) -> Resource:
 	return null
 
 func get_loaded_resources() -> Array[Resource]:
-	return _resources.values()
+	var result: Array[Resource] = []
+	for i in _resources.values():
+		if i is Resource:
+			result.append(i)
+	return result
 
 func get_loaded_sections() -> Array[String]:
 	return _resources.keys()

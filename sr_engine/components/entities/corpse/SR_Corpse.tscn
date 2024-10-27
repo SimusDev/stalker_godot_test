@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://uv35bwej7jrp"]
 
 [ext_resource type="Script" path="res://sr_engine/components/entities/corpse/SR_Corpse.gd" id="1_58qe5"]
-[ext_resource type="Texture2D" uid="uid://cevcu4ln6yyce" path="res://gamedata/a_stalker/textures/npcs/stalker/switer/corpse.png" id="2_joqkr"]
+[ext_resource type="Texture2D" uid="uid://cevcu4ln6yyce" path="res://gamedata/sr_skins/switer/corpse.png" id="2_joqkr"]
 [ext_resource type="Script" path="res://addons/simusdev/components/saveable/W_SaveableNode.gd" id="2_ohlje"]
 [ext_resource type="Script" path="res://addons/simusdev/components/characterbody/W_ComponentCharacterBody3D.gd" id="3_0whsh"]
 [ext_resource type="Script" path="res://sr_engine/components/inventory/SR_ComponentInventory.gd" id="6_8bheo"]

@@ -16,7 +16,7 @@ func _on_data_saved_pre(data: SD_SavedNodeData) -> void:
 	data.data.sr_section = name
 
 func _on_data_loaded(data: SD_SavedNodeData) -> void:
-	name = data.data.sr_section
+	name = data.data.get("sr_section", "")
 
 func get_resource() -> SR_Resource:
 	return Stalker.resources.get_resource(name)

@@ -5,7 +5,7 @@ var _AUTOLOAD := [
 	SR_WorldAudio.new()
 ]
 
-@export var spawner: SR_ComponentSpawner
+@export var environment: WorldEnvironment
 @export var audio_player: SR_ComponentAudioPlayer
 
 
@@ -13,7 +13,6 @@ func _init() -> void:
 	Stalker.world = self
 
 func _ready() -> void:
-	Stalker.load_game()
 	
 	
 	Stalker.callbacks.SR_GameWorld_ready.emit(self)

@@ -1,10 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://ivov82laoeiw"]
+[gd_scene load_steps=31 format=3 uid="uid://ivov82laoeiw"]
 
 [ext_resource type="Script" path="res://sr_engine/components/entities/npc/SR_Npc.gd" id="1_pdegv"]
 [ext_resource type="Script" path="res://addons/simusdev/components/saveable/W_SaveableNode.gd" id="2_4jfms"]
 [ext_resource type="Script" path="res://sr_engine/components/section/SR_ComponentNodeSection.gd" id="2_027u5"]
 [ext_resource type="Texture2D" uid="uid://b0tnpgqyyjfaf" path="res://addons/kenney_prototype_textures/dark/texture_08.png" id="2_p0cnj"]
-[ext_resource type="Script" path="res://sr_engine/components/alife/SR_ComponentAlifeNodeSwitcher.gd" id="2_wmdal"]
 [ext_resource type="Script" path="res://sr_engine/components/health/SR_ComponentHealth.gd" id="4_psgrg"]
 [ext_resource type="Script" path="res://sr_engine/components/inventory/SR_InventorySlot.gd" id="6_3mqiv"]
 [ext_resource type="Script" path="res://addons/simusdev/components/characterbody/W_ComponentCharacterBody3D.gd" id="6_aoq2k"]
@@ -71,11 +70,6 @@ hitbox = NodePath("SR_Hitbox")
 inventory = NodePath("SR_ComponentInventory")
 effects = NodePath("SR_CharacterEffectsComponent")
 stats = NodePath("SR_CharacterStatsComponent")
-
-[node name="SR_ComponentAlifeNodeSwitcher" type="Node" parent="." node_paths=PackedStringArray("node")]
-process_mode = 4
-script = ExtResource("2_wmdal")
-node = NodePath("..")
 
 [node name="section" type="Node" parent="." node_paths=PackedStringArray("saveable")]
 script = ExtResource("2_027u5")

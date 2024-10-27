@@ -13,6 +13,8 @@ signal SR_NpcStalker_ready(npc: SR_NpcStalker)
 
 signal SR_Player_ready(player: SR_Player)
 
+signal SR_Level_teleported(level: SR_Level, node: Node)
+
 signal sr_interactableArea_selected(area: sr_interactableArea, interactor: sr_interactor)
 signal sr_interactableArea_interacted(area: sr_interactableArea, interactor: sr_interactor)
 

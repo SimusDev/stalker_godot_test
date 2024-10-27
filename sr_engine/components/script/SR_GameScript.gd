@@ -4,9 +4,6 @@ class_name SR_GameScript
 func world() -> SR_GameWorld:
 	return Stalker.world
 
-func spawner() -> SR_ComponentSpawner:
-	return world().spawner
-
 func hud() -> SR_HUD:
 	return SR_HUD.instance()
 

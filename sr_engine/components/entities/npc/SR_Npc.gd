@@ -3,7 +3,6 @@ class_name SR_Npc
 
 @onready var callbacks := Stalker.callbacks
 @onready var world := Stalker.world
-@onready var spawner := world.spawner
 
 @export var section: SR_ComponentNodeSection
 @export var character: W_ComponentCharacterBody3D
@@ -40,4 +39,4 @@ func _on_sr_component_health_died() -> void:
 	
 	var corpse: SR_Corpse = SR_Corpse.create(self, skin.get_resource())
 	inventory.transfer_items(corpse.inventory)
-	spawner.despawn(self)
+	SR_Level.find_level(self).despawn(self)

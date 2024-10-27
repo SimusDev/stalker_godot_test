@@ -5,6 +5,8 @@ class_name W_SaveableNode
 @export var node: Node
 @export var spawn_ability: bool = false
 
+@export var storage := {}
+
 @export_group("Node Save Properties")
 @export var save_properties: Array[String] = [
 	"transform",
@@ -14,6 +16,12 @@ signal data_loaded(node_data: SD_SavedNodeData)
 signal data_saved_pre(node_data: SD_SavedNodeData)
 
 var _node_data: SD_SavedNodeData
+
+@export var load_at_ready := true
+
+func _ready() -> void:
+	if load_at_ready:
+		load_data()
 
 func get_node_data() -> SD_SavedNodeData:
 	return _node_data
@@ -56,6 +64,8 @@ func save_data(data: SD_SavedGameData = SimusDev.gamesaver.current_save) -> void
 	for property in save_properties:
 		node_data.data[property] = node.get(property)
 	
+	node_data.save_variable("saveable.storage", storage)
+	
 	data_saved_pre.emit(node_data)
 	
 
@@ -82,6 +92,7 @@ func load_data_from_node_data(node_data: SD_SavedNodeData = get_node_data()) -> 
 		if property_value != null:
 			node.set(property, node_data.data[property])
 	
+	storage = node_data.load_variable("saveable.storage", {}).duplicate()
 	data_loaded.emit(node_data)
 
 func load_last_node_data() -> void:

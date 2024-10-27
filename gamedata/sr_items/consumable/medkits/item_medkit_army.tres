@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SR_ResourceWorldItem" load_steps=4 format=3 uid="uid://xj3yl73vq8xo"]
+
+[ext_resource type="Texture2D" uid="uid://dbwnhd2vhq23k" path="res://gamedata/sr_items/consumable/medkits/medkit.png" id="1_ojrxl"]
+[ext_resource type="Script" path="res://sr_engine/components/attribute/SR_Attribute.gd" id="1_q4klr"]
+[ext_resource type="Script" path="res://sr_engine/components/world/SR_ResourceWorldItem.gd" id="2_ppu2b"]
+
+[resource]
+script = ExtResource("2_ppu2b")
+attributes = Array[ExtResource("1_q4klr")]([])
+storage = {}
+icon = ExtResource("1_ojrxl")

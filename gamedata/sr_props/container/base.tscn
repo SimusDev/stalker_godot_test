@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://wig2hilacym6"]
+
+[ext_resource type="Script" path="res://gamedata/sr_props/container/base.gd" id="1_ipjr1"]
+[ext_resource type="Texture2D" uid="uid://bpv651g05gh0a" path="res://gamedata/sr_props/container/base.png" id="1_wg332"]
+[ext_resource type="Script" path="res://addons/simusdev/components/saveable/W_SaveableNode.gd" id="2_38eqd"]
+[ext_resource type="Script" path="res://sr_engine/components/inventory/SR_ComponentInventory.gd" id="3_dfdtf"]
+[ext_resource type="PackedScene" uid="uid://bcisbpogax8ia" path="res://gamedata/sr_interactables/container/sr_interactableContainer.tscn" id="6_7enft"]
+[ext_resource type="Script" path="res://sr_engine/components/alife/SR_ComponentAlifeNodeSwitcher.gd" id="6_yrtsg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_di3ml"]
+size = Vector3(1.04868, 0.674866, 1)
+
+[node name="container_base" type="StaticBody3D"]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_ipjr1")
+
+[node name="W_SaveableNode" type="Node" parent="." node_paths=PackedStringArray("node")]
+script = ExtResource("2_38eqd")
+node = NodePath("..")
+save_properties = Array[String]([])
+
+[node name="SR_ComponentInventory" type="Node" parent="." node_paths=PackedStringArray("node", "saveable")]
+script = ExtResource("3_dfdtf")
+node = NodePath("..")
+saveable = NodePath("../W_SaveableNode")
+
+[node name="sprite" type="Sprite3D" parent="."]
+pixel_size = 0.007
+billboard = 2
+texture = ExtResource("1_wg332")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0388031, -0.0262102, 0)
+shape = SubResource("BoxShape3D_di3ml")
+
+[node name="sr_interactableContainer" parent="." node_paths=PackedStringArray("inventory") instance=ExtResource("6_7enft")]
+inventory = NodePath("../SR_ComponentInventory")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sr_interactableContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0388031, -0.0262102, 0)
+shape = SubResource("BoxShape3D_di3ml")
+
+[node name="SR_ComponentAlifeNodeSwitcher" type="Node" parent="." node_paths=PackedStringArray("node")]
+process_mode = 4
+script = ExtResource("6_yrtsg")
+node = NodePath("..")
+
+[connection signal="data_loaded" from="W_SaveableNode" to="." method="_on_w_saveable_node_data_loaded"]
+[connection signal="data_saved_pre" from="W_SaveableNode" to="." method="_on_w_saveable_node_data_saved_pre"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7ob6eed8cpjt"]
+
+[ext_resource type="Script" path="res://sr_engine/components/level/SR_Levels.gd" id="1_651m1"]
+
+[node name="levels_holder" type="Node3D"]
+script = ExtResource("1_651m1")

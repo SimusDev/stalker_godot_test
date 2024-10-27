@@ -1,4 +1,4 @@
-extends Node
+extends RefCounted
 class_name sr_ranks_logic
 
 const RANKS := {
