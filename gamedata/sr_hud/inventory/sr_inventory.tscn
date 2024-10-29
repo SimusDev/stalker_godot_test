@@ -1,16 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfh0gqi6rfytj"]
+[gd_scene load_steps=5 format=3 uid="uid://bfh0gqi6rfytj"]
 
 [ext_resource type="Script" path="res://gamedata/sr_hud/inventory/sr_inventory.gd" id="1_gmxul"]
 [ext_resource type="AudioStream" uid="uid://dy52f8vfysowx" path="res://gamedata/sr_hud/inventory/sounds/inv_open.ogg" id="2_qyata"]
 [ext_resource type="AudioStream" uid="uid://cc6su4sbtw1qx" path="res://gamedata/sr_hud/inventory/sounds/inv_close.ogg" id="3_kju5l"]
-[ext_resource type="PackedScene" uid="uid://chuhkwkhocbqn" path="res://gamedata/sr_hud/inventory/sr_inventoryContainer.tscn" id="4_au08g"]
-[ext_resource type="PackedScene" uid="uid://ci6k75ra2liou" path="res://gamedata/sr_hud/character/sr_characterStatsInterface.tscn" id="5_eawul"]
+[ext_resource type="PackedScene" uid="uid://s56sx21rscef" path="res://gamedata/sr_hud/inventory/menus/player_inventory.tscn" id="4_3x74u"]
 
 [node name="sr_inventory" type="CanvasLayer" node_paths=PackedStringArray("sound")]
 script = ExtResource("1_gmxul")
 sound = NodePath("sound")
 audio_open = ExtResource("2_qyata")
 audio_close = ExtResource("3_kju5l")
+menu_player_inventory = ExtResource("4_3x74u")
 
 [node name="sound" type="AudioStreamPlayer" parent="."]
 
@@ -21,15 +21,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.576471)
-
-[node name="sr_inventoryContainer" parent="." instance=ExtResource("4_au08g")]
-
-[node name="sr_characterStatsInterface" parent="." instance=ExtResource("5_eawul")]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -265.0
-offset_right = 0.0
-grow_horizontal = 0
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

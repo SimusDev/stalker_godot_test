@@ -1,15 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://lvc5gnawmset"]
+[gd_scene load_steps=5 format=3 uid="uid://lvc5gnawmset"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s2dpn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l2aya"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d5t0t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixh78"]
 bg_color = Color(0.0846899, 0.0846899, 0.0846899, 1)
 
 [node name="popup_action_button" type="Button"]
-custom_minimum_size = Vector2(0, 32)
+custom_minimum_size = Vector2(0, 8)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s2dpn")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_l2aya")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_d5t0t")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ixh78")
 text = "popup_action_button"

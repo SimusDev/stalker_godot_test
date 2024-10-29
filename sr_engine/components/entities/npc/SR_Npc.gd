@@ -13,6 +13,11 @@ class_name SR_Npc
 @export var inventory: SR_ComponentInventory
 @export var effects: SR_CharacterEffectsComponent
 @export var stats: SR_CharacterStatsComponent
+@export var camera_root: sr_cameraRoot
+
+@export var _collision_default: CollisionShape3D
+@export var _collision_normal: CollisionShape3D
+@export var _collision_crouch: CollisionShape3D
 
 var db := {}
 
@@ -29,6 +34,10 @@ func _ready() -> void:
 	
 	
 
+func update_collisions() -> void:
+	_collision_normal.disabled = character.is_crouching
+	_collision_crouch.disabled = !character.is_crouching
+
 func _on_sr_component_health_health_changed() -> void:
 	pass # Replace with function body.
 
@@ -40,3 +49,10 @@ func _on_sr_component_health_died() -> void:
 	var corpse: SR_Corpse = SR_Corpse.create(self, skin.get_resource())
 	inventory.transfer_items(corpse.inventory)
 	SR_Level.find_level(self).despawn(self)
+
+
+func _on_sr_character_body_component_on_crouching(status: bool) -> void:
+	update_collisions()
+
+func _on_sr_character_body_component_on_sprinting(status: bool) -> void:
+	update_collisions()

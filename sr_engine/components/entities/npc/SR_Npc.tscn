@@ -1,12 +1,12 @@
-[gd_scene load_steps=31 format=3 uid="uid://ivov82laoeiw"]
+[gd_scene load_steps=33 format=3 uid="uid://ivov82laoeiw"]
 
 [ext_resource type="Script" path="res://sr_engine/components/entities/npc/SR_Npc.gd" id="1_pdegv"]
 [ext_resource type="Script" path="res://addons/simusdev/components/saveable/W_SaveableNode.gd" id="2_4jfms"]
 [ext_resource type="Script" path="res://sr_engine/components/section/SR_ComponentNodeSection.gd" id="2_027u5"]
 [ext_resource type="Texture2D" uid="uid://b0tnpgqyyjfaf" path="res://addons/kenney_prototype_textures/dark/texture_08.png" id="2_p0cnj"]
+[ext_resource type="PackedScene" uid="uid://fs0pr6er0gsi" path="res://sr_engine/components/character/body/SR_CharacterBodyComponent.tscn" id="4_h1j0r"]
 [ext_resource type="Script" path="res://sr_engine/components/health/SR_ComponentHealth.gd" id="4_psgrg"]
 [ext_resource type="Script" path="res://sr_engine/components/inventory/SR_InventorySlot.gd" id="6_3mqiv"]
-[ext_resource type="Script" path="res://addons/simusdev/components/characterbody/W_ComponentCharacterBody3D.gd" id="6_aoq2k"]
 [ext_resource type="PackedScene" uid="uid://cwqn6dgkutb72" path="res://sr_engine/components/hitbox/SR_Hitbox.tscn" id="6_pkl6h"]
 [ext_resource type="Resource" uid="uid://nxout43w6spc" path="res://gamedata/sr_inventory/slots/body.tres" id="7_2q2m4"]
 [ext_resource type="Resource" uid="uid://dr14ynbftnecb" path="res://gamedata/sr_inventory/slots/head.tres" id="8_g6wmn"]
@@ -20,6 +20,8 @@
 [ext_resource type="Resource" uid="uid://cwkfawuve3tfe" path="res://gamedata/sr_inventory/slots/hotbar5.tres" id="13_bwgii"]
 [ext_resource type="Resource" uid="uid://c7ehqaf3o6sv6" path="res://gamedata/sr_inventory/slots/hotbar6.tres" id="14_gy64p"]
 [ext_resource type="Script" path="res://sr_engine/components/character/SR_CharacterStatsComponent.gd" id="18_4k1lm"]
+[ext_resource type="PackedScene" uid="uid://cg4ud3qxt6tqw" path="res://gamedata/sr_camera/sr_cameraRoot.tscn" id="21_vsrko"]
+[ext_resource type="PackedScene" uid="uid://deuqy8fme4awm" path="res://gamedata/sr_camera/sr_inventoryArms.tscn" id="22_wvkcx"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_7iusj"]
 
@@ -58,11 +60,11 @@ data = ExtResource("13_bwgii")
 script = ExtResource("6_3mqiv")
 data = ExtResource("14_gy64p")
 
-[node name="SR_Npc" type="CharacterBody3D" node_paths=PackedStringArray("section", "character", "health", "skin", "saveable", "hitbox", "inventory", "effects", "stats")]
+[node name="SR_Npc" type="CharacterBody3D" node_paths=PackedStringArray("section", "character", "health", "skin", "saveable", "hitbox", "inventory", "effects", "stats", "camera_root", "_collision_default", "_collision_normal", "_collision_crouch")]
 collision_layer = 4
 script = ExtResource("1_pdegv")
 section = NodePath("section")
-character = NodePath("W_ComponentCharacterBody3D")
+character = NodePath("SR_CharacterBodyComponent")
 health = NodePath("SR_ComponentHealth")
 skin = NodePath("SR_Skin")
 saveable = NodePath("saveable")
@@ -70,15 +72,27 @@ hitbox = NodePath("SR_Hitbox")
 inventory = NodePath("SR_ComponentInventory")
 effects = NodePath("SR_CharacterEffectsComponent")
 stats = NodePath("SR_CharacterStatsComponent")
+camera_root = NodePath("sr_cameraRoot")
+_collision_default = NodePath("collision_default")
+_collision_normal = NodePath("collision_normal")
+_collision_crouch = NodePath("collision_crouch")
+
+[node name="collision_default" type="CollisionShape3D" parent="."]
+
+[node name="collision_normal" type="CollisionShape3D" parent="."]
+
+[node name="collision_crouch" type="CollisionShape3D" parent="."]
 
 [node name="section" type="Node" parent="." node_paths=PackedStringArray("saveable")]
 script = ExtResource("2_027u5")
 saveable = NodePath("../saveable")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-visible = false
 mesh = SubResource("CapsuleMesh_7iusj")
 surface_material_override/0 = SubResource("StandardMaterial3D_tfnex")
+
+[node name="SR_CharacterBodyComponent" parent="." node_paths=PackedStringArray("body") instance=ExtResource("4_h1j0r")]
+body = NodePath("..")
 
 [node name="SR_ComponentInventory" type="Node" parent="." node_paths=PackedStringArray("node", "saveable")]
 script = ExtResource("8_w01sq")
@@ -90,18 +104,14 @@ _slots = Array[ExtResource("6_3mqiv")]([SubResource("Resource_nwf5q"), SubResour
 script = ExtResource("4_psgrg")
 target = NodePath("..")
 
-[node name="W_ComponentCharacterBody3D" type="Node" parent="." node_paths=PackedStringArray("body")]
-script = ExtResource("6_aoq2k")
-body = NodePath("..")
-enabled = false
-
 [node name="SR_CharacterEffectsComponent" type="Node" parent="." node_paths=PackedStringArray("node", "saveable")]
 script = ExtResource("8_qt4jh")
 node = NodePath("..")
 saveable = NodePath("../saveable")
 
-[node name="SR_CharacterStatsComponent" type="Node" parent="." node_paths=PackedStringArray("saveable")]
+[node name="SR_CharacterStatsComponent" type="Node" parent="." node_paths=PackedStringArray("node", "saveable")]
 script = ExtResource("18_4k1lm")
+node = NodePath("..")
 saveable = NodePath("../saveable")
 
 [node name="saveable" type="Node" parent="." node_paths=PackedStringArray("node")]
@@ -116,5 +126,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 node = NodePath("..")
 health = NodePath("../SR_ComponentHealth")
 
+[node name="sr_cameraRoot" parent="." node_paths=PackedStringArray("node", "character", "inventory") instance=ExtResource("21_vsrko")]
+node = NodePath("..")
+character = NodePath("../SR_CharacterBodyComponent")
+inventory = NodePath("../SR_ComponentInventory")
+
+[node name="sr_inventoryArms" parent="." node_paths=PackedStringArray("inventory") instance=ExtResource("22_wvkcx")]
+inventory = NodePath("../SR_ComponentInventory")
+
+[connection signal="on_crouching" from="SR_CharacterBodyComponent" to="." method="_on_sr_character_body_component_on_crouching"]
+[connection signal="on_sprinting" from="SR_CharacterBodyComponent" to="." method="_on_sr_character_body_component_on_sprinting"]
 [connection signal="died" from="SR_ComponentHealth" to="." method="_on_sr_component_health_died"]
 [connection signal="health_changed" from="SR_ComponentHealth" to="." method="_on_sr_component_health_health_changed"]

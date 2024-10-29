@@ -1,0 +1,2 @@
+extends W_ComponentCharacterBody3D
+class_name SR_CharacterBodyComponent

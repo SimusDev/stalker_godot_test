@@ -4,18 +4,23 @@ extends Control
 @export var container: HBoxContainer
 
 @export var hotbar_slotdatas: Array[SR_InventorySlotData]
+@export var can_drag_and_drop := false
 
 func _ready() -> void:
 	var player := SR_Player.instance()
+	if !player:
+		return
+	
 	var inventory := player.inventory
 	
 	var player_slots: Array[SR_InventorySlot] = get_hotbar_slots(inventory)
 	for id in player_slots.size():
 		var slot: SR_InventorySlot = player_slots[id]
 		var slotInterface: sr_slotInterface = slot_prefab.instantiate()
-		container.add_child(slotInterface)
 		slotInterface.set_slot(slot)
 		slotInterface.set_id(id)
+		slotInterface.can_drag_and_drop = can_drag_and_drop
+		container.add_child(slotInterface)
 		
 
 func get_hotbar_slots(inventory: SR_ComponentInventory) -> Array[SR_InventorySlot]:

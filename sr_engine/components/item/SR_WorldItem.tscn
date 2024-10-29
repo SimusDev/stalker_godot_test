@@ -80,6 +80,7 @@ body = NodePath("..")
 
 [node name="sprite" type="Sprite3D" parent="."]
 billboard = 1
+texture_filter = 0
 texture = ExtResource("5_88g5c")
 
 [node name="sr_interactableArea" parent="." instance=ExtResource("5_x5hau")]

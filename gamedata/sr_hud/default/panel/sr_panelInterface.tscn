@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://drmutnrflf203"]
+
+[ext_resource type="Script" path="res://gamedata/sr_hud/default/panel/sr_panelInterface.gd" id="1_dv6db"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hmfms"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+corner_detail = 3
+anti_aliasing = false
+
+[node name="sr_panelInterface" type="Panel"]
+self_modulate = Color(0.156863, 0.156863, 0.156863, 0.737255)
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hmfms")
+script = ExtResource("1_dv6db")

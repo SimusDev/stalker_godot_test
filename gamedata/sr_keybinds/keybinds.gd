@@ -6,6 +6,8 @@ var KEYBINDS := {
 	"left": "a",
 	"right": "d",
 	"jump": "space",
+	"sprint": "shift",
+	"crouch": "ctrl",
 	"inventory": "tab",
 	"interact": "f",
 }

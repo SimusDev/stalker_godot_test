@@ -53,6 +53,7 @@ func get_slot_from_data(data: SR_InventorySlotData) -> SR_InventorySlot:
 	return null
 
 func _ready() -> void:
+	node.set_meta("SR_ComponentInventory", self)
 	saveable.data_loaded.connect(_on_data_loaded)
 	saveable.data_saved_pre.connect(_on_data_saved_pre)
 	
@@ -106,12 +107,23 @@ func remove_item_from_slot(item: SR_InventoryItem, slot: SR_InventorySlot) -> vo
 
 func move_item_to_slot(item: SR_InventoryItem, slot: SR_InventorySlot) -> void:
 	if has_item(item) and has_slot(slot):
-		if item.get_slot() != null:
-			remove_item_from_slot(item, item.get_slot())
+		remove_item_from_slot(item, get_item_slot(item))
 		item._slot = slot
 		slot._item = item
 		item_moved_to_slot.emit(item, slot)
 		update_inventory()
+
+func is_item_in_slot(item: SR_InventoryItem, slot: SR_InventorySlot) -> bool:
+	for i in get_slots():
+		if i.get_item() == item:
+			return true
+	return false
+
+func get_item_slot(item: SR_InventoryItem) -> SR_InventorySlot:
+	for i in get_slots():
+		if i.get_item() == item:
+			return i
+	return null
 
 func update_inventory() -> void:
 	updated.emit()
@@ -165,6 +177,7 @@ func use(item: SR_InventoryItem) -> SR_InventoryItem:
 	if has_item(item):
 		update_inventory()
 		used.emit(item)
+		Stalker.callbacks.SR_ComponentInventory_used.emit(self, item)
 	return item
 
 func clear() -> void:
@@ -205,7 +218,4 @@ func transfer_items(inventory: SR_ComponentInventory) -> void:
 		transfer_item(_items[0], inventory)
 
 static func find(node: Node) -> SR_ComponentInventory:
-	for i in node.get_children():
-		if i is SR_ComponentInventory:
-			return i
-	return null
+	return node.get_meta("SR_ComponentInventory")

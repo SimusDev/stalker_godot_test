@@ -1,0 +1,2 @@
+extends SR_Attribute
+class_name sr_attribute_consumable

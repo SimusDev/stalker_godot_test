@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg4ud3qxt6tqw"]
+
+[ext_resource type="Script" path="res://gamedata/sr_camera/sr_cameraRoot.gd" id="1_vndaq"]
+[ext_resource type="PackedScene" uid="uid://bkb2p8iu6717w" path="res://gamedata/sr_interactables/interactor/sr_interactor.tscn" id="2_gs3gj"]
+
+[node name="sr_cameraRoot" type="Node3D" node_paths=PackedStringArray("camera", "interactor")]
+script = ExtResource("1_vndaq")
+camera = NodePath("Camera3D")
+interactor = NodePath("sr_interactor")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+cull_mask = 1048573
+
+[node name="sr_interactor" parent="." instance=ExtResource("2_gs3gj")]

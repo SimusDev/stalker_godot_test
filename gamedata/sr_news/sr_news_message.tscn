@@ -17,10 +17,10 @@ corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_0bcpi"]
-font_size = 14
+font_size = 9
 
 [sub_resource type="LabelSettings" id="LabelSettings_42dw4"]
-font_size = 12
+font_size = 9
 
 [sub_resource type="Animation" id="Animation_wqdik"]
 length = 0.001
@@ -75,11 +75,11 @@ _data = {
 }
 
 [node name="sr_news_message" type="Control" node_paths=PackedStringArray("_n_icon", "_n_title", "_n_text", "_n_timer", "_n_player")]
-custom_minimum_size = Vector2(300, 45)
+custom_minimum_size = Vector2(120, 20)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 300.0
-offset_bottom = 45.0
+offset_right = 120.0
+offset_bottom = 20.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
@@ -117,19 +117,19 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_2hac5")
 [node name="title" type="Label" parent="."]
 self_modulate = Color(0.572988, 0.572988, 0.572988, 1)
 layout_mode = 0
-offset_left = 85.0
+offset_left = 39.0
 offset_top = 1.0
-offset_right = 291.0
+offset_right = 245.0
 offset_bottom = 15.0
 text = "title"
 label_settings = SubResource("LabelSettings_0bcpi")
 
 [node name="text" type="Label" parent="."]
 layout_mode = 0
-offset_left = 85.0
-offset_top = 20.0
-offset_right = 826.0
-offset_bottom = 47.0
+offset_left = 39.0
+offset_top = 15.0
+offset_right = 780.0
+offset_bottom = 42.0
 text = "text"
 label_settings = SubResource("LabelSettings_42dw4")
 autowrap_mode = 1

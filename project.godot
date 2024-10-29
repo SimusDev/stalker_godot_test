@@ -22,8 +22,10 @@ Stalker="*res://sr_engine/singletons/s_Stalker.gd"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
 
@@ -37,7 +39,7 @@ player=""
 
 [gui]
 
-theme/custom_font="res://addons/simusdev/fonts/default_stalker_font.ttf"
+theme/custom_font="res://addons/simusdev/fonts/Monocraft.otf"
 
 [input]
 
@@ -68,6 +70,8 @@ pointing/emulate_touch_from_mouse=true
 
 [layer_names]
 
+3d_render/layer_1="world"
+3d_render/layer_2="arms"
 3d_physics/layer_1="world"
 3d_physics/layer_2="items"
 3d_physics/layer_3="entities"
@@ -81,5 +85,10 @@ common/physics_ticks_per_second=100
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+driver/threads/thread_model=2
+textures/default_filters/anisotropic_filtering_level=0
+textures/decals/filter=0
+textures/light_projectors/filter=0

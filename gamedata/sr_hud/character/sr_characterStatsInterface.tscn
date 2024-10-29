@@ -1,29 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://ci6k75ra2liou"]
+[gd_scene load_steps=5 format=3 uid="uid://ci6k75ra2liou"]
 
 [ext_resource type="Script" path="res://gamedata/sr_hud/character/sr_characterStatsInterface.gd" id="1_g0eta"]
+[ext_resource type="PackedScene" uid="uid://drmutnrflf203" path="res://gamedata/sr_hud/default/panel/sr_panelInterface.tscn" id="2_ksrwv"]
 [ext_resource type="Texture2D" uid="uid://bod0q274jy3xq" path="res://gamedata/sr_characters/icons/strelok.jpg" id="2_qdjlf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wa4sf"]
+font_size = 9
 
 [node name="sr_characterStatsInterface" type="Control" node_paths=PackedStringArray("label", "icon", "icon_faction")]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 300.0
-offset_bottom = 100.0
+offset_right = 142.0
+offset_bottom = 44.0
 mouse_filter = 2
 script = ExtResource("1_g0eta")
 label = NodePath("Label")
 icon = NodePath("icon")
 icon_faction = NodePath("icon_faction")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="sr_panelInterface" parent="." instance=ExtResource("2_ksrwv")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 
 [node name="icon" type="TextureRect" parent="."]
 layout_mode = 1
@@ -64,14 +67,15 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.063
-anchor_right = 0.6
-anchor_bottom = 1.0
-offset_left = 0.1
-grow_horizontal = 2
-grow_vertical = 2
-text = "Ранг:
-Группировка:"
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 132.0
+offset_bottom = 69.0
+scale = Vector2(0.588772, 0.588772)
+text = "player_nickname
+Ранг: Новичок
+Группировка: Одиночки
+"
 label_settings = SubResource("LabelSettings_wa4sf")
+horizontal_alignment = 1
 vertical_alignment = 1

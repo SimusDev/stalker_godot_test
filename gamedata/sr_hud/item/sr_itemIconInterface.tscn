@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://gamedata/sr_hud/item/sr_itemIconInterface.gd" id="2_t68nb"]
 
 [node name="sr_itemIconInterface" type="TextureRect"]
-custom_minimum_size = Vector2(48, 48)
 offset_right = 48.0
 offset_bottom = 48.0
 mouse_filter = 2

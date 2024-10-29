@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://taruabjleq3q"]
+
+[ext_resource type="Script" path="res://gamedata/sr_camera/arms/sr_armsInterface2D.gd" id="1_nqeep"]
+[ext_resource type="Texture2D" uid="uid://5svwgs4djouq" path="res://gamedata/sr_camera/arms/textures/test.png" id="2_6b6o5"]
+
+[node name="sr_armsInterface2D" type="Node2D"]
+script = ExtResource("1_nqeep")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(317.5, 176.5)
+scale = Vector2(2.50391, 2.53472)
+texture = ExtResource("2_6b6o5")

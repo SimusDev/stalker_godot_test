@@ -1,8 +1,8 @@
 extends W_ComponentHealth
 class_name SR_ComponentHealth
 
+func _ready() -> void:
+	target.set_meta("SR_ComponentHealth", self)
+
 static func find(node: Node) -> SR_ComponentHealth:
-	for i in node.get_children():
-		if i is SR_ComponentHealth:
-			return i
-	return null
+	return node.get_meta("SR_ComponentHealth")

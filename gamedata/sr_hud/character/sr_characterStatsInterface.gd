@@ -25,7 +25,7 @@ func set_stats(stats: SR_CharacterStatsComponent) -> void:
 		faction_hint = stats.faction.hint
 		icon_faction.texture = stats.faction.icon
 	
-	var text: String = "%s\n\n%s: %s\n%s: %s" % [
+	var text: String = "%s\n%s: %s\n%s: %s" % [
 		stats.get_the_localized_name(),
 		Stalker.localization.get_text_from_key("rank"),
 		sr_ranks_logic.get_rank_localization_from_points(stats.rank_points),

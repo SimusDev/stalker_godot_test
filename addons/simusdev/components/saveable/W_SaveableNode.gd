@@ -20,13 +20,18 @@ var _node_data: SD_SavedNodeData
 @export var load_at_ready := true
 
 func _ready() -> void:
+	
 	if load_at_ready:
 		load_data()
+
+func _enter_tree() -> void:
+	node.set_meta("W_SaveableNode", self)
 
 func get_node_data() -> SD_SavedNodeData:
 	return _node_data
 
 func _init() -> void:
+	
 	add_to_group(SD_GameSaver.SAVEABLE_NODE_GROUP)
 	
 	var gamesaver: SD_GameSaver = SimusDev.gamesaver
@@ -104,6 +109,10 @@ static func get_all_saveable_components_in_tree() -> Array[W_SaveableNode]:
 	return components
 
 static func find_component_in_node(node: Node) -> W_SaveableNode:
+	var meta = node.get_meta("W_SaveableNode")
+	if meta:
+		return meta
+	
 	for i in node.get_children():
 		if i is W_SaveableNode:
 			return i

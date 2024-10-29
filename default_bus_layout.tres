@@ -1,4 +1,12 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://dncwfen2k4hsj"]
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://dncwfen2k4hsj"]
+
+[sub_resource type="AudioEffectFilter" id="AudioEffectFilter_7idqh"]
+resource_name = "Filter"
+cutoff_hz = 1000.0
+resonance = 1.0
+db = 2
 
 [resource]
-bus/0/volume_db = -19.6683
+bus/0/volume_db = -10.0692
+bus/0/effect/0/effect = SubResource("AudioEffectFilter_7idqh")
+bus/0/effect/0/enabled = true

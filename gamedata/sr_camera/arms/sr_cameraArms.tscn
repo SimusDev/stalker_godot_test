@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://tv3e52pei3un"]
+
+[ext_resource type="Script" path="res://gamedata/sr_camera/arms/sr_cameraArms.gd" id="1_fnatm"]
+[ext_resource type="PackedScene" uid="uid://taruabjleq3q" path="res://gamedata/sr_camera/arms/sr_armsInterface2D.tscn" id="2_rhoje"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pslar"]
+viewport_path = NodePath("2d")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_e8igo"]
+viewport_path = NodePath("3d")
+
+[node name="sr_cameraArms" type="Node"]
+script = ExtResource("1_fnatm")
+
+[node name="2d" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(640, 360)
+
+[node name="sr_armsInterface2D" parent="2d" instance=ExtResource("2_rhoje")]
+
+[node name="3d" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(640, 360)
+render_target_update_mode = 4
+
+[node name="Node3D" type="Sprite3D" parent="3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.32646)
+layers = 2
+gi_mode = 2
+shaded = true
+texture_filter = 0
+texture = SubResource("ViewportTexture_pslar")
+
+[node name="Camera3D" type="Camera3D" parent="3d"]
+cull_mask = 2
+current = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("ViewportTexture_e8igo")

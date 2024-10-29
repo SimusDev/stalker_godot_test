@@ -10,6 +10,7 @@ signal added(effect: SR_ResourceEffect)
 signal removed(effect: SR_ResourceEffect)
 
 func _ready() -> void:
+	node.set_meta("SR_CharacterEffectsComponent", self)
 	saveable.data_loaded.connect(_on_data_loaded)
 	saveable.data_saved_pre.connect(_on_data_saved_pre)
 	
@@ -62,7 +63,4 @@ func _on_data_saved_pre(data: SD_SavedNodeData) -> void:
 	data.data.sr_effects = _effects.duplicate()
 
 static func find(node: Node) -> SR_CharacterEffectsComponent:
-	for i in node.get_children():
-		if i is SR_CharacterEffectsComponent:
-			return i
-	return null
+	return node.get_meta("SR_CharacterEffectsComponent")

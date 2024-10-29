@@ -15,9 +15,14 @@ signal SR_Player_ready(player: SR_Player)
 
 signal SR_Level_teleported(level: SR_Level, node: Node)
 
+signal SR_ComponentInventory_used(inventory: SR_ComponentInventory, item: SR_InventoryItem)
+
 signal sr_interactableArea_selected(area: sr_interactableArea, interactor: sr_interactor)
 signal sr_interactableArea_interacted(area: sr_interactableArea, interactor: sr_interactor)
 
 func initialize() -> void:
-	for dict in get_signal_list():
-		Stalker.printc("CALLBACK INITIALIZED: %s "% [str(dict)])
+	Stalker.printc("Stalker_Callbacks initialized!")
+	sr_callbacks.create(self)
+	
+	
+	

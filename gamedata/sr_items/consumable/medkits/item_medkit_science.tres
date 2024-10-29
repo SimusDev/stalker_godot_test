@@ -1,12 +1,21 @@
-[gd_resource type="Resource" script_class="SR_ResourceWorldItem" load_steps=4 format=3 uid="uid://by4cf2vp3an2s"]
+[gd_resource type="Resource" script_class="SR_ResourceWorldItem" load_steps=6 format=3 uid="uid://by4cf2vp3an2s"]
 
 [ext_resource type="Texture2D" uid="uid://dbwnhd2vhq23k" path="res://gamedata/sr_items/consumable/medkits/medkit.png" id="1_bdkgb"]
 [ext_resource type="Script" path="res://sr_engine/components/attribute/SR_Attribute.gd" id="1_g854i"]
+[ext_resource type="Script" path="res://gamedata/sr_attributes/sr_attribute_consumable.gd" id="2_525d0"]
 [ext_resource type="Script" path="res://sr_engine/components/world/SR_ResourceWorldItem.gd" id="2_g14gh"]
+
+[sub_resource type="Resource" id="Resource_oy0r8"]
+script = ExtResource("2_525d0")
 
 [resource]
 script = ExtResource("2_g14gh")
-texture_on_floor = ExtResource("1_bdkgb")
-attributes = Array[ExtResource("1_g854i")]([])
 storage = {}
+attributes = Array[ExtResource("1_g854i")]([SubResource("Resource_oy0r8")])
+stackable = true
+texture_on_floor = ExtResource("1_bdkgb")
+texture_pixel_size = 0.01
 icon = ExtResource("1_bdkgb")
+icon_box_x = 1
+icon_box_y = 1
+_section = ""

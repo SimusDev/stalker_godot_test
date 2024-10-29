@@ -13,4 +13,4 @@ func try_to_interact() -> void:
 	if not player:
 		return
 	
-	player.interactor.try_to_interact()
+	player.camera_root.interactor.try_to_interact()

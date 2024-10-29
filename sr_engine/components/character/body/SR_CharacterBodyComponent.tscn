@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://fs0pr6er0gsi"]
+
+[ext_resource type="Script" path="res://sr_engine/components/character/body/SR_CharacterBodyComponent.gd" id="1_2304f"]
+
+[node name="SR_CharacterBodyComponent" type="Node"]
+script = ExtResource("1_2304f")

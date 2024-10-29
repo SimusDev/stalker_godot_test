@@ -5,6 +5,7 @@
 [node name="SR_Skin" type="Sprite3D" node_paths=PackedStringArray("_player")]
 pixel_size = 0.005
 billboard = 2
+texture_filter = 0
 script = ExtResource("1_4rgte")
 _player = NodePath("AnimationPlayer")
 

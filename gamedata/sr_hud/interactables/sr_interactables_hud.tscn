@@ -3,10 +3,8 @@
 [ext_resource type="Script" path="res://gamedata/sr_hud/interactables/sr_interactables_hud.gd" id="1_r05qy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u4wtl"]
-font_size = 32
-outline_size = 6
+outline_size = 3
 outline_color = Color(0, 0, 0, 1)
-shadow_size = 4
 
 [sub_resource type="Animation" id="Animation_tguxv"]
 length = 0.001
@@ -83,9 +81,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -184.5
-offset_top = -94.0
+offset_top = -63.0
 offset_right = 184.5
-offset_bottom = -49.0
+offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "USE ITEM"

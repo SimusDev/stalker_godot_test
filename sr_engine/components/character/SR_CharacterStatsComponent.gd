@@ -1,6 +1,7 @@
 extends Node
 class_name SR_CharacterStatsComponent
 
+@export var node: Node
 @export var saveable: W_SaveableNode
 
 @export var faction: SR_ResourceFaction
@@ -18,12 +19,10 @@ static func localization():
 	return Stalker.localization
 
 static func find(node: Node) -> SR_CharacterStatsComponent:
-	for i in node.get_children():
-		if i is SR_CharacterStatsComponent:
-			return i
-	return null 
+	return node.get_meta("SR_CharacterStatsComponent")
 
 func _ready() -> void:
+	node.set_meta("SR_CharacterStatsComponent", self)
 	saveable.data_loaded.connect(_on_data_loaded)
 	saveable.data_saved_pre.connect(_on_data_saved_pre)
 	

@@ -39,14 +39,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 15.0
+"speed": 8.0
 }]
 
 [node name="sr_cursor" type="Node2D"]
-scale = Vector2(0.8, 0.8)
+texture_filter = 1
 script = ExtResource("1_lqjon")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(15, 15)
+position = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_ofjv2")
 autoplay = "default"

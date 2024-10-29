@@ -40,10 +40,13 @@ func _input(event: InputEvent) -> void:
 func printc(message: String, category: int = 0) -> void:
 	console.write("[Stalker] %s" % [message])
 
-func save_game() -> SD_SavedGameData:
+func save_game() -> void:
+	gamesaver.save_game("res://saved.tres")
 	printc("game saved!")
-	return gamesaver.save_game("res://saved.tres")
+	sr_news.send("Game Saved!")
 
-func load_game() -> SD_SavedGameData:
+func load_game() -> void:
+	gamesaver.load_game("res://saved.tres")
+	await gamesaver.game_loaded
 	printc("game loaded!")
-	return gamesaver.load_game("res://saved.tres")
+	sr_news.send("Loading game...")

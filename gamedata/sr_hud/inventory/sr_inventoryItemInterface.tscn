@@ -1,24 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://q2d8g2vga8gw"]
+[gd_scene load_steps=6 format=3 uid="uid://q2d8g2vga8gw"]
 
 [ext_resource type="Script" path="res://gamedata/sr_hud/inventory/sr_inventoryItemInterface.gd" id="1_dcy8e"]
 [ext_resource type="PackedScene" uid="uid://22v1xgi13wa3" path="res://gamedata/sr_hud/item/sr_itemIconInterface.tscn" id="2_3bfjv"]
+[ext_resource type="PackedScene" uid="uid://b3syxf02a8d3y" path="res://gamedata/sr_hud/popup/popup_actions.tscn" id="3_ecqsk"]
+[ext_resource type="Texture2D" uid="uid://dlff77s860k5b" path="res://gamedata/sr_items/consumable/alcohol/vodka.png" id="3_spry5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fmf54"]
+font_size = 8
 
 [node name="sr_inventoryItemInterface" type="Control" node_paths=PackedStringArray("icon", "quantity")]
+custom_minimum_size = Vector2(16, 32)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 16.0
+offset_bottom = 32.0
 mouse_filter = 1
 script = ExtResource("1_dcy8e")
 icon = NodePath("sr_itemIconInterface")
 quantity = NodePath("quantity")
 icon_prefab = ExtResource("2_3bfjv")
+actions_interface = ExtResource("3_ecqsk")
+COLOR_POINTED = Color(0.58358, 0.820542, 0.596216, 1)
 
 [node name="sr_itemIconInterface" parent="." instance=ExtResource("2_3bfjv")]
+layout_direction = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,6 +32,7 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("3_spry5")
 
 [node name="quantity" type="Label" parent="."]
 layout_mode = 1
@@ -40,3 +46,5 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

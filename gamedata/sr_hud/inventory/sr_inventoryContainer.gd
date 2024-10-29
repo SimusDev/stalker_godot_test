@@ -1,11 +1,15 @@
 extends Control
+class_name sr_inventoryContainer
 
 @export var player_inventory := true
 @export var flow_container: FlowContainer
 
-@export var item_interface: PackedScene 
+@export var item_interface: PackedScene
+
 
 var _inventory: SR_ComponentInventory
+
+var _popup_actions_instance: Control = null
 
 func _ready() -> void:
 	if player_inventory:
@@ -32,17 +36,19 @@ func _on_inventory_updated() -> void:
 	update_interface()
 
 func update_interface() -> void:
+	if not _inventory:
+		return
+	
 	if not is_inside_tree():
 		return
 	
-	if not _inventory:
-		return
 	
 	for i in flow_container.get_children():
 		i.queue_free()
 	
 	for item in _inventory.get_items():
-		var interface: Control = item_interface.instantiate()
-		flow_container.add_child(interface)
-		interface.set_item(item)
-	
+		var interface: sr_inventoryItemInterface = item_interface.instantiate()
+		if item.get_inventory().get_item_slot(item) == null:
+			interface.container = self
+			interface.set_item(item)
+			flow_container.add_child(interface)

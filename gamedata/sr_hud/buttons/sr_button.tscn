@@ -1,8 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsdm70m2k083b"]
+[gd_scene load_steps=6 format=3 uid="uid://bsdm70m2k083b"]
 
+[ext_resource type="Texture2D" uid="uid://o235spgypy0n" path="res://gamedata/sr_textures/ui/textures_descr/ui_buttons.png" id="1_nt0wp"]
 [ext_resource type="Script" path="res://gamedata/sr_hud/buttons/sr_button.gd" id="1_rrpm4"]
 
-[node name="sr_button" type="TextureButton"]
-offset_right = 84.0
-offset_bottom = 29.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_e075r"]
+atlas = ExtResource("1_nt0wp")
+region = Rect2(52, 25, 54, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aopr4"]
+atlas = ExtResource("1_nt0wp")
+region = Rect2(52, 35, 54, 10)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ovx5q"]
+font_size = 8
+
+[node name="sr_button" type="TextureButton" node_paths=PackedStringArray("_label")]
+custom_minimum_size = Vector2(80, 15)
+offset_right = 80.0
+offset_bottom = 15.0
+focus_mode = 0
+texture_normal = SubResource("AtlasTexture_e075r")
+texture_pressed = SubResource("AtlasTexture_aopr4")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("1_rrpm4")
+_label = NodePath("Label")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_ovx5q")
+horizontal_alignment = 1
+vertical_alignment = 1

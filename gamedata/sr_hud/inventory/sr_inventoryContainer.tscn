@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://gamedata/sr_hud/inventory/sr_inventoryContainer.gd" id="1_46o2o"]
 [ext_resource type="PackedScene" uid="uid://q2d8g2vga8gw" path="res://gamedata/sr_hud/inventory/sr_inventoryItemInterface.tscn" id="2_g1o4n"]
-[ext_resource type="Texture2D" uid="uid://u81gobmy3p43" path="res://gamedata/sr_hud/inventory/textures/grid.png" id="2_uf2so"]
+[ext_resource type="Texture2D" uid="uid://u81gobmy3p43" path="res://gamedata/sr_textures/ui/grid.png" id="2_uf2so"]
 
 [node name="sr_inventoryContainer" type="Control" node_paths=PackedStringArray("flow_container")]
 layout_mode = 3
