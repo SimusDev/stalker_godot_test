@@ -109,3 +109,12 @@ func set_id(id: int) -> void:
 		label.visible = id >= 0
 		label.text = str(id + 1)
 	update_interface()
+
+
+func _on_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == 1 and event.double_click:
+			if _inventory and get_slot():
+				var item: SR_InventoryItem = get_slot().get_item()
+				if item:
+					_inventory.remove_item_from_slot(item, get_slot())

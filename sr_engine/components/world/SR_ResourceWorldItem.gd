@@ -12,6 +12,7 @@ class_name SR_ResourceWorldItem
 @export var texture_pixel_size: float = 0.01
 
 @export_group("sr_armsInterface2D")
+@export var armsInterface_texture: Texture
 @export var armsInterface_prefab: PackedScene
 
 

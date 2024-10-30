@@ -5,8 +5,10 @@ class_name SR_WorldItem
 @export var sprite: Sprite3D
 
 @export var storage := {}
+@export var saveables: Array[Resource] = []
 
 @export var resource: SR_ResourceWorldItem
+@export var unique_data: Resource
 
 @export var stackable: bool = true
 @export var quantity: int = 1
@@ -18,6 +20,8 @@ func _ready() -> void:
 	if section_resource:
 		resource = section_resource
 		sprite.texture = resource.texture_on_floor
+		if sprite.texture == null:
+			sprite.texture = resource.icon
 		sprite.pixel_size = resource.texture_pixel_size
 	
 
@@ -47,6 +51,8 @@ static func create_from_inventory_item(item: SR_InventoryItem) -> SR_WorldItem:
 	world_item.resource = item.resource
 	world_item.quantity = item.quantity
 	world_item.stackable = item.stackable
+	world_item.saveables = item.saveables
+	world_item.unique_data = item.unique_data
 	return world_item
 
 func pickup_by(node: Node) -> SR_InventoryItem:

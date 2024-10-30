@@ -16,7 +16,7 @@ func _ready() -> void:
 	Stalker.callbacks.SR_Player_ready.emit(self)
 	Stalker.callbacks.SR_HUD_update.connect(_on_sr_hud_update)
 	
-
+	
 
 func _input(event: InputEvent) -> void:
 	active_input.emit(event)

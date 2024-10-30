@@ -47,8 +47,8 @@ func update_interface() -> void:
 		i.queue_free()
 	
 	for item in _inventory.get_items():
-		var interface: sr_inventoryItemInterface = item_interface.instantiate()
 		if item.get_inventory().get_item_slot(item) == null:
+			var interface: sr_inventoryItemInterface = item_interface.instantiate()
 			interface.container = self
 			interface.set_item(item)
 			flow_container.add_child(interface)

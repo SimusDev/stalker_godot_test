@@ -16,7 +16,7 @@ layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-mouse_filter = 2
+mouse_filter = 1
 script = ExtResource("1_ra3mh")
 panel = NodePath("sr_panelInterface")
 icon = NodePath("sr_itemIconInterface")
@@ -71,3 +71,5 @@ text = "1"
 label_settings = SubResource("LabelSettings_hi75q")
 horizontal_alignment = 2
 vertical_alignment = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SR_ResourceWeapon" load_steps=5 format=3 uid="uid://cyiaq3srqngk3"]
+
+[ext_resource type="Script" path="res://sr_engine/components/attribute/SR_Attribute.gd" id="1_jjmug"]
+[ext_resource type="Texture2D" uid="uid://bfn7cpedxd60k" path="res://gamedata/sr_weapons/pmm/arms.png" id="1_jm1r0"]
+[ext_resource type="Script" path="res://sr_engine/components/weapon/SR_ResourceWeapon.gd" id="2_xu0rx"]
+[ext_resource type="Texture2D" uid="uid://yo8mnnkp55ro" path="res://gamedata/sr_weapons/pmm/icon.png" id="3_rrnyb"]
+
+[resource]
+script = ExtResource("2_xu0rx")
+storage = {}
+attributes = Array[ExtResource("1_jjmug")]([])
+stackable = false
+texture_pixel_size = 0.01
+armsInterface_texture = ExtResource("1_jm1r0")
+icon = ExtResource("3_rrnyb")
+icon_box_x = 1
+icon_box_y = 1
+_section = ""

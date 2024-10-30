@@ -10,7 +10,7 @@ class_name W_ComponentCharacterBody3D
 @export var move_acceleration: float = 16.0
 
 @export var move_speed: float = 3.5
-@export var sprint_speed: float = 5.0
+@export var sprint_speed: float = 6.0
 @export var crouch_speed: float = 1.5
 @export var crouch_sprint_speed: float = 1.8
 

@@ -11,12 +11,23 @@ signal interacted(item: SR_InventoryItem)
 signal slot_selected(item: SR_InventorySlot)
 signal slot_deselected(item: SR_InventorySlot)
 
+signal item_moved_to_slot(item: SR_InventoryItem, slot: SR_InventorySlot)
+signal item_removed_from_slot(item: SR_InventoryItem, slot: SR_InventorySlot)
+
 func _ready() -> void:
 	inventory.slot_selected.connect(_on_slot_selected)
 	inventory.slot_deselected.connect(_on_slot_deselected)
+	inventory.item_moved_to_slot.connect(_item_moved_to_slot)
+	inventory.item_removed_from_slot.connect(_item_removed_from_slot)
 	
 	if controlling_by_player:
 		SR_Player.instance().input.connect(_on_player_input)
+
+func _item_moved_to_slot(item: SR_InventoryItem, slot: SR_InventorySlot) -> void:
+	item_moved_to_slot.emit(item, slot)
+
+func _item_removed_from_slot(item: SR_InventoryItem, slot: SR_InventorySlot) -> void:
+	item_moved_to_slot.emit(item, slot)
 
 func _on_slot_selected(slot: SR_InventorySlot) -> void:
 	slot_selected.emit(slot)

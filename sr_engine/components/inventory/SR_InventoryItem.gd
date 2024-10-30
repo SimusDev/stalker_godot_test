@@ -2,6 +2,10 @@ extends Resource
 class_name SR_InventoryItem
 
 @export var resource: SR_ResourceWorldItem
+@export var unique_data: Resource
+
+@export var saveables: Array[Resource] = []
+
 
 @export var stackable: bool = true
 @export var quantity: int = 1 : set = set_quantity
@@ -28,6 +32,8 @@ static func create_from_world_item(item: SR_WorldItem) -> SR_InventoryItem:
 	inv_item.resource = item.get_resource()
 	inv_item.stackable = item.stackable
 	inv_item.quantity = item.quantity
+	inv_item.saveables = item.saveables
+	inv_item.unique_data = item.unique_data
 	
 	SR_Level.find_level(item).despawn(item)
 	

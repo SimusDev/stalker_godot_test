@@ -1,25 +1,25 @@
-[gd_resource type="Resource" script_class="SD_SavedGameData" load_steps=38 format=3]
+[gd_resource type="Resource" script_class="SD_SavedGameData" load_steps=30 format=3]
 
-[ext_resource type="Script" path="res://addons/simusdev/gamesaver/SD_SavedNodeData.gd" id="1_ar63k"]
-[ext_resource type="Resource" path="res://gamedata/sr_levels/cordon/level_cordon.tres" id="2_568ku"]
-[ext_resource type="Script" path="res://sr_engine/components/inventory/SR_InventoryItem.gd" id="3_nta3m"]
-[ext_resource type="Resource" path="res://gamedata/sr_items/consumable/alcohol/item_vodka.tres" id="4_ccte1"]
-[ext_resource type="Script" path="res://sr_engine/components/inventory/SR_InventorySlot.gd" id="5_gvnt8"]
-[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/body.tres" id="6_ybjs4"]
-[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/head.tres" id="7_51rpe"]
-[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar1.tres" id="8_xbcqp"]
-[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar2.tres" id="9_cap0e"]
-[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar3.tres" id="10_tdbo2"]
-[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar4.tres" id="11_c1c0j"]
-[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar5.tres" id="12_hl0ok"]
-[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar6.tres" id="13_8oyby"]
-[ext_resource type="Script" path="res://sr_engine/components/effect/SR_ResourceEffect.gd" id="14_p5q82"]
-[ext_resource type="Resource" path="res://gamedata/sr_factions/resources/stalker.tres" id="15_n42wf"]
-[ext_resource type="Texture2D" path="res://gamedata/sr_characters/icons/strelok.jpg" id="16_6c3mk"]
-[ext_resource type="Script" path="res://addons/simusdev/gamesaver/SD_SavedGameData.gd" id="17_lxpgo"]
+[ext_resource type="Script" path="res://addons/simusdev/gamesaver/SD_SavedNodeData.gd" id="1_p328l"]
+[ext_resource type="Resource" path="res://gamedata/sr_levels/cordon/level_cordon.tres" id="2_3mw2m"]
+[ext_resource type="Script" path="res://sr_engine/components/inventory/SR_InventoryItem.gd" id="3_2s88w"]
+[ext_resource type="Resource" path="res://gamedata/sr_weapons/pmm/pmm.tres" id="4_iyvkt"]
+[ext_resource type="Script" path="res://sr_engine/components/inventory/SR_InventorySlot.gd" id="5_4c0h6"]
+[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/body.tres" id="6_b2r6b"]
+[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/head.tres" id="7_sdvwm"]
+[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar1.tres" id="8_3xobv"]
+[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar2.tres" id="9_qs8ti"]
+[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar3.tres" id="10_7eb6e"]
+[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar4.tres" id="11_8gwoy"]
+[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar5.tres" id="12_f8g37"]
+[ext_resource type="Resource" path="res://gamedata/sr_inventory/slots/hotbar6.tres" id="13_utbhh"]
+[ext_resource type="Script" path="res://sr_engine/components/effect/SR_ResourceEffect.gd" id="14_lo0gg"]
+[ext_resource type="Resource" path="res://gamedata/sr_factions/resources/stalker.tres" id="15_q3kky"]
+[ext_resource type="Texture2D" path="res://gamedata/sr_characters/icons/strelok.jpg" id="16_wx2cy"]
+[ext_resource type="Script" path="res://addons/simusdev/gamesaver/SD_SavedGameData.gd" id="17_23b2f"]
 
-[sub_resource type="Resource" id="Resource_1or4o"]
-script = ExtResource("1_ar63k")
+[sub_resource type="Resource" id="Resource_3u8vn"]
+script = ExtResource("1_p328l")
 spawn_ability = false
 node_name = "sr_player_spawn"
 node_path = "/root/gameScene/GameWorld/levels_holder/sr_levels=level_cordon/PlayerSpawn/sr_player_spawn"
@@ -30,101 +30,55 @@ data = {
 "spawned": true
 }
 
-[sub_resource type="Resource" id="Resource_n43oo"]
-script = ExtResource("3_nta3m")
-resource = ExtResource("4_ccte1")
-stackable = true
+[sub_resource type="Resource" id="Resource_ntnsy"]
+script = ExtResource("3_2s88w")
+resource = ExtResource("4_iyvkt")
+saveables = Array[Resource]([])
+stackable = false
 quantity = 1
 
-[sub_resource type="Resource" id="Resource_i2iha"]
-script = ExtResource("3_nta3m")
-resource = ExtResource("4_ccte1")
-stackable = true
-quantity = 1
-
-[sub_resource type="Resource" id="Resource_ppqgq"]
-script = ExtResource("3_nta3m")
-resource = ExtResource("4_ccte1")
-stackable = true
-quantity = 1
-
-[sub_resource type="Resource" id="Resource_6uu16"]
-script = ExtResource("3_nta3m")
-resource = ExtResource("4_ccte1")
-stackable = true
-quantity = 1
-
-[sub_resource type="Resource" id="Resource_6cuf7"]
-script = ExtResource("3_nta3m")
-resource = ExtResource("4_ccte1")
-stackable = true
-quantity = 1
-
-[sub_resource type="Resource" id="Resource_r3i3d"]
-script = ExtResource("3_nta3m")
-resource = ExtResource("4_ccte1")
-stackable = true
-quantity = 1
-
-[sub_resource type="Resource" id="Resource_ch2re"]
-script = ExtResource("3_nta3m")
-resource = ExtResource("4_ccte1")
-stackable = true
-quantity = 1
-
-[sub_resource type="Resource" id="Resource_qhqow"]
-script = ExtResource("3_nta3m")
-resource = ExtResource("4_ccte1")
-stackable = true
-quantity = 1
-
-[sub_resource type="Resource" id="Resource_vpw1w"]
-script = ExtResource("3_nta3m")
-resource = ExtResource("4_ccte1")
-stackable = true
-quantity = 1
-
-[sub_resource type="Resource" id="Resource_ybxfo"]
-script = ExtResource("3_nta3m")
-resource = ExtResource("4_ccte1")
-stackable = true
+[sub_resource type="Resource" id="Resource_sqqeq"]
+script = ExtResource("3_2s88w")
+resource = ExtResource("4_iyvkt")
+saveables = Array[Resource]([])
+stackable = false
 quantity = 1
 
 [sub_resource type="Resource" id="Resource_nwf5q"]
-script = ExtResource("5_gvnt8")
-data = ExtResource("6_ybjs4")
+script = ExtResource("5_4c0h6")
+data = ExtResource("6_b2r6b")
 
 [sub_resource type="Resource" id="Resource_cpg8b"]
-script = ExtResource("5_gvnt8")
-data = ExtResource("7_51rpe")
+script = ExtResource("5_4c0h6")
+data = ExtResource("7_sdvwm")
 
 [sub_resource type="Resource" id="Resource_7bufv"]
-script = ExtResource("5_gvnt8")
-data = ExtResource("8_xbcqp")
-_item = SubResource("Resource_n43oo")
+script = ExtResource("5_4c0h6")
+data = ExtResource("8_3xobv")
+_item = SubResource("Resource_ntnsy")
 
 [sub_resource type="Resource" id="Resource_u4bf5"]
-script = ExtResource("5_gvnt8")
-data = ExtResource("9_cap0e")
+script = ExtResource("5_4c0h6")
+data = ExtResource("9_qs8ti")
 
 [sub_resource type="Resource" id="Resource_kq3o7"]
-script = ExtResource("5_gvnt8")
-data = ExtResource("10_tdbo2")
+script = ExtResource("5_4c0h6")
+data = ExtResource("10_7eb6e")
 
 [sub_resource type="Resource" id="Resource_peh7s"]
-script = ExtResource("5_gvnt8")
-data = ExtResource("11_c1c0j")
+script = ExtResource("5_4c0h6")
+data = ExtResource("11_8gwoy")
 
 [sub_resource type="Resource" id="Resource_6kseo"]
-script = ExtResource("5_gvnt8")
-data = ExtResource("12_hl0ok")
+script = ExtResource("5_4c0h6")
+data = ExtResource("12_f8g37")
 
 [sub_resource type="Resource" id="Resource_ocubg"]
-script = ExtResource("5_gvnt8")
-data = ExtResource("13_8oyby")
+script = ExtResource("5_4c0h6")
+data = ExtResource("13_utbhh")
 
-[sub_resource type="Resource" id="Resource_bstg5"]
-script = ExtResource("1_ar63k")
+[sub_resource type="Resource" id="Resource_ierxm"]
+script = ExtResource("1_p328l")
 spawn_ability = true
 node_name = "SR_Player"
 node_path = "/root/gameScene/GameWorld/levels_holder/sr_levels=level_cordon/SR_Player"
@@ -132,27 +86,27 @@ saveable_path = "/root/gameScene/GameWorld/levels_holder/sr_levels=level_cordon/
 scene_file_path = "res://sr_engine/components/entities/player/SR_PLayer.tscn"
 data = {
 "saveable.storage": {
-"level": ExtResource("2_568ku")
+"level": ExtResource("2_3mw2m")
 },
-"sr_effects": Array[ExtResource("14_p5q82")]([]),
-"sr_inventory_items": Array[ExtResource("3_nta3m")]([SubResource("Resource_n43oo"), SubResource("Resource_i2iha"), SubResource("Resource_ppqgq"), SubResource("Resource_6uu16"), SubResource("Resource_6cuf7"), SubResource("Resource_r3i3d"), SubResource("Resource_ch2re"), SubResource("Resource_qhqow"), SubResource("Resource_vpw1w"), SubResource("Resource_ybxfo")]),
+"sr_effects": Array[ExtResource("14_lo0gg")]([]),
+"sr_inventory_items": Array[ExtResource("3_2s88w")]([SubResource("Resource_ntnsy"), SubResource("Resource_sqqeq")]),
 "sr_inventory_selected_slot": SubResource("Resource_7bufv"),
-"sr_inventory_slots": Array[ExtResource("5_gvnt8")]([SubResource("Resource_nwf5q"), SubResource("Resource_cpg8b"), SubResource("Resource_7bufv"), SubResource("Resource_u4bf5"), SubResource("Resource_kq3o7"), SubResource("Resource_peh7s"), SubResource("Resource_6kseo"), SubResource("Resource_ocubg")]),
+"sr_inventory_slots": Array[ExtResource("5_4c0h6")]([SubResource("Resource_nwf5q"), SubResource("Resource_cpg8b"), SubResource("Resource_7bufv"), SubResource("Resource_u4bf5"), SubResource("Resource_kq3o7"), SubResource("Resource_peh7s"), SubResource("Resource_6kseo"), SubResource("Resource_ocubg")]),
 "sr_section": &"player",
-"sr_stats_faction": ExtResource("15_n42wf"),
+"sr_stats_faction": ExtResource("15_q3kky"),
 "sr_stats_first_name": "",
-"sr_stats_icon": ExtResource("16_6c3mk"),
+"sr_stats_icon": ExtResource("16_wx2cy"),
 "sr_stats_last_name": "",
 "sr_stats_nickname": "player_nickname",
 "sr_stats_rank_points": 0,
 "sr_stats_relation_points": 0,
-"transform": Transform3D(-0.429197, 0, -0.903209, 0, 1, 0, 0.903209, 0, -0.429197, -13.0184, 1.0001, 13.049)
+"transform": Transform3D(-0.971341, 0, 0.237685, 0, 1, 0, -0.237685, 0, -0.971341, -1.94299, 1.00028, -11.5318)
 }
 
 [resource]
-script = ExtResource("17_lxpgo")
+script = ExtResource("17_23b2f")
 _saveables = {
-"/root/gameScene/GameWorld/levels_holder/sr_levels=level_cordon/PlayerSpawn/sr_player_spawn/W_SaveableNode": SubResource("Resource_1or4o"),
-"/root/gameScene/GameWorld/levels_holder/sr_levels=level_cordon/SR_Player/saveable": SubResource("Resource_bstg5")
+"/root/gameScene/GameWorld/levels_holder/sr_levels=level_cordon/PlayerSpawn/sr_player_spawn/W_SaveableNode": SubResource("Resource_3u8vn"),
+"/root/gameScene/GameWorld/levels_holder/sr_levels=level_cordon/SR_Player/saveable": SubResource("Resource_ierxm")
 }
 _storage = {}
