@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmrwiu105jslr"]
+
+[ext_resource type="Script" path="res://gamedata/sr_camera/arms/animation/sr_armsItemAnimation.gd" id="1_22hm2"]
+
+[node name="sr_armsItemAnimation" type="Node2D" node_paths=PackedStringArray("_debug_screen", "sprite", "animation_player")]
+script = ExtResource("1_22hm2")
+_debug_screen = NodePath("debug")
+sprite = NodePath("Sprite2D=")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="debug" type="ColorRect" parent="."]
+process_mode = 4
+custom_minimum_size = Vector2(640, 360)
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
+mouse_filter = 2
+color = Color(0.212202, 0.407247, 0.239938, 1)
+
+[node name="Sprite2D=" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -167,7 +167,7 @@ func drop(item: SR_InventoryItem, at_node: Node = node) -> SR_WorldItem:
 
 func despawn(item: SR_InventoryItem) -> SR_InventoryItem:
 	if _items.has(item):
-		item._slot = null
+		remove_item_from_slot(item, get_item_slot(item))
 		_items.erase(item)
 		update_inventory()
 		return item
@@ -175,9 +175,9 @@ func despawn(item: SR_InventoryItem) -> SR_InventoryItem:
 
 func use(item: SR_InventoryItem) -> SR_InventoryItem:
 	if has_item(item):
-		update_inventory()
 		used.emit(item)
 		Stalker.callbacks.SR_ComponentInventory_used.emit(self, item)
+		update_inventory()
 	return item
 
 func clear() -> void:

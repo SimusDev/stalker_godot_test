@@ -27,8 +27,9 @@ func _ready() -> void:
 	
 	$MeshInstance3D.queue_free()
 	var section_resource: SR_ResourceNpc = section.get_resource()
-	_resource = section_resource
-	skin.load_skin(section_resource.skin)
+	if section_resource:
+		_resource = section_resource
+		skin.load_skin(section_resource.skin)
 	
 	Stalker.callbacks.SR_Npc_ready.emit(self)
 	

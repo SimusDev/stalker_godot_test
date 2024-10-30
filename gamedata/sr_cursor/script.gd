@@ -5,7 +5,7 @@ func _ready() -> void:
 
 
 func _on_resource_loaded(resource: SR_Resource) -> void:
-	if resource.get_section() == "sr_cursor_scene":
+	if resource.get_section() == "sr_cursor=scene":
 		var cursor_node = resource.scene.instantiate()
 		
 		Stalker.canvas.get_last_layer().add_child(cursor_node)

@@ -32,6 +32,7 @@ func _ready() -> void:
 	_inventory.item_removed_from_slot.connect(_on_player_removed_item_from_slot)
 	_inventory.picked_up.connect(_on_player_picked_up)
 	_inventory.dropped.connect(_on_player_dropped)
+	_inventory.used.connect(_on_player_used)
 	
 	if data != null:
 		set_slot(_inventory.get_slot_from_data(data))
@@ -57,6 +58,7 @@ func update_interface() -> void:
 	if _slot and _inventory:
 		var item: SR_InventoryItem = _slot.get_item()
 		quantity.visible = false
+		icon.texture = null
 		if item:
 			
 			icon.set_item(item)
@@ -88,6 +90,8 @@ func _on_player_removed_item_from_slot(item: SR_InventoryItem, slot: SR_Inventor
 	if get_slot() == slot:
 		update_interface()
 
+func _on_player_used(item: SR_InventoryItem) -> void:
+	update_interface()
 
 func set_slot(slot: SR_InventorySlot) -> void:
 	_slot = slot

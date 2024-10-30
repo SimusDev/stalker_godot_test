@@ -18,3 +18,4 @@ static func consume(item: SR_InventoryItem) -> void:
 	inventory.update_inventory()
 	if item.quantity <= 0:
 		inventory.despawn(item)
+	

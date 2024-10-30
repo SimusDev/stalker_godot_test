@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://sr_engine/components/inventory/SR_InventoryItem.gd" id="3_4gqmc"]
 [ext_resource type="Resource" uid="uid://ca004vj5542wv" path="res://gamedata/sr_items/consumable/alcohol/item_vodka.tres" id="4_ldact"]
 [ext_resource type="PackedScene" uid="uid://tv3e52pei3un" path="res://gamedata/sr_camera/arms/sr_cameraArms.tscn" id="7_h220o"]
-[ext_resource type="Resource" uid="uid://m3jdlb46uao0" path="res://gamedata/sr_factions/faction_stalker.tres" id="8_nywho"]
+[ext_resource type="Resource" uid="uid://m3jdlb46uao0" path="res://gamedata/sr_factions/resources/stalker.tres" id="8_nywho"]
 [ext_resource type="Texture2D" uid="uid://bod0q274jy3xq" path="res://gamedata/sr_characters/icons/strelok.jpg" id="9_bxhiv"]
 
 [sub_resource type="Resource" id="Resource_n43oo"]
@@ -87,5 +87,8 @@ controlling_by_player = true
 
 [node name="sr_cameraArms" parent="sr_cameraRoot" index="2" node_paths=PackedStringArray("arms") instance=ExtResource("7_h220o")]
 arms = NodePath("../../sr_inventoryArms")
+
+[node name="sr_inventoryArms" parent="." index="14"]
+controlling_by_player = true
 
 [editable path="sr_cameraRoot"]

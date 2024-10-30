@@ -9,14 +9,13 @@ func initialize() -> void:
 	for path in Stalker.gamedata.get_folders():
 		var res_path: String = path
 		var founded_files := SD_FileSystem.get_all_files_with_extension_from_directory(res_path, SD_FileExtensions.EC_RESOURCE)
-		
 		for file in founded_files:
 			if file is String:
-				load_resource(file)
+				load_resource(path.get_file(), file)
 
-func load_resource(file: String) -> Resource:
+func load_resource(folder: String, file: String) -> Resource:
 	var resource = null
-	var section: String = file.get_file().get_basename()
+	var generated_section: String = "%s=%s" % [folder, file.get_file().get_basename()]
 	
 	resource = SD_ResourceLoader.load(file)
 	
@@ -26,13 +25,14 @@ func load_resource(file: String) -> Resource:
 		return resource
 	
 	if resource is SR_Resource:
-		_resources[section] = resource
-		resource._section = section
-		Stalker.printc("resource loaded: %s ('%s', section: %s)" % [file, resource.get_script().get_global_name(), section])
+		if resource._section.is_empty():
+			resource._section = generated_section
+		_resources[resource.get_section()] = resource
+		Stalker.printc("resource loaded: %s ('%s', section: %s)" % [file, resource.get_script().get_global_name(), resource.get_section()])
 		loaded.emit(resource)
 		return resource
 	
-	Stalker.printc("failed to load resource: %s (section: %s) is not SR_Resource!!!" % [file, section])
+	Stalker.printc("failed to load resource: %s (section: %s) is not SR_Resource!!!" % [file, generated_section])
 	
 	return null
 

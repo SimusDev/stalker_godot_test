@@ -6,3 +6,6 @@
 [resource]
 script = ExtResource("1_2nl1w")
 skin = ExtResource("2_k7kf0")
+icon_box_x = 1
+icon_box_y = 1
+_section = "player"

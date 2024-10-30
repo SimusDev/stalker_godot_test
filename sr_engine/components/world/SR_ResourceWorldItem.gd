@@ -11,7 +11,8 @@ class_name SR_ResourceWorldItem
 @export var texture_on_floor: Texture
 @export var texture_pixel_size: float = 0.01
 
-@export_group("sr_inventoryArms")
+@export_group("sr_armsInterface2D")
+@export var armsInterface_prefab: PackedScene
 
 
 func get_prefab() -> PackedScene:

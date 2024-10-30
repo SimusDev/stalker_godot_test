@@ -14,7 +14,7 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	super()
 	Stalker.callbacks.SR_Player_ready.emit(self)
-	
+	Stalker.callbacks.SR_HUD_update.connect(_on_sr_hud_update)
 	
 
 
@@ -25,6 +25,9 @@ func _input(event: InputEvent) -> void:
 		return
 	
 	input.emit(event)
+
+func _on_sr_hud_update(hud: SR_HUD) -> void:
+	input_enabled = hud.get_visible_nodes().is_empty()
 
 static func instance() -> SR_Player:
 	return _instance
