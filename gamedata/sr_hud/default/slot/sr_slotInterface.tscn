@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://gamedata/sr_hud/default/slot/sr_slotInterface.gd" id="1_ra3mh"]
 [ext_resource type="PackedScene" uid="uid://drmutnrflf203" path="res://gamedata/sr_hud/default/panel/sr_panelInterface.tscn" id="2_newrm"]
-[ext_resource type="PackedScene" uid="uid://22v1xgi13wa3" path="res://gamedata/sr_hud/item/sr_itemIconInterface.tscn" id="2_yunhb"]
+[ext_resource type="PackedScene" uid="uid://q2d8g2vga8gw" path="res://gamedata/sr_hud/inventory/sr_inventoryItemInterface.tscn" id="3_ney8e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wkdi7"]
 font_size = 9
@@ -10,7 +10,7 @@ font_size = 9
 [sub_resource type="LabelSettings" id="LabelSettings_hi75q"]
 font_size = 10
 
-[node name="sr_slotInterface" type="Control" node_paths=PackedStringArray("panel", "icon", "quantity")]
+[node name="sr_slotInterface" type="Control" node_paths=PackedStringArray("panel", "quantity", "item_interface")]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 3
 anchors_preset = 0
@@ -19,8 +19,8 @@ size_flags_vertical = 4
 mouse_filter = 1
 script = ExtResource("1_ra3mh")
 panel = NodePath("sr_panelInterface")
-icon = NodePath("sr_itemIconInterface")
 quantity = NodePath("quantity")
+item_interface = NodePath("sr_inventoryItemInterface")
 COLOR_SELECTED = Color(0, 0.613132, 0.146776, 1)
 
 [node name="sr_panelInterface" parent="." instance=ExtResource("2_newrm")]
@@ -34,7 +34,7 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="sr_itemIconInterface" parent="." instance=ExtResource("2_yunhb")]
+[node name="sr_inventoryItemInterface" parent="." instance=ExtResource("3_ney8e")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

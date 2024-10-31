@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://7ith0kkaoxve"]
+[gd_scene load_steps=7 format=3 uid="uid://7ith0kkaoxve"]
 
 [ext_resource type="Texture2D" path="res://gamedata/sr_textures/ground/grnd_zemlya_iov.dds" id="1_bg3hh"]
+[ext_resource type="PackedScene" uid="uid://bruvr87ug30ow" path="res://sr_engine/components/spawner/SR_CWorldSpawn.tscn" id="2_np0gq"]
+[ext_resource type="Resource" uid="uid://mqsvt7aceva6" path="res://gamedata/sr_npcs/stalkers/stalker.tres" id="3_nne5v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ylvsn"]
 albedo_texture = ExtResource("1_bg3hh")
@@ -24,3 +26,7 @@ mesh = SubResource("PlaneMesh_0063h")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_33u60")
+
+[node name="stalker_spawn" parent="." instance=ExtResource("2_np0gq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.85436, 0.583416, 0)
+resource = ExtResource("3_nne5v")

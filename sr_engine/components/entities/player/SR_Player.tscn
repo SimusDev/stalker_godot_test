@@ -23,6 +23,7 @@ stackable = false
 quantity = 1
 
 [node name="SR_Player" groups=["player"] instance=ExtResource("1_e1fm6")]
+process_mode = 3
 collision_layer = 0
 script = ExtResource("2_ebi2m")
 input_enabled = true
@@ -35,14 +36,18 @@ faction = ExtResource("8_nywho")
 nick_name_key = "player_nickname"
 icon = ExtResource("9_bxhiv")
 
-[node name="sr_cameraRoot" parent="." index="13" node_paths=PackedStringArray("inventory_arms")]
+[node name="sr_cameraRoot" parent="." index="15" node_paths=PackedStringArray("inventory_arms")]
 inventory_arms = NodePath("../sr_inventoryArms")
 controlling_by_player = true
 
 [node name="sr_cameraArms" parent="sr_cameraRoot" index="2" node_paths=PackedStringArray("arms") instance=ExtResource("7_h220o")]
 arms = NodePath("../../sr_inventoryArms")
 
-[node name="sr_inventoryArms" parent="." index="14"]
+[node name="sr_inventoryArms" parent="." index="16"]
 controlling_by_player = true
+
+[node name="SR_ComponentAlifeNode" parent="." index="17"]
+disabled_at_start = true
+switch_distance = 5.0
 
 [editable path="sr_cameraRoot"]

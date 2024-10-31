@@ -19,6 +19,5 @@ mouse_filter = 2
 color = Color(0.212202, 0.407247, 0.239938, 1)
 
 [node name="sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -1)
 
 [node name="animation_player" type="AnimationPlayer" parent="."]

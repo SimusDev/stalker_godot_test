@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://chuhkwkhocbqn"]
+[gd_scene load_steps=5 format=3 uid="uid://chuhkwkhocbqn"]
 
 [ext_resource type="Script" path="res://gamedata/sr_hud/inventory/sr_inventoryContainer.gd" id="1_46o2o"]
 [ext_resource type="PackedScene" uid="uid://q2d8g2vga8gw" path="res://gamedata/sr_hud/inventory/sr_inventoryItemInterface.tscn" id="2_g1o4n"]
 [ext_resource type="Texture2D" uid="uid://u81gobmy3p43" path="res://gamedata/sr_textures/ui/grid.png" id="2_uf2so"]
+[ext_resource type="PackedScene" uid="uid://lcvg0do16xfy" path="res://gamedata/sr_hud/drop/sr_dropArea2D.tscn" id="3_1fl3k"]
 
 [node name="sr_inventoryContainer" type="Control" node_paths=PackedStringArray("flow_container")]
 layout_mode = 3
@@ -15,6 +16,9 @@ mouse_filter = 2
 script = ExtResource("1_46o2o")
 flow_container = NodePath("ScrollContainer/FlowContainer")
 item_interface = ExtResource("2_g1o4n")
+
+[node name="sr_dropArea2D" parent="." node_paths=PackedStringArray("_control") instance=ExtResource("3_1fl3k")]
+_control = NodePath("..")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1

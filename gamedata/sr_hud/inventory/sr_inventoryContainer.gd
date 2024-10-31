@@ -11,12 +11,18 @@ var _inventory: SR_ComponentInventory
 
 var _popup_actions_instance: Control = null
 
+static var instances: Array[sr_inventoryContainer]
+
 func _ready() -> void:
+	instances.append(self)
 	if player_inventory:
 		set_inventory(SR_Player.instance().inventory)
 	
 	
 	update_interface()
+
+func _exit_tree() -> void:
+	instances.erase(self)
 
 func set_inventory(inventory: SR_ComponentInventory) -> void:
 	if _inventory == inventory:
@@ -31,6 +37,9 @@ func set_inventory(inventory: SR_ComponentInventory) -> void:
 	
 	 
 	update_interface()
+
+func get_inventory() -> SR_ComponentInventory:
+	return _inventory
 
 func _on_inventory_updated() -> void:
 	update_interface()
@@ -50,5 +59,5 @@ func update_interface() -> void:
 		if item.get_inventory().get_item_slot(item) == null:
 			var interface: sr_inventoryItemInterface = item_interface.instantiate()
 			interface.container = self
-			interface.set_item(item)
 			flow_container.add_child(interface)
+			interface.set_item(item)

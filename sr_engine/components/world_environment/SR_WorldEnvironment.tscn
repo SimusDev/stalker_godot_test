@@ -10,6 +10,7 @@ sky_material = SubResource("ProceduralSkyMaterial_3quje")
 [sub_resource type="Environment" id="Environment_u6fbr"]
 background_mode = 2
 sky = SubResource("Sky_l12rs")
+glow_enabled = true
 
 [sub_resource type="Animation" id="Animation_32q2q"]
 length = 0.001

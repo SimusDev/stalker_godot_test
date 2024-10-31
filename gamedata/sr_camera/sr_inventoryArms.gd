@@ -45,11 +45,21 @@ func get_holding_item() -> SR_InventoryItem:
 	return null
 
 func interact_held_item() -> SR_InventoryItem:
+	_test_projectile_function()
 	var item: SR_InventoryItem = get_holding_item()
 	if item:
 		inventory.use(item)
 		interacted.emit(item)
 	return null
+
+func _test_projectile_function() -> void:
+	var level: SR_Level = SR_Level.find_level(inventory.node)
+	if inventory.node is SR_Npc:
+		var npc: SR_Npc = inventory.node as SR_Npc
+		var camera_root: sr_cameraRoot = npc.camera_root
+		SR_Projectile.create(SR_Level.find_level(npc), camera_root)
+		
+	
 
 func _on_player_input(event: InputEvent) -> void:
 	if !controlling_by_player:

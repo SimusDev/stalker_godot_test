@@ -42,6 +42,7 @@ _data = {
 }
 
 [node name="sr_armsInterface2D" type="Node2D" node_paths=PackedStringArray("_debug_screen", "pivot", "animation")]
+texture_filter = 1
 script = ExtResource("1_nqeep")
 _debug_screen = NodePath("debug")
 pivot = NodePath("pivot")

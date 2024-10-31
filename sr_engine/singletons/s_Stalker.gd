@@ -33,6 +33,8 @@ func _ready() -> void:
 	timer.wait_time = 1.0 / TICKS_PER_SECOND
 	timer.timeout.connect(func(): on_tick.emit())
 	timer.start()
+	
+	SR_Alife.instance()
 
 func _input(event: InputEvent) -> void:
 	on_input.emit(event)
@@ -46,6 +48,7 @@ func save_game() -> void:
 	sr_news.send("Game Saved!")
 
 func load_game() -> void:
+	SR_Alife.clear_data()
 	gamesaver.load_game("res://saved.tres")
 	await gamesaver.game_loaded
 	printc("game loaded!")

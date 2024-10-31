@@ -79,7 +79,8 @@ func load_data(data: SD_SavedGameData = SimusDev.gamesaver.current_save) -> void
 		return
 	
 	var node_data: SD_SavedNodeData = data.get_saveable(self)
-	load_data_from_node_data(node_data)
+	if node_data:
+		load_data_from_node_data(node_data)
 
 
 func load_data_from_node_data(node_data: SD_SavedNodeData = get_node_data()) -> void:

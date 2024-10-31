@@ -210,6 +210,10 @@ func transfer_item(item: SR_InventoryItem, inventory: SR_ComponentInventory) -> 
 	if not _items.has(item):
 		return
 	
+	if self == inventory:
+		remove_item_from_slot(item, get_item_slot(item))
+		return
+	
 	var despawned: SR_InventoryItem = despawn(item)
 	inventory.add_item(despawned)
 

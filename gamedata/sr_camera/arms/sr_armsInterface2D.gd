@@ -50,6 +50,7 @@ func update_holding_item() -> void:
 	
 	animation.stop()
 	animation.play("pivot_slot_selected")
+	
 
 func _remove_animation_instance() -> void:
 	if is_instance_valid(_item_animation_instance):

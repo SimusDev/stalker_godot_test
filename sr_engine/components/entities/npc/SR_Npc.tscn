@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ivov82laoeiw"]
+[gd_scene load_steps=34 format=3 uid="uid://ivov82laoeiw"]
 
 [ext_resource type="Script" path="res://sr_engine/components/entities/npc/SR_Npc.gd" id="1_pdegv"]
 [ext_resource type="Script" path="res://addons/simusdev/components/saveable/W_SaveableNode.gd" id="2_4jfms"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://sr_engine/components/character/SR_CharacterStatsComponent.gd" id="18_4k1lm"]
 [ext_resource type="PackedScene" uid="uid://cg4ud3qxt6tqw" path="res://gamedata/sr_camera/sr_cameraRoot.tscn" id="21_vsrko"]
 [ext_resource type="PackedScene" uid="uid://deuqy8fme4awm" path="res://gamedata/sr_camera/sr_inventoryArms.tscn" id="22_wvkcx"]
+[ext_resource type="Script" path="res://sr_engine/components/alife/SR_ComponentAlifeNode.gd" id="23_ad1mh"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_7iusj"]
 
@@ -122,9 +123,8 @@ spawn_ability = true
 [node name="SR_Skin" parent="." instance=ExtResource("8_x45u0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 
-[node name="SR_Hitbox" parent="." node_paths=PackedStringArray("node", "health") instance=ExtResource("6_pkl6h")]
+[node name="SR_Hitbox" parent="." node_paths=PackedStringArray("node") instance=ExtResource("6_pkl6h")]
 node = NodePath("..")
-health = NodePath("../SR_ComponentHealth")
 
 [node name="sr_cameraRoot" parent="." node_paths=PackedStringArray("node", "character", "inventory") instance=ExtResource("21_vsrko")]
 node = NodePath("..")
@@ -133,6 +133,11 @@ inventory = NodePath("../SR_ComponentInventory")
 
 [node name="sr_inventoryArms" parent="." node_paths=PackedStringArray("inventory") instance=ExtResource("22_wvkcx")]
 inventory = NodePath("../SR_ComponentInventory")
+
+[node name="SR_ComponentAlifeNode" type="Node" parent="." node_paths=PackedStringArray("node")]
+script = ExtResource("23_ad1mh")
+node = NodePath("..")
+switch_distance = 10.0
 
 [connection signal="on_crouching" from="SR_CharacterBodyComponent" to="." method="_on_sr_character_body_component_on_crouching"]
 [connection signal="on_sprinting" from="SR_CharacterBodyComponent" to="." method="_on_sr_character_body_component_on_sprinting"]

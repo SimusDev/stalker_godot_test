@@ -17,7 +17,7 @@ func update_skin() -> void:
 
 static func create(node: Node3D, skin: SR_ResourceSkin) -> SR_Corpse:
 	var corpse_scene: PackedScene = load(scene_path)
-	var corpse_node: SR_Corpse = SR_GameWorld.instance().spawner.spawn_from_scene(corpse_scene) as SR_Corpse
+	var corpse_node: SR_Corpse = SR_Level.find_level(node).spawn_from_scene(corpse_scene) as SR_Corpse
 	corpse_node._skin = skin
 	corpse_node.update_skin()
 	corpse_node.global_position = node.global_position

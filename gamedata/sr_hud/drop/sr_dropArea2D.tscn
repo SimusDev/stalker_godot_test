@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://lcvg0do16xfy"]
+
+[ext_resource type="Script" path="res://gamedata/sr_hud/drop/sr_dropArea2D.gd" id="1_2ctpn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbe8o"]
+size = Vector2(1, 1)
+
+[node name="sr_dropArea2D" type="Area2D"]
+input_pickable = false
+script = ExtResource("1_2ctpn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kbe8o")

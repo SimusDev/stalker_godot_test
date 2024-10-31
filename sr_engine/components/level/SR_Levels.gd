@@ -32,10 +32,10 @@ func _on_player_ready(player: SR_Player) -> void:
 	_update_player_level(player)
 
 
-
 func load_nodes_datas() -> void:
 	var data: SD_SavedGameData = Stalker.gamesaver.current_save
-	for node_data in get_ready_saved_saveables_nodes(data):
+	
+	for node_data in get_ready_saved_nodes(data):
 		var packed_scene: PackedScene = load(node_data.scene_file_path)
 		var level_resource: SR_ResourceLevel = SR_Level.find_level_resource_in_saved_node_data(node_data)
 		
@@ -46,15 +46,8 @@ func load_nodes_datas() -> void:
 			get_level_by_resource(level_resource).add_child(serialized_node)
 			
 
-func get_ready_saved_saveables_nodes(data: SD_SavedGameData) -> Array[SD_SavedNodeData]:
-	var result: Array[SD_SavedNodeData] = []
-	var saved: Dictionary = data.get_saved_saveables_dictionary()
-	for saveable_path in saved:
-		var node_data: SD_SavedNodeData = data.get_saveable_from_path(saveable_path)
-		if node_data.spawn_ability:
-			if not node_data.scene_file_path.is_empty():
-				result.append(node_data)
-	return result
+func get_ready_saved_nodes(data: SD_SavedGameData) -> Array[SD_SavedNodeData]:
+	return data.get_saved_dynamic_nodes_array()
 
 func _init() -> void:
 	_instance = self

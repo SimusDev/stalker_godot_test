@@ -24,7 +24,6 @@ var db := {}
 var _resource: SR_ResourceNpc
 
 func _ready() -> void:
-	
 	$MeshInstance3D.queue_free()
 	var section_resource: SR_ResourceNpc = section.get_resource()
 	if section_resource:
@@ -34,6 +33,11 @@ func _ready() -> void:
 	Stalker.callbacks.SR_Npc_ready.emit(self)
 	
 	
+
+
+
+func _on_stalker_tick() -> void:
+	var randomize := SD_Random.get_rint_range(0, 100)
 
 func update_collisions() -> void:
 	_collision_normal.disabled = character.is_crouching

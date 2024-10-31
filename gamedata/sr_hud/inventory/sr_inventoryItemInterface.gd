@@ -23,21 +23,21 @@ var _last_parent: Node
 
 func _ready() -> void:
 	_last_parent = get_parent()
-	
-	var resource: SR_ResourceWorldItem = _item.resource
-	custom_minimum_size = resource.get_icon_size()
-	icon.set_item(_item)
-	
-	quantity.text = str(_item.quantity)
-	quantity.visible = _item.quantity > 1
-	
-	sr_callbacks.i().sr_inventoryItemInterface_ready.emit(self)
 
 func get_item() -> SR_InventoryItem:
 	return _item
 
 func set_item(item: SR_InventoryItem) -> void:
 	_item = item
+	icon.set_item(_item)
+	
+	if _item:
+		var resource: SR_ResourceWorldItem = _item.resource
+		if container:
+			custom_minimum_size = resource.get_icon_size()
+		
+		quantity.text = str(_item.quantity)
+		quantity.visible = _item.quantity > 1
 
 func get_slot() -> SR_InventorySlot:
 	if !_item:
@@ -98,27 +98,23 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	preview_texture.position = -(preview_texture.size / 2)
 	set_drag_preview(preview)
 	
+	var area := sr_dropArea2D.create_area_to(preview_texture)
+	area.dropped_to.connect(_on_area_dropped_to.bind(self))
+	
 	_grabbed = true
 	sr_callbacks.i().sr_inventoryItemInterface_grabbed.emit(self, preview.global_position)
 	return get_item()
 
+func _on_area_dropped_to(control: Control, itemInterface: sr_inventoryItemInterface) -> void:
+	if control is sr_slotInterface:
+		var slotInterface: sr_slotInterface = control
+		var inventory: SR_ComponentInventory = control.get_inventory()
+		inventory.move_item_to_slot(itemInterface.get_item(), slotInterface.get_slot())
+	if control is sr_inventoryContainer:
+		var inventoryContainer: sr_inventoryContainer = control
+		inventoryContainer.get_inventory().transfer_item(itemInterface.get_item(), inventoryContainer.get_inventory())
+	
 func _on_preview_tree_exited(preview: Control) -> void:
-	
-	var picked_slots: Array[sr_slotInterface] = []
-	for slot in sr_slotInterface.instances:
-		var distance: float = (slot.size.x + slot.size.y) * 0.5
-		if slot.can_drag_and_drop:
-			if slot.global_position.distance_to(preview.global_position) <= distance:
-				picked_slots.append(slot)
-				
-	
-	picked_slots.sort()
-	if !picked_slots.is_empty():
-		var slot: sr_slotInterface = picked_slots[0]
-		var item: SR_InventoryItem = get_item()
-		slot.get_inventory().move_item_to_slot(item, slot.get_slot())
-		slot.update_interface()
-	
 	_grabbed = false
 	sr_callbacks.i().sr_inventoryItemInterface_ungrabbed.emit(self, preview.global_position)
 

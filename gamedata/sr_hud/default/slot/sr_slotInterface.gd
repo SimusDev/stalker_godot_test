@@ -4,8 +4,9 @@ class_name sr_slotInterface
 @export var data: SR_InventorySlotData
 @export var label: Label
 @export var panel: Panel
-@export var icon: sr_itemIconInterface
 @export var quantity: Label
+
+@export var item_interface: sr_inventoryItemInterface
 
 @export var COLOR_DEFAULT: Color = Color.WHITE
 @export var COLOR_SELECTED: Color = Color.WHITE
@@ -16,6 +17,8 @@ var _id: int = -1
 var _slot: SR_InventorySlot
 var _player: SR_Player
 var _inventory: SR_ComponentInventory
+
+var _grabbed: bool = false
 
 static var instances: Array[sr_slotInterface]
 
@@ -39,7 +42,9 @@ func _ready() -> void:
 	
 	#print("slot id: %s, %s, %s" % [str(_id), str(_slot), str(_slot.get_item())])
 	update_interface()
-
+	
+	if can_drag_and_drop:
+		var area: sr_dropArea2D = sr_dropArea2D.create_area_to(self)
 
 func _exit_tree() -> void:
 	instances.erase(self)
@@ -57,11 +62,11 @@ func _on_player_input(event: InputEvent) -> void:
 func update_interface() -> void:
 	if _slot and _inventory:
 		var item: SR_InventoryItem = _slot.get_item()
+		item_interface.set_item(item)
 		quantity.visible = false
-		icon.texture = null
 		if item:
 			
-			icon.set_item(item)
+			
 			
 			quantity.text = str(item.quantity)
 			quantity.visible = item.quantity > 1
