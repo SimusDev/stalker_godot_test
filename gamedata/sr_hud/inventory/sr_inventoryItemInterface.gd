@@ -35,6 +35,7 @@ func set_item(item: SR_InventoryItem) -> void:
 		var resource: SR_ResourceWorldItem = _item.resource
 		if container:
 			custom_minimum_size = resource.get_icon_size()
+			size = resource.get_icon_size()
 		
 		quantity.text = str(_item.quantity)
 		quantity.visible = _item.quantity > 1

@@ -10,7 +10,6 @@ class_name SR_WorldItem
 @export var resource: SR_ResourceWorldItem
 @export var unique_data: Resource
 
-@export var stackable: bool = true
 @export var quantity: int = 1
 
 @export var backpack_prefab: PackedScene
@@ -50,7 +49,6 @@ static func create_from_inventory_item(item: SR_InventoryItem) -> SR_WorldItem:
 	var world_item: SR_WorldItem = SR_Level.find_level(item.get_inventory()).spawn_by_resource(item.resource)
 	world_item.resource = item.resource
 	world_item.quantity = item.quantity
-	world_item.stackable = item.stackable
 	world_item.saveables = item.saveables
 	world_item.unique_data = item.unique_data
 	return world_item

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://gh55nbno166y"]
+[gd_scene load_steps=9 format=3 uid="uid://gh55nbno166y"]
 
 [ext_resource type="PackedScene" uid="uid://vwa8qnjir30c" path="res://sr_engine/components/entities/stalker/SR_NpcStalker.tscn" id="1_e1fm6"]
 [ext_resource type="Script" path="res://sr_engine/components/entities/player/SR_Player.gd" id="2_ebi2m"]
@@ -8,18 +8,10 @@
 [ext_resource type="Resource" uid="uid://m3jdlb46uao0" path="res://gamedata/sr_factions/resources/stalker.tres" id="8_nywho"]
 [ext_resource type="Texture2D" uid="uid://bod0q274jy3xq" path="res://gamedata/sr_characters/icons/strelok.jpg" id="9_bxhiv"]
 
-[sub_resource type="Resource" id="Resource_ntnsy"]
-script = ExtResource("3_4gqmc")
-resource = ExtResource("4_d2lbd")
-saveables = Array[Resource]([])
-stackable = false
-quantity = 1
-
 [sub_resource type="Resource" id="Resource_sqqeq"]
 script = ExtResource("3_4gqmc")
 resource = ExtResource("4_d2lbd")
 saveables = Array[Resource]([])
-stackable = false
 quantity = 1
 
 [node name="SR_Player" groups=["player"] instance=ExtResource("1_e1fm6")]
@@ -29,7 +21,7 @@ script = ExtResource("2_ebi2m")
 input_enabled = true
 
 [node name="SR_ComponentInventory" parent="." index="6"]
-_items = Array[ExtResource("3_4gqmc")]([SubResource("Resource_ntnsy"), SubResource("Resource_sqqeq")])
+_items = Array[ExtResource("3_4gqmc")]([SubResource("Resource_sqqeq")])
 
 [node name="SR_CharacterStatsComponent" parent="." index="9"]
 faction = ExtResource("8_nywho")

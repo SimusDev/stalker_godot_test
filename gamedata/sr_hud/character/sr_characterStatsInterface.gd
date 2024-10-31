@@ -11,11 +11,15 @@ func _ready() -> void:
 		set_stats_from_character(SR_Player.instance())
 
 func set_stats_from_character(character: Node) -> void:
-	var component := SR_CharacterStatsComponent.find(character)
+	set_stats_from_node(character)
+
+func set_stats_from_node(node: Node) -> void:
+	var component := SR_CharacterStatsComponent.find(node)
 	set_stats(component)
 
 func set_stats(stats: SR_CharacterStatsComponent) -> void:
 	if !stats:
+		hide()
 		return
 	
 	icon.texture = stats.icon

@@ -137,17 +137,36 @@ func pickup(item: SR_WorldItem) -> SR_InventoryItem:
 	return inv_item
 
 func add_item(item: SR_InventoryItem) -> void:
+	if !item:
+		return
+	
 	if _items.has(item):
 		return
+	
+	item._inventory = self
 	
 	var items_by_resource: Array[SR_InventoryItem] = get_items_by_resource(item.resource)
 	if not items_by_resource.is_empty():
 		stack_items(item, items_by_resource[0])
 		update_inventory()
-		return
+	
 	
 	_items.append(item)
+	
 	update_inventory()
+	
+func remove_item(item: SR_InventoryItem) -> void:
+	if !item:
+		return
+	
+	if not _items.has(item):
+		return
+	
+	item._inventory = null
+	
+	_items.erase(item)
+	update_inventory()
+
 
 func has_item(item: SR_InventoryItem) -> bool:
 	return _items.has(item)
@@ -184,12 +203,11 @@ func clear() -> void:
 	_items.clear()
 
 func stack_items(stackable: SR_InventoryItem, item: SR_InventoryItem) -> SR_InventoryItem:
-	if not stackable.stackable:
-		return null
-	
 	if stackable.resource == item.resource:
-		item.quantity += stackable.quantity
-		return despawn(stackable)
+		if stackable.resource.stackable:
+			item.quantity += stackable.quantity
+			return despawn(stackable)
+		return null
 	return null
 
 func sort_stackable_items(item: SR_InventoryItem) -> void:
@@ -207,15 +225,13 @@ func sort() -> void:
 		
 
 func transfer_item(item: SR_InventoryItem, inventory: SR_ComponentInventory) -> void:
-	if not _items.has(item):
-		return
 	
 	if self == inventory:
 		remove_item_from_slot(item, get_item_slot(item))
-		return
 	
-	var despawned: SR_InventoryItem = despawn(item)
-	inventory.add_item(despawned)
+	item.get_inventory().remove_item(item)
+	inventory.add_item(item)
+
 
 func transfer_items(inventory: SR_ComponentInventory) -> void:
 	while not _items.is_empty():

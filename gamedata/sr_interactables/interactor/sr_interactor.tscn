@@ -8,4 +8,5 @@ collision_mask = 8
 collide_with_areas = true
 script = ExtResource("1_h4lvp")
 
+[connection signal="interactable_interacted" from="." to="." method="_on_interactable_interacted"]
 [connection signal="interactable_selected" from="." to="." method="_on_interactable_selected"]

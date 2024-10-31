@@ -72,7 +72,7 @@ saveable = NodePath("../saveable")
 script = ExtResource("3_sb033")
 node = NodePath("..")
 spawn_ability = true
-save_properties = Array[String](["transform", "stackable", "quantity", "saveables"])
+save_properties = Array[String](["transform", "quantity", "saveables"])
 
 [node name="W_ComponentCharacterBody3D" type="Node" parent="." node_paths=PackedStringArray("body")]
 script = ExtResource("4_2o5md")

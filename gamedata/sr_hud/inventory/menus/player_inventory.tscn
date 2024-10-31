@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://s56sx21rscef"]
+[gd_scene load_steps=5 format=3 uid="uid://s56sx21rscef"]
 
 [ext_resource type="PackedScene" uid="uid://fbl3m2qttwj6" path="res://gamedata/sr_hud/hotbar/sr_hotbar.tscn" id="1_if7wn"]
 [ext_resource type="PackedScene" uid="uid://ci6k75ra2liou" path="res://gamedata/sr_hud/character/sr_characterStatsInterface.tscn" id="2_ecsc3"]
+[ext_resource type="PackedScene" uid="uid://q2d8g2vga8gw" path="res://gamedata/sr_hud/inventory/sr_inventoryItemInterface.tscn" id="2_jgalc"]
 [ext_resource type="PackedScene" uid="uid://c806plrr5tr72" path="res://gamedata/sr_hud/inventory/menus/inventory_container.tscn" id="3_v4bro"]
 
 [node name="player_inventory" type="Control"]
@@ -12,7 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="sr_inventoryContainer" parent="." instance=ExtResource("3_v4bro")]
+[node name="sr_inventoryContainer" parent="." node_paths=PackedStringArray("flow_container") instance=ExtResource("3_v4bro")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -23,6 +24,8 @@ offset_left = -144.0
 offset_top = -120.0
 offset_right = 144.0
 offset_bottom = 120.0
+flow_container = NodePath("ScrollContainer/FlowContainer")
+item_interface = ExtResource("2_jgalc")
 
 [node name="sr_characterStatsInterface" parent="." instance=ExtResource("2_ecsc3")]
 

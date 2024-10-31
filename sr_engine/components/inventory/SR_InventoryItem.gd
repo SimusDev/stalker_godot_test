@@ -6,8 +6,6 @@ class_name SR_InventoryItem
 
 @export var saveables: Array[Resource] = []
 
-
-@export var stackable: bool = true
 @export var quantity: int = 1 : set = set_quantity
 var _slot: SR_InventorySlot
 var _inventory: SR_ComponentInventory
@@ -19,7 +17,7 @@ func set_quantity(value: int) -> void:
 		return
 	
 	quantity = value
-	if quantity > 1 and not stackable:
+	if quantity > 1 and not resource.stackable:
 		quantity = 1
 	
 	quantity_changed.emit()
@@ -30,7 +28,6 @@ func get_inventory() -> SR_ComponentInventory:
 static func create_from_world_item(item: SR_WorldItem) -> SR_InventoryItem:
 	var inv_item: SR_InventoryItem = SR_InventoryItem.new()
 	inv_item.resource = item.get_resource()
-	inv_item.stackable = item.stackable
 	inv_item.quantity = item.quantity
 	inv_item.saveables = item.saveables
 	inv_item.unique_data = item.unique_data

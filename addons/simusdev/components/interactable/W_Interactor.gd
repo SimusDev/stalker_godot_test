@@ -6,6 +6,7 @@ class_name W_Interactor3D
 @export var inventory_component: W_ComponentInventory3D
 
 signal interactable_selected(interactable: W_Interactable3D)
+signal interactable_interacted(interactable: W_Interactable3D)
 
 var _current_interactable: W_Interactable3D = null
 
@@ -27,6 +28,7 @@ func get_current_interectable() -> W_Interactable3D:
 func try_to_interact() -> W_Interactable3D:
 	if _current_interactable:
 		_current_interactable.interact(self)
+		interactable_interacted.emit(_current_interactable)
 	return _current_interactable
 
 func _physics_process(delta: float) -> void:

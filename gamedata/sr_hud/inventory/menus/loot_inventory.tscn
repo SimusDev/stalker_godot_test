@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckj07he7swbnr"]
+
+[ext_resource type="Script" path="res://gamedata/sr_hud/inventory/menus/loot_inventory.gd" id="1_er5od"]
+[ext_resource type="PackedScene" uid="uid://c806plrr5tr72" path="res://gamedata/sr_hud/inventory/menus/inventory_container.tscn" id="1_ju2lc"]
+[ext_resource type="PackedScene" uid="uid://ci6k75ra2liou" path="res://gamedata/sr_hud/character/sr_characterStatsInterface.tscn" id="2_6no5k"]
+[ext_resource type="PackedScene" uid="uid://q2d8g2vga8gw" path="res://gamedata/sr_hud/inventory/sr_inventoryItemInterface.tscn" id="3_sy568"]
+
+[node name="loot_inventory" type="Control" node_paths=PackedStringArray("interface_container", "interface_stats")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_er5od")
+interface_container = NodePath("sr_inventoryContainer2")
+interface_stats = NodePath("sr_characterStatsInterface2")
+
+[node name="sr_inventoryContainer" parent="." node_paths=PackedStringArray("flow_container") instance=ExtResource("1_ju2lc")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -120.0
+offset_right = -8.0
+offset_bottom = 120.0
+flow_container = NodePath("ScrollContainer/FlowContainer")
+item_interface = ExtResource("3_sy568")
+
+[node name="sr_inventoryContainer2" parent="." node_paths=PackedStringArray("flow_container") instance=ExtResource("1_ju2lc")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -120.0
+offset_right = 296.0
+offset_bottom = 120.0
+player_inventory = false
+flow_container = NodePath("ScrollContainer/FlowContainer")
+item_interface = ExtResource("3_sy568")
+
+[node name="sr_characterStatsInterface" parent="." instance=ExtResource("2_6no5k")]
+
+[node name="sr_characterStatsInterface2" parent="." instance=ExtResource("2_6no5k")]
+offset_left = 498.0
+offset_right = 640.0
+player_stats = false
