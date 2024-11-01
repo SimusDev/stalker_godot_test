@@ -12,7 +12,7 @@ atlas = ExtResource("1_nt0wp")
 region = Rect2(52, 35, 54, 10)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ovx5q"]
-font_size = 8
+font_size = 9
 
 [node name="sr_button" type="TextureButton" node_paths=PackedStringArray("_label")]
 custom_minimum_size = Vector2(80, 15)

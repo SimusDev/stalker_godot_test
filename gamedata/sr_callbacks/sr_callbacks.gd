@@ -9,7 +9,7 @@ signal sr_inventoryItemInterface_ungrabbed(interface: sr_inventoryItemInterface,
 
 signal sr_inventory_item_consumed(inventory: SR_ComponentInventory, item: SR_InventoryItem)
 
-
+signal sr_cameraRoot_footstep(camera_root: sr_cameraRoot)
 
 
 

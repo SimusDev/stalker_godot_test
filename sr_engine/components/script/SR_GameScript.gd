@@ -21,6 +21,7 @@ func __initialize__() -> void:
 	tree.process_frame.connect(_process)
 	tree.physics_frame.connect(_physics_process)
 	Stalker.on_input.connect(_input)
+	Stalker.resources.loaded.connect(_on_resource_loaded)
 	_ready()
 
 func _input(event: InputEvent) -> void:
@@ -33,6 +34,9 @@ func _process() -> void:
 	pass
 
 func _physics_process() -> void:
+	pass
+
+func _on_resource_loaded(resource: SR_Resource) -> void:
 	pass
 
 func get_delta() -> float:

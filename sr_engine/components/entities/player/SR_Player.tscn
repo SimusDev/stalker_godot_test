@@ -32,7 +32,7 @@ icon = ExtResource("9_bxhiv")
 inventory_arms = NodePath("../sr_inventoryArms")
 controlling_by_player = true
 
-[node name="sr_cameraArms" parent="sr_cameraRoot" index="2" node_paths=PackedStringArray("arms") instance=ExtResource("7_h220o")]
+[node name="sr_cameraArms" parent="sr_cameraRoot" index="1" node_paths=PackedStringArray("arms") instance=ExtResource("7_h220o")]
 arms = NodePath("../../sr_inventoryArms")
 
 [node name="sr_inventoryArms" parent="." index="16"]

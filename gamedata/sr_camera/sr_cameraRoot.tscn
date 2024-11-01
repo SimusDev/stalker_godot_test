@@ -6,9 +6,9 @@
 [node name="sr_cameraRoot" type="Node3D" node_paths=PackedStringArray("camera", "interactor")]
 script = ExtResource("1_vndaq")
 camera = NodePath("Camera3D")
-interactor = NodePath("sr_interactor")
+interactor = NodePath("Camera3D/sr_interactor")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 cull_mask = 1048573
 
-[node name="sr_interactor" parent="." instance=ExtResource("2_gs3gj")]
+[node name="sr_interactor" parent="Camera3D" instance=ExtResource("2_gs3gj")]

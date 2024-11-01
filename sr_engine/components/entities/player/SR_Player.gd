@@ -13,8 +13,10 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	super()
+	skin.hide()
 	Stalker.callbacks.SR_Player_ready.emit(self)
 	Stalker.callbacks.SR_HUD_update.connect(_on_sr_hud_update)
+	
 	
 	
 

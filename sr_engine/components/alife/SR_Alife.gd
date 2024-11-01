@@ -61,3 +61,12 @@ static func switch_node_online(node: Node) -> void:
 
 static func switch_node_offline(node: Node) -> void:
 	switch_node(node, false)
+
+static func is_node_online(node: Node) -> bool:
+	if node is Node3D:
+		if not node.is_visible_in_tree():
+			return false
+	return !get_nodes_data().has(node)
+
+static func is_node_offline(node: Node) -> bool:
+	return !is_node_online(node)

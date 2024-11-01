@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckj07he7swbnr"]
+[gd_scene load_steps=6 format=3 uid="uid://ckj07he7swbnr"]
 
 [ext_resource type="Script" path="res://gamedata/sr_hud/inventory/menus/loot_inventory.gd" id="1_er5od"]
 [ext_resource type="PackedScene" uid="uid://c806plrr5tr72" path="res://gamedata/sr_hud/inventory/menus/inventory_container.tscn" id="1_ju2lc"]
 [ext_resource type="PackedScene" uid="uid://ci6k75ra2liou" path="res://gamedata/sr_hud/character/sr_characterStatsInterface.tscn" id="2_6no5k"]
 [ext_resource type="PackedScene" uid="uid://q2d8g2vga8gw" path="res://gamedata/sr_hud/inventory/sr_inventoryItemInterface.tscn" id="3_sy568"]
+[ext_resource type="PackedScene" uid="uid://bsdm70m2k083b" path="res://gamedata/sr_hud/buttons/sr_button.tscn" id="5_rud0b"]
 
-[node name="loot_inventory" type="Control" node_paths=PackedStringArray("interface_container", "interface_stats")]
+[node name="loot_inventory" type="Control" node_paths=PackedStringArray("player_container", "player_stats", "loot_container", "loot_stats")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,10 +14,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_er5od")
-interface_container = NodePath("sr_inventoryContainer2")
-interface_stats = NodePath("sr_characterStatsInterface2")
+player_container = NodePath("player_inv")
+player_stats = NodePath("player_stats")
+loot_container = NodePath("loot_inv")
+loot_stats = NodePath("loot_stats")
 
-[node name="sr_inventoryContainer" parent="." node_paths=PackedStringArray("flow_container") instance=ExtResource("1_ju2lc")]
+[node name="player_inv" parent="." node_paths=PackedStringArray("flow_container") instance=ExtResource("1_ju2lc")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -30,7 +33,7 @@ offset_bottom = 120.0
 flow_container = NodePath("ScrollContainer/FlowContainer")
 item_interface = ExtResource("3_sy568")
 
-[node name="sr_inventoryContainer2" parent="." node_paths=PackedStringArray("flow_container") instance=ExtResource("1_ju2lc")]
+[node name="loot_inv" parent="." node_paths=PackedStringArray("flow_container") instance=ExtResource("1_ju2lc")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -45,9 +48,21 @@ player_inventory = false
 flow_container = NodePath("ScrollContainer/FlowContainer")
 item_interface = ExtResource("3_sy568")
 
-[node name="sr_characterStatsInterface" parent="." instance=ExtResource("2_6no5k")]
+[node name="player_stats" parent="." instance=ExtResource("2_6no5k")]
 
-[node name="sr_characterStatsInterface2" parent="." instance=ExtResource("2_6no5k")]
+[node name="loot_stats" parent="." instance=ExtResource("2_6no5k")]
 offset_left = 498.0
 offset_right = 640.0
 player_stats = false
+
+[node name="take_all" parent="." instance=ExtResource("5_rud0b")]
+layout_mode = 0
+offset_left = 536.0
+offset_top = 299.0
+offset_right = 616.0
+offset_bottom = 314.0
+hint = "take_all"
+
+[connection signal="itemInterface_clicked" from="player_inv" to="." method="_on_player_inv_item_interface_clicked"]
+[connection signal="itemInterface_clicked" from="loot_inv" to="." method="_on_loot_inv_item_interface_clicked"]
+[connection signal="pressed" from="take_all" to="." method="_on_take_all_pressed"]

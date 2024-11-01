@@ -14,11 +14,12 @@ var _item_animation_instance: sr_armsItemAnimation = null
 
 func _ready() -> void:
 	if _debug_screen:
-		_debug_screen.hide()
+		_debug_screen.queue_free()
 
 func initialize(arms: sr_inventoryArms) -> void:
 	if !arms:
 		return
+	
 	_arms = arms
 	arms.slot_selected.connect(_on_slot_selected)
 	arms.item_moved_to_slot.connect(_on_item_moved_to_slot)

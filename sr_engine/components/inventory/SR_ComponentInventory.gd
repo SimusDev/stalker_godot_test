@@ -162,6 +162,8 @@ func remove_item(item: SR_InventoryItem) -> void:
 	if not _items.has(item):
 		return
 	
+	remove_item_from_slot(item, get_item_slot(item))
+	
 	item._inventory = null
 	
 	_items.erase(item)
@@ -225,10 +227,6 @@ func sort() -> void:
 		
 
 func transfer_item(item: SR_InventoryItem, inventory: SR_ComponentInventory) -> void:
-	
-	if self == inventory:
-		remove_item_from_slot(item, get_item_slot(item))
-	
 	item.get_inventory().remove_item(item)
 	inventory.add_item(item)
 

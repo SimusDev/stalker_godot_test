@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SR_ResourceAmmo" load_steps=4 format=3 uid="uid://c8ij4lso411te"]
+
+[ext_resource type="Script" path="res://sr_engine/components/attribute/SR_Attribute.gd" id="1_6u5jv"]
+[ext_resource type="Texture2D" uid="uid://cpwbov3nxlutp" path="res://gamedata/sr_ammo/545x39/icon.png" id="2_eolhs"]
+[ext_resource type="Script" path="res://sr_engine/components/ammo/SR_ResourceAmmo.gd" id="3_7a2fn"]
+
+[resource]
+script = ExtResource("3_7a2fn")
+damage = 30.0
+speed = 100.0
+gravity = true
+gravity_force = 2.0
+air_drag = true
+air_drag_force = 0.5
+storage = {}
+attributes = Array[ExtResource("1_6u5jv")]([])
+stackable = true
+texture_pixel_size = 0.01
+icon = ExtResource("2_eolhs")
+icon_box_x = 1
+icon_box_y = 1
+_section = ""

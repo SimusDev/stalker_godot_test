@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SR_ResourceAudioStreams" load_steps=6 format=3 uid="uid://bfc6ccr2sfyfk"]
+
+[ext_resource type="Script" path="res://sr_engine/components/audio/SR_ResourceAudioStreams.gd" id="1_ys87f"]
+[ext_resource type="AudioStream" uid="uid://ci7d2rmy0uulr" path="res://gamedata/sr_scripts/footsteps/sounds/default/n_default_1.ogg" id="2_8egxq"]
+[ext_resource type="AudioStream" uid="uid://ccnvw3kfg7uny" path="res://gamedata/sr_scripts/footsteps/sounds/default/n_default_2.ogg" id="3_tefol"]
+[ext_resource type="AudioStream" uid="uid://bl0xpn8ny4uht" path="res://gamedata/sr_scripts/footsteps/sounds/default/n_default_3.ogg" id="4_twsov"]
+[ext_resource type="AudioStream" uid="uid://dv3ar00wvx612" path="res://gamedata/sr_scripts/footsteps/sounds/default/n_default_4.ogg" id="5_owryg"]
+
+[resource]
+script = ExtResource("1_ys87f")
+streams = Array[AudioStream]([ExtResource("2_8egxq"), ExtResource("3_tefol"), ExtResource("4_twsov"), ExtResource("5_owryg")])
+_section = ""

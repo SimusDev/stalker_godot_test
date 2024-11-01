@@ -5,6 +5,8 @@
 [node name="sr_itemIconInterface" type="TextureRect"]
 offset_right = 48.0
 offset_bottom = 48.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5

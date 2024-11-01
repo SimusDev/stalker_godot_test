@@ -10,7 +10,8 @@ var KEYBINDS := {
 	"crouch": "ctrl",
 	"inventory": "tab",
 	"interact": "f",
-	"interact_held_item": "mouse1",
+	"shoot": "mouse1",
+	"reload": "r",
 }
 
 func _ready() -> void:

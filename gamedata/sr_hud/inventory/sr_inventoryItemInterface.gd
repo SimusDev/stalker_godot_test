@@ -27,6 +27,11 @@ func _ready() -> void:
 func get_item() -> SR_InventoryItem:
 	return _item
 
+func get_inventory() -> SR_ComponentInventory:
+	if _item:
+		return _item.get_inventory()
+	return null
+
 func set_item(item: SR_InventoryItem) -> void:
 	_item = item
 	icon.set_item(_item)
@@ -67,6 +72,12 @@ func _on_gui_input(event: InputEvent) -> void:
 				
 				_popup_actions_instance.global_position = get_global_mouse_position()
 		if event.button_index == 1:
+			if container:
+				container.itemInterface_clicked.emit(self)
+				
+				if event.double_click:
+					container.itemInterface_doubleclicked.emit(self)
+				
 			if is_instance_valid(_popup_actions_instance):
 				_popup_actions_instance.queue_free()
 				_popup_actions_instance = null

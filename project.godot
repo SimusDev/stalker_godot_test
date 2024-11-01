@@ -41,6 +41,12 @@ player=""
 
 theme/custom_font="res://addons/simusdev/fonts/Monocraft.otf"
 
+[importer_defaults]
+
+animation_library={
+"animation/fps": 15.0
+}
+
 [input]
 
 scroll_up={
@@ -83,7 +89,7 @@ pointing/emulate_touch_from_mouse=true
 [physics]
 
 3d/run_on_separate_thread=true
-common/physics_ticks_per_second=100
+common/physics_interpolation=true
 
 [rendering]
 

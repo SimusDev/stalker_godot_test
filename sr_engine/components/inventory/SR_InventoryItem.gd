@@ -19,8 +19,11 @@ func set_quantity(value: int) -> void:
 	quantity = value
 	if quantity > 1 and not resource.stackable:
 		quantity = 1
-	
 	quantity_changed.emit()
+	
+	if quantity <= 0:
+		get_inventory().despawn(self)
+	
 
 func get_inventory() -> SR_ComponentInventory:
 	return _inventory

@@ -17,6 +17,6 @@ func play_stream(audio_stream: AudioStream) -> void:
 func play_streams(audio_streams: Array[AudioStream]) -> void:
 	play_stream(SD_Array.get_random_value_from_array(audio_streams))
 
-func play_once(from_position: float) -> void:
+func play_once(from_position: float = 0.0) -> void:
 	destroy_after_finished = true
 	play(from_position)

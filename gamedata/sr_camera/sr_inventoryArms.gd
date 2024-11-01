@@ -5,7 +5,10 @@ class_name sr_inventoryArms
 
 @export_group("Player Controller")
 @export var controlling_by_player := false
-@export var key_interact: String = "interact_held_item"
+@export var key_shoot: String = "shoot"
+@export var key_reload: String = "reload"
+
+@onready var keybinds := Stalker.keybinds
 
 signal interacted(item: SR_InventoryItem)
 signal slot_selected(item: SR_InventorySlot)
@@ -45,26 +48,45 @@ func get_holding_item() -> SR_InventoryItem:
 	return null
 
 func interact_held_item() -> SR_InventoryItem:
-	_test_projectile_function()
 	var item: SR_InventoryItem = get_holding_item()
 	if item:
 		inventory.use(item)
 		interacted.emit(item)
 	return null
 
-func _test_projectile_function() -> void:
-	var level: SR_Level = SR_Level.find_level(inventory.node)
-	if inventory.node is SR_Npc:
-		var npc: SR_Npc = inventory.node as SR_Npc
-		var camera_root: sr_cameraRoot = npc.camera_root
-		SR_Projectile.create(SR_Level.find_level(npc), camera_root)
-		
+func try_to_shoot() -> void:
+	var item: SR_InventoryItem = get_holding_item()
+	if !item:
+		return
 	
+	if item.resource is SR_ResourceWeapon:
+		var actor: Node = get_actor()
+		var level: SR_Level = SR_Level.find_level(actor)
+		var camera: Node3D = actor
+		if actor is SR_Npc:
+			camera = actor.camera_root
+		
+		
+		sr_weapons.shoot(item, level, camera)
+	
+
+func try_to_reload() -> void:
+	pass
+
+func _physics_process(delta: float) -> void:
+	if !controlling_by_player:
+		return
+	
+	if keybinds.is_keybind_pressed(key_shoot):
+		try_to_shoot()
+	elif keybinds.is_keybind_just_pressed(key_reload):
+		try_to_reload()
 
 func _on_player_input(event: InputEvent) -> void:
 	if !controlling_by_player:
 		return
 	
-	if Stalker.keybinds.is_keybind_just_pressed(key_interact):
-		interact_held_item()
 	
+
+func get_actor() -> Node:
+	return inventory.node as Node

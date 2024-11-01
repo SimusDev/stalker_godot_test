@@ -7,6 +7,6 @@ resonance = 1.0
 db = 2
 
 [resource]
-bus/0/volume_db = -10.0692
+bus/0/volume_db = -20.3764
 bus/0/effect/0/effect = SubResource("AudioEffectFilter_7idqh")
-bus/0/effect/0/enabled = true
+bus/0/effect/0/enabled = false

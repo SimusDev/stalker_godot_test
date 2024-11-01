@@ -41,6 +41,9 @@ static func create(level: SR_Level, node: Node3D) -> SR_Projectile:
 	projectile.transform.basis = node.global_transform.basis
 	return projectile
 
+static func get_packed_scene() -> PackedScene:
+	return load("uid://chsc7nwvtl48n") as PackedScene
+
 func _on_destory_timer_timeout() -> void:
 	queue_free()
 

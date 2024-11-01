@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SR_ResourceWorldObject" load_steps=3 format=3 uid="uid://bdio6x8wkrx7j"]
 
-[ext_resource type="PackedScene" uid="uid://s1qgt3j3aho8" path="res://gamedata/sr_sounds/scripts/footsteps/default/default.tscn" id="1_okxpo"]
+[ext_resource type="PackedScene" uid="uid://s1qgt3j3aho8" path="res://gamedata/sr_scripts/footsteps/sounds/default/default.tscn" id="1_okxpo"]
 [ext_resource type="Script" path="res://sr_engine/components/world/SR_ResourceWorldObject.gd" id="2_kuy45"]
 
 [resource]

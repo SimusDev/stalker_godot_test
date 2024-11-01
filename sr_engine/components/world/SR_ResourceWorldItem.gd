@@ -5,7 +5,7 @@ class_name SR_ResourceWorldItem
 @export var attributes: Array[SR_Attribute]
 
 @export_group("SR_ComponentInventory")
-@export var stackable: bool = true
+@export var stackable: bool = false
 
 @export_group("SR_WorldItem")
 @export var texture_on_floor: Texture

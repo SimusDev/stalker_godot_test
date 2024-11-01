@@ -70,6 +70,9 @@ func get_move_direction() -> Vector3:
 func get_velocity() -> Vector3:
 	return body.velocity
 
+func is_on_floor() -> bool:
+	return body.is_on_floor()
+
 func jump(force: float = jump_force) -> void:
 	if body.is_on_floor():
 		body.velocity.y += jump_force

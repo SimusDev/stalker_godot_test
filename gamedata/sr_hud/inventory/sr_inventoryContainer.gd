@@ -13,6 +13,9 @@ var _popup_actions_instance: Control = null
 
 static var instances: Array[sr_inventoryContainer]
 
+signal itemInterface_clicked(interface: sr_inventoryItemInterface)
+signal itemInterface_doubleclicked(interface: sr_inventoryItemInterface)
+
 func _ready() -> void:
 	instances.append(self)
 	if player_inventory:

@@ -12,11 +12,14 @@ static func create(node: Node3D = null, at_node_position: bool = true, position:
 		audio.global_position = position
 		return audio
 	
+	if SR_Alife.is_node_offline(node):
+		return audio
+	
 	audio = SR_AudioStreamPlayer3D.new()
 	if at_node_position:
+		get_world().add_child(audio)
 		audio.global_position = position
 		SR_GameWorld.teleport_node(audio, node)
-		get_world().add_child(audio)
 	else:
 		node.add_child(audio)
 		

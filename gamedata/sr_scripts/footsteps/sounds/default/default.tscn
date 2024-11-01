@@ -1,0 +1,15 @@
+[gd_scene load_steps=6 format=3 uid="uid://s1qgt3j3aho8"]
+
+[ext_resource type="PackedScene" uid="uid://dvgbi5nugmxkq" path="res://gamedata/sr_sounds/sr_sound_event.tscn" id="1_hvufe"]
+[ext_resource type="AudioStream" uid="uid://ci7d2rmy0uulr" path="res://gamedata/sr_scripts/footsteps/sounds/default/n_default_1.ogg" id="2_4koq0"]
+[ext_resource type="AudioStream" uid="uid://ccnvw3kfg7uny" path="res://gamedata/sr_scripts/footsteps/sounds/default/n_default_2.ogg" id="3_coxci"]
+[ext_resource type="AudioStream" uid="uid://bl0xpn8ny4uht" path="res://gamedata/sr_scripts/footsteps/sounds/default/n_default_3.ogg" id="4_gp3o3"]
+[ext_resource type="AudioStream" uid="uid://dv3ar00wvx612" path="res://gamedata/sr_scripts/footsteps/sounds/default/n_default_4.ogg" id="5_l13mx"]
+
+[node name="sr_sound_event" instance=ExtResource("1_hvufe")]
+sounds = Array[AudioStream]([ExtResource("2_4koq0"), ExtResource("3_coxci"), ExtResource("4_gp3o3"), ExtResource("5_l13mx")])
+
+[node name="SR_AudioStreamPlayer3D" parent="." index="0"]
+attenuation_model = 3
+volume_db = -19.0
+attenuation_filter_cutoff_hz = 10000.0
